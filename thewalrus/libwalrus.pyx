@@ -478,17 +478,15 @@ def renorm_hermite_multidimensional_real(double [:, :] R, double [:] y, int cuto
 
 
 def interferometer(double complex[:, :] R, int cutoff):
-    r"""Returns the renormalized multidimensional Hermite polynomials :math:`rH_k^{(R)}(y)`
-    via the C++ libwalrus library. They are given in terms of the standard multidimensional
-    Hermite polynomials as :math:`H_k^{(R)}(y)/\sqrt{\prod(\prod_i k_i!)}`.
+    r"""Returns the matrix elements of an interferometer by using a custom version of
+    the renormalized Hermite polynomials.
 
     Args:
-        R (array[complex128]): square matrix parametrizing the Hermite polynomial family
-        y (array[complex128]): vector argument of the Hermite polynomial
-        cutoff (int): maximum size of the subindices in the Hermite polynomial
+        R (array[complex128]): square matrix parametrizing the interferometer
+        cutoff (int): maximum size of the subindices in the tensor
 
     Returns:
-        array[complex128]: the renormalized multidimensional Hermite polynomials
+        array[complex128]: the matrix elements of the interferometer
     """
     cdef int i, j, n = R.shape[0]
     cdef vector[double complex] R_mat
@@ -501,17 +499,15 @@ def interferometer(double complex[:, :] R, int cutoff):
 
 
 def interferometer_real(double [:, :] R, int cutoff):
-    r"""Returns the renormalized multidimensional Hermite polynomials :math:`rH_k^{(R)}(y)`
-    via the C++ libwalrus library. They are given in terms of the standard multidimensional
-    Hermite polynomials as :math:`H_k^{(R)}(y)/\sqrt{\prod(\prod_i k_i!)}`.
+    r"""Returns the matrix elements of an interferometer by using a custom version of
+    the renormalized Hermite polynomials.
 
     Args:
-        R (array[float64]): square matrix parametrizing the Hermite polynomial family
-        y (array[float64]): vector argument of the Hermite polynomial
-        cutoff (int): maximum size of the subindices in the Hermite polynomial
+        R (array[float64]): square matrix parametrizing the interferometer
+        cutoff (int): maximum size of the subindices in the tensor
 
     Returns:
-        array[float64]: the renormalized multidimensional Hermite polynomials
+        array[float64]: the matrix elements of the interferometer
     """
     cdef int i, j, n = R.shape[0]
     cdef vector[double] R_mat
@@ -526,17 +522,15 @@ def interferometer_real(double [:, :] R, int cutoff):
 
 
 def squeezing(double complex[:, :] R, int cutoff):
-    r"""Returns the renormalized multidimensional Hermite polynomials :math:`rH_k^{(R)}(y)`
-    via the C++ libwalrus library. They are given in terms of the standard multidimensional
-    Hermite polynomials as :math:`H_k^{(R)}(y)/\sqrt{\prod(\prod_i k_i!)}`.
+    r"""Returns the matrix elements of a single mode squeezer by using a custom version of
+    the renormalized Hermite polynomials.
 
     Args:
-        R (array[complex128]): square matrix parametrizing the Hermite polynomial family
-        y (array[complex128]): vector argument of the Hermite polynomial
-        cutoff (int): maximum size of the subindices in the Hermite polynomial
+        R (array[complex128]): square matrix parametrizing the squeezing
+        cutoff (int): maximum size of the subindices in the tensor
 
     Returns:
-        array[complex128]: the renormalized multidimensional Hermite polynomials
+        array[complex128]: the matrix elements of the squeezing operator
     """
     cdef int i, j, n = R.shape[0]
     cdef vector[double complex] R_mat
@@ -549,17 +543,15 @@ def squeezing(double complex[:, :] R, int cutoff):
 
 
 def squeezing_real(double [:, :] R, int cutoff):
-    r"""Returns the renormalized multidimensional Hermite polynomials :math:`rH_k^{(R)}(y)`
-    via the C++ libwalrus library. They are given in terms of the standard multidimensional
-    Hermite polynomials as :math:`H_k^{(R)}(y)/\sqrt{\prod(\prod_i k_i!)}`.
+    r"""Returns the matrix elements of a single mode squeezer by using a custom version of
+    the renormalized Hermite polynomials.
 
     Args:
-        R (array[float64]): square matrix parametrizing the Hermite polynomial family
-        y (array[float64]): vector argument of the Hermite polynomial
-        cutoff (int): maximum size of the subindices in the Hermite polynomial
+        R (array[float64]): square matrix parametrizing the squeezing
+        cutoff (int): maximum size of the subindices in the tensor
 
     Returns:
-        array[float64]: the renormalized multidimensional Hermite polynomials
+        array[float64]: the matrix elements of the squeezing operator
     """
     cdef int i, j, n = R.shape[0]
     cdef vector[double] R_mat
@@ -574,17 +566,15 @@ def squeezing_real(double [:, :] R, int cutoff):
 
 
 def displacement(double complex [:] y, int cutoff):
-    r"""Returns the renormalized multidimensional Hermite polynomials :math:`rH_k^{(R)}(y)`
-    via the C++ libwalrus library. They are given in terms of the standard multidimensional
-    Hermite polynomials as :math:`H_k^{(R)}(y)/\sqrt{\prod(\prod_i k_i!)}`.
+    r"""Returns the matrix elements of a displacement by using a custom version of
+    the renormalized Hermite polynomials.
 
     Args:
-        R (array[float64]): square matrix parametrizing the Hermite polynomial family
-        y (array[float64]): vector argument of the Hermite polynomial
-        cutoff (int): maximum size of the subindices in the Hermite polynomial
+        y (array[complex128]): vector parametrizing the displacement. It has the form :math:`[\alpha, -\alpha^*]`
+        cutoff (int): square matrix parametrizing the squeezing
 
     Returns:
-        array[float64]: the renormalized multidimensional Hermite polynomials
+        array[complex128]: the matrix elements of the squeezing operator
     """
     cdef int i, n = 2
     cdef vector[double complex] y_mat
@@ -596,17 +586,15 @@ def displacement(double complex [:] y, int cutoff):
     return displacement_cpp(y_mat, cutoff)
 
 def displacement_real(double [:] y, int cutoff):
-    r"""Returns the renormalized multidimensional Hermite polynomials :math:`rH_k^{(R)}(y)`
-    via the C++ libwalrus library. They are given in terms of the standard multidimensional
-    Hermite polynomials as :math:`H_k^{(R)}(y)/\sqrt{\prod(\prod_i k_i!)}`.
+    r"""Returns the matrix elements of a displacement by using a custom version of
+    the renormalized Hermite polynomials.
 
     Args:
-        R (array[float64]): square matrix parametrizing the Hermite polynomial family
-        y (array[float64]): vector argument of the Hermite polynomial
-        cutoff (int): maximum size of the subindices in the Hermite polynomial
+        y (array[float64]): vector parametrizing the displacement. It has the form :math:`[\alpha, -\alpha]`
+        cutoff (int): square matrix parametrizing the squeezing
 
     Returns:
-        array[float64]: the renormalized multidimensional Hermite polynomials
+        array[float64]: the matrix elements of the squeezing operator
     """
     cdef int i, n = 2
     cdef vector[double] y_mat

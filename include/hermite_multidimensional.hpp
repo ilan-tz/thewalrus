@@ -133,8 +133,6 @@ inline std::vector<T> hermite_multidimensional_cpp(std::vector<T> &R, std::vecto
 
 }
 
-
-
 /**
  * Returns the normalized multidimensional Hermite polynomials \f$\tilde{H}_k^{(R)}(y)\f$.
  *
@@ -220,6 +218,16 @@ inline std::vector<T> renorm_hermite_multidimensional_cpp(std::vector<T> &R, std
     return H;
 
 }
+
+
+/**
+ * Returns the matrix elements of an interferometer parametrized in terms of its R matrix
+ *
+ * @param R a flattened vector of size \f$n^2\f$, representing a
+ *       \f$n\times n\f$ symmetric matrix.
+ * @param resolution highest number of photons to be resolved.
+ *
+ */
 
 template <typename T>
 inline std::vector<T> interferometer_cpp(std::vector<T> &R, int &resolution) {
@@ -317,6 +325,15 @@ inline std::vector<T> interferometer_cpp(std::vector<T> &R, int &resolution) {
 }
 
 
+/**
+ * Returns the matrix elements of a single mode squeezeing operation parametrized in terms of its R matrix
+ *
+ * @param R a flattened vector of size 4, representing a
+ *       \f$2\times 2\f$ symmetric matrix.
+ * @param resolution highest number of photons to be resolved.
+ *
+ */
+
 
 template <typename T>
 inline std::vector<T> squeezing_cpp(std::vector<T> &R, int &resolution) {
@@ -325,7 +342,7 @@ inline std::vector<T> squeezing_cpp(std::vector<T> &R, int &resolution) {
     ullint Hdim = pow(resolution, dim);
     std::vector<T> H(Hdim, 0);
 
-    H[0] = std::sqrt(std::abs(R[1]));
+    H[0] = std::sqrt(-R[1]);
     std::vector<double> intsqrt(resolution+1, 0);
     for (int ii = 0; ii<=resolution; ii++) {
         intsqrt[ii] = std::sqrt((static_cast<double>(ii)));
@@ -392,6 +409,13 @@ inline std::vector<T> squeezing_cpp(std::vector<T> &R, int &resolution) {
     return H;
 }
 
+/**
+ * Returns the matrix elements of a displacement operation parametrized in terms of its double vector y
+ *
+ * @param y a flattened vector of size \f$2\f$, represeting the displacement via \f$\alpha, \alpha^*\f$
+ * @param resolution highest number of photons to be resolved.
+ *
+ */
 
 template <typename T>
 inline std::vector<T> displacement_cpp(std::vector<T> &y, int &resolution) {
