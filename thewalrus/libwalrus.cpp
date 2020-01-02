@@ -2031,6 +2031,7 @@ static const char __pyx_k_perm_real[] = "perm_real";
 static const char __pyx_k_pyx_state[] = "__pyx_state";
 static const char __pyx_k_recursive[] = "recursive";
 static const char __pyx_k_reduce_ex[] = "__reduce_ex__";
+static const char __pyx_k_squeezing[] = "squeezing";
 static const char __pyx_k_IndexError[] = "IndexError";
 static const char __pyx_k_ValueError[] = "ValueError";
 static const char __pyx_k_pyx_result[] = "__pyx_result";
@@ -2038,6 +2039,7 @@ static const char __pyx_k_pyx_vtable[] = "__pyx_vtable__";
 static const char __pyx_k_MemoryError[] = "MemoryError";
 static const char __pyx_k_PickleError[] = "PickleError";
 static const char __pyx_k_haf_complex[] = "haf_complex";
+static const char __pyx_k_displacement[] = "displacement";
 static const char __pyx_k_haf_rpt_real[] = "haf_rpt_real";
 static const char __pyx_k_perm_complex[] = "perm_complex";
 static const char __pyx_k_pyx_checksum[] = "__pyx_checksum";
@@ -2045,6 +2047,7 @@ static const char __pyx_k_stringsource[] = "stringsource";
 static const char __pyx_k_pyx_getbuffer[] = "__pyx_getbuffer";
 static const char __pyx_k_reduce_cython[] = "__reduce_cython__";
 static const char __pyx_k_interferometer[] = "interferometer";
+static const char __pyx_k_squeezing_real[] = "squeezing_real";
 static const char __pyx_k_View_MemoryView[] = "View.MemoryView";
 static const char __pyx_k_allocate_buffer[] = "allocate_buffer";
 static const char __pyx_k_dtype_is_object[] = "dtype_is_object";
@@ -2052,6 +2055,7 @@ static const char __pyx_k_haf_rpt_complex[] = "haf_rpt_complex";
 static const char __pyx_k_pyx_PickleError[] = "__pyx_PickleError";
 static const char __pyx_k_setstate_cython[] = "__setstate_cython__";
 static const char __pyx_k_torontonian_real[] = "torontonian_real";
+static const char __pyx_k_displacement_real[] = "displacement_real";
 static const char __pyx_k_pyx_unpickle_Enum[] = "__pyx_unpickle_Enum";
 static const char __pyx_k_cline_in_traceback[] = "cline_in_traceback";
 static const char __pyx_k_strided_and_direct[] = "<strided and direct>";
@@ -2123,6 +2127,8 @@ static PyObject *__pyx_kp_s_contiguous_and_indirect;
 static PyObject *__pyx_n_s_cutoff;
 static PyObject *__pyx_n_s_d;
 static PyObject *__pyx_n_s_dict;
+static PyObject *__pyx_n_s_displacement;
+static PyObject *__pyx_n_s_displacement_real;
 static PyObject *__pyx_n_s_dtype_is_object;
 static PyObject *__pyx_n_s_encode;
 static PyObject *__pyx_n_s_enumerate;
@@ -2191,6 +2197,8 @@ static PyObject *__pyx_n_s_setstate;
 static PyObject *__pyx_n_s_setstate_cython;
 static PyObject *__pyx_n_s_shape;
 static PyObject *__pyx_n_s_size;
+static PyObject *__pyx_n_s_squeezing;
+static PyObject *__pyx_n_s_squeezing_real;
 static PyObject *__pyx_n_s_start;
 static PyObject *__pyx_n_s_step;
 static PyObject *__pyx_n_s_stop;
@@ -2224,6 +2232,10 @@ static PyObject *__pyx_pf_9libwalrus_22renorm_hermite_multidimensional(CYTHON_UN
 static PyObject *__pyx_pf_9libwalrus_24renorm_hermite_multidimensional_real(CYTHON_UNUSED PyObject *__pyx_self, __Pyx_memviewslice __pyx_v_R, __Pyx_memviewslice __pyx_v_y, int __pyx_v_cutoff); /* proto */
 static PyObject *__pyx_pf_9libwalrus_26interferometer(CYTHON_UNUSED PyObject *__pyx_self, __Pyx_memviewslice __pyx_v_R, int __pyx_v_cutoff); /* proto */
 static PyObject *__pyx_pf_9libwalrus_28interferometer_real(CYTHON_UNUSED PyObject *__pyx_self, __Pyx_memviewslice __pyx_v_R, int __pyx_v_cutoff); /* proto */
+static PyObject *__pyx_pf_9libwalrus_30squeezing(CYTHON_UNUSED PyObject *__pyx_self, __Pyx_memviewslice __pyx_v_R, int __pyx_v_cutoff); /* proto */
+static PyObject *__pyx_pf_9libwalrus_32squeezing_real(CYTHON_UNUSED PyObject *__pyx_self, __Pyx_memviewslice __pyx_v_R, int __pyx_v_cutoff); /* proto */
+static PyObject *__pyx_pf_9libwalrus_34displacement(CYTHON_UNUSED PyObject *__pyx_self, __Pyx_memviewslice __pyx_v_y, int __pyx_v_cutoff); /* proto */
+static PyObject *__pyx_pf_9libwalrus_36displacement_real(CYTHON_UNUSED PyObject *__pyx_self, __Pyx_memviewslice __pyx_v_y, int __pyx_v_cutoff); /* proto */
 static int __pyx_array___pyx_pf_15View_dot_MemoryView_5array___cinit__(struct __pyx_array_obj *__pyx_v_self, PyObject *__pyx_v_shape, Py_ssize_t __pyx_v_itemsize, PyObject *__pyx_v_format, PyObject *__pyx_v_mode, int __pyx_v_allocate_buffer); /* proto */
 static int __pyx_array___pyx_pf_15View_dot_MemoryView_5array_2__getbuffer__(struct __pyx_array_obj *__pyx_v_self, Py_buffer *__pyx_v_info, int __pyx_v_flags); /* proto */
 static void __pyx_array___pyx_pf_15View_dot_MemoryView_5array_4__dealloc__(struct __pyx_array_obj *__pyx_v_self); /* proto */
@@ -2311,11 +2323,15 @@ static PyObject *__pyx_tuple__45;
 static PyObject *__pyx_tuple__47;
 static PyObject *__pyx_tuple__49;
 static PyObject *__pyx_tuple__51;
-static PyObject *__pyx_tuple__52;
 static PyObject *__pyx_tuple__53;
-static PyObject *__pyx_tuple__54;
 static PyObject *__pyx_tuple__55;
-static PyObject *__pyx_tuple__56;
+static PyObject *__pyx_tuple__57;
+static PyObject *__pyx_tuple__59;
+static PyObject *__pyx_tuple__60;
+static PyObject *__pyx_tuple__61;
+static PyObject *__pyx_tuple__62;
+static PyObject *__pyx_tuple__63;
+static PyObject *__pyx_tuple__64;
 static PyObject *__pyx_codeobj__22;
 static PyObject *__pyx_codeobj__24;
 static PyObject *__pyx_codeobj__26;
@@ -2331,10 +2347,14 @@ static PyObject *__pyx_codeobj__44;
 static PyObject *__pyx_codeobj__46;
 static PyObject *__pyx_codeobj__48;
 static PyObject *__pyx_codeobj__50;
-static PyObject *__pyx_codeobj__57;
+static PyObject *__pyx_codeobj__52;
+static PyObject *__pyx_codeobj__54;
+static PyObject *__pyx_codeobj__56;
+static PyObject *__pyx_codeobj__58;
+static PyObject *__pyx_codeobj__65;
 /* Late includes */
 
-/* "libwalrus.pyx":58
+/* "libwalrus.pyx":60
  * 
  * 
  * def torontonian_complex(double complex[:, :] A, fsum=False):             # <<<<<<<<<<<<<<
@@ -2380,7 +2400,7 @@ static PyObject *__pyx_pw_9libwalrus_1torontonian_complex(PyObject *__pyx_self, 
         }
       }
       if (unlikely(kw_args > 0)) {
-        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "torontonian_complex") < 0)) __PYX_ERR(0, 58, __pyx_L3_error)
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "torontonian_complex") < 0)) __PYX_ERR(0, 60, __pyx_L3_error)
       }
     } else {
       switch (PyTuple_GET_SIZE(__pyx_args)) {
@@ -2391,12 +2411,12 @@ static PyObject *__pyx_pw_9libwalrus_1torontonian_complex(PyObject *__pyx_self, 
         default: goto __pyx_L5_argtuple_error;
       }
     }
-    __pyx_v_A = __Pyx_PyObject_to_MemoryviewSlice_dsds___pyx_t_double_complex(values[0], PyBUF_WRITABLE); if (unlikely(!__pyx_v_A.memview)) __PYX_ERR(0, 58, __pyx_L3_error)
+    __pyx_v_A = __Pyx_PyObject_to_MemoryviewSlice_dsds___pyx_t_double_complex(values[0], PyBUF_WRITABLE); if (unlikely(!__pyx_v_A.memview)) __PYX_ERR(0, 60, __pyx_L3_error)
     __pyx_v_fsum = values[1];
   }
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("torontonian_complex", 0, 1, 2, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 58, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("torontonian_complex", 0, 1, 2, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 60, __pyx_L3_error)
   __pyx_L3_error:;
   __Pyx_AddTraceback("libwalrus.torontonian_complex", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
@@ -2430,7 +2450,7 @@ static PyObject *__pyx_pf_9libwalrus_torontonian_complex(CYTHON_UNUSED PyObject 
   __pyx_t_double_complex __pyx_t_11;
   __Pyx_RefNannySetupContext("torontonian_complex", 0);
 
-  /* "libwalrus.pyx":76
+  /* "libwalrus.pyx":78
  *         np.complex128: the torontonian of matrix A
  *     """
  *     cdef int i, j, n = A.shape[0]             # <<<<<<<<<<<<<<
@@ -2439,7 +2459,7 @@ static PyObject *__pyx_pf_9libwalrus_torontonian_complex(CYTHON_UNUSED PyObject 
  */
   __pyx_v_n = (__pyx_v_A.shape[0]);
 
-  /* "libwalrus.pyx":78
+  /* "libwalrus.pyx":80
  *     cdef int i, j, n = A.shape[0]
  *     cdef vector[double complex] mat
  *     cdef int m = n/2             # <<<<<<<<<<<<<<
@@ -2448,7 +2468,7 @@ static PyObject *__pyx_pf_9libwalrus_torontonian_complex(CYTHON_UNUSED PyObject 
  */
   __pyx_v_m = __Pyx_div_long(__pyx_v_n, 2);
 
-  /* "libwalrus.pyx":80
+  /* "libwalrus.pyx":82
  *     cdef int m = n/2
  * 
  *     for i in range(n):             # <<<<<<<<<<<<<<
@@ -2460,7 +2480,7 @@ static PyObject *__pyx_pf_9libwalrus_torontonian_complex(CYTHON_UNUSED PyObject 
   for (__pyx_t_3 = 0; __pyx_t_3 < __pyx_t_2; __pyx_t_3+=1) {
     __pyx_v_i = __pyx_t_3;
 
-    /* "libwalrus.pyx":81
+    /* "libwalrus.pyx":83
  * 
  *     for i in range(n):
  *         for j in range(n):             # <<<<<<<<<<<<<<
@@ -2472,7 +2492,7 @@ static PyObject *__pyx_pf_9libwalrus_torontonian_complex(CYTHON_UNUSED PyObject 
     for (__pyx_t_6 = 0; __pyx_t_6 < __pyx_t_5; __pyx_t_6+=1) {
       __pyx_v_j = __pyx_t_6;
 
-      /* "libwalrus.pyx":82
+      /* "libwalrus.pyx":84
  *     for i in range(n):
  *         for j in range(n):
  *             mat.push_back(A[i, j])             # <<<<<<<<<<<<<<
@@ -2485,22 +2505,22 @@ static PyObject *__pyx_pf_9libwalrus_torontonian_complex(CYTHON_UNUSED PyObject 
         __pyx_v_mat.push_back((*((__pyx_t_double_complex *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_A.data + __pyx_t_7 * __pyx_v_A.strides[0]) ) + __pyx_t_8 * __pyx_v_A.strides[1]) ))));
       } catch(...) {
         __Pyx_CppExn2PyErr();
-        __PYX_ERR(0, 82, __pyx_L1_error)
+        __PYX_ERR(0, 84, __pyx_L1_error)
       }
     }
   }
 
-  /* "libwalrus.pyx":84
+  /* "libwalrus.pyx":86
  *             mat.push_back(A[i, j])
  * 
  *     if fsum:             # <<<<<<<<<<<<<<
  *         return torontonian_fsum(mat)
  * 
  */
-  __pyx_t_9 = __Pyx_PyObject_IsTrue(__pyx_v_fsum); if (unlikely(__pyx_t_9 < 0)) __PYX_ERR(0, 84, __pyx_L1_error)
+  __pyx_t_9 = __Pyx_PyObject_IsTrue(__pyx_v_fsum); if (unlikely(__pyx_t_9 < 0)) __PYX_ERR(0, 86, __pyx_L1_error)
   if (__pyx_t_9) {
 
-    /* "libwalrus.pyx":85
+    /* "libwalrus.pyx":87
  * 
  *     if fsum:
  *         return torontonian_fsum(mat)             # <<<<<<<<<<<<<<
@@ -2508,13 +2528,13 @@ static PyObject *__pyx_pf_9libwalrus_torontonian_complex(CYTHON_UNUSED PyObject 
  *     return torontonian_quad(mat)
  */
     __Pyx_XDECREF(__pyx_r);
-    __pyx_t_10 = PyFloat_FromDouble(libwalrus::torontonian_fsum<__pyx_t_double_complex>(__pyx_v_mat)); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 85, __pyx_L1_error)
+    __pyx_t_10 = PyFloat_FromDouble(libwalrus::torontonian_fsum<__pyx_t_double_complex>(__pyx_v_mat)); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 87, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_10);
     __pyx_r = __pyx_t_10;
     __pyx_t_10 = 0;
     goto __pyx_L0;
 
-    /* "libwalrus.pyx":84
+    /* "libwalrus.pyx":86
  *             mat.push_back(A[i, j])
  * 
  *     if fsum:             # <<<<<<<<<<<<<<
@@ -2523,7 +2543,7 @@ static PyObject *__pyx_pf_9libwalrus_torontonian_complex(CYTHON_UNUSED PyObject 
  */
   }
 
-  /* "libwalrus.pyx":87
+  /* "libwalrus.pyx":89
  *         return torontonian_fsum(mat)
  * 
  *     return torontonian_quad(mat)             # <<<<<<<<<<<<<<
@@ -2532,13 +2552,13 @@ static PyObject *__pyx_pf_9libwalrus_torontonian_complex(CYTHON_UNUSED PyObject 
  */
   __Pyx_XDECREF(__pyx_r);
   __pyx_t_11 = libwalrus::torontonian_quad(__pyx_v_mat);
-  __pyx_t_10 = __pyx_PyComplex_FromComplex(__pyx_t_11); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 87, __pyx_L1_error)
+  __pyx_t_10 = __pyx_PyComplex_FromComplex(__pyx_t_11); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 89, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_10);
   __pyx_r = __pyx_t_10;
   __pyx_t_10 = 0;
   goto __pyx_L0;
 
-  /* "libwalrus.pyx":58
+  /* "libwalrus.pyx":60
  * 
  * 
  * def torontonian_complex(double complex[:, :] A, fsum=False):             # <<<<<<<<<<<<<<
@@ -2558,7 +2578,7 @@ static PyObject *__pyx_pf_9libwalrus_torontonian_complex(CYTHON_UNUSED PyObject 
   return __pyx_r;
 }
 
-/* "libwalrus.pyx":90
+/* "libwalrus.pyx":92
  * 
  * 
  * def torontonian_real(double[:, :] A, fsum=False):             # <<<<<<<<<<<<<<
@@ -2604,7 +2624,7 @@ static PyObject *__pyx_pw_9libwalrus_3torontonian_real(PyObject *__pyx_self, PyO
         }
       }
       if (unlikely(kw_args > 0)) {
-        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "torontonian_real") < 0)) __PYX_ERR(0, 90, __pyx_L3_error)
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "torontonian_real") < 0)) __PYX_ERR(0, 92, __pyx_L3_error)
       }
     } else {
       switch (PyTuple_GET_SIZE(__pyx_args)) {
@@ -2615,12 +2635,12 @@ static PyObject *__pyx_pw_9libwalrus_3torontonian_real(PyObject *__pyx_self, PyO
         default: goto __pyx_L5_argtuple_error;
       }
     }
-    __pyx_v_A = __Pyx_PyObject_to_MemoryviewSlice_dsds_double(values[0], PyBUF_WRITABLE); if (unlikely(!__pyx_v_A.memview)) __PYX_ERR(0, 90, __pyx_L3_error)
+    __pyx_v_A = __Pyx_PyObject_to_MemoryviewSlice_dsds_double(values[0], PyBUF_WRITABLE); if (unlikely(!__pyx_v_A.memview)) __PYX_ERR(0, 92, __pyx_L3_error)
     __pyx_v_fsum = values[1];
   }
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("torontonian_real", 0, 1, 2, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 90, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("torontonian_real", 0, 1, 2, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 92, __pyx_L3_error)
   __pyx_L3_error:;
   __Pyx_AddTraceback("libwalrus.torontonian_real", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
@@ -2653,7 +2673,7 @@ static PyObject *__pyx_pf_9libwalrus_2torontonian_real(CYTHON_UNUSED PyObject *_
   PyObject *__pyx_t_10 = NULL;
   __Pyx_RefNannySetupContext("torontonian_real", 0);
 
-  /* "libwalrus.pyx":108
+  /* "libwalrus.pyx":110
  *         np.float64: the torontonian of matrix A
  *     """
  *     cdef int i, j, n = A.shape[0]             # <<<<<<<<<<<<<<
@@ -2662,7 +2682,7 @@ static PyObject *__pyx_pf_9libwalrus_2torontonian_real(CYTHON_UNUSED PyObject *_
  */
   __pyx_v_n = (__pyx_v_A.shape[0]);
 
-  /* "libwalrus.pyx":110
+  /* "libwalrus.pyx":112
  *     cdef int i, j, n = A.shape[0]
  *     cdef vector[double] mat
  *     cdef int m = n/2             # <<<<<<<<<<<<<<
@@ -2671,7 +2691,7 @@ static PyObject *__pyx_pf_9libwalrus_2torontonian_real(CYTHON_UNUSED PyObject *_
  */
   __pyx_v_m = __Pyx_div_long(__pyx_v_n, 2);
 
-  /* "libwalrus.pyx":112
+  /* "libwalrus.pyx":114
  *     cdef int m = n/2
  * 
  *     for i in range(n):             # <<<<<<<<<<<<<<
@@ -2683,7 +2703,7 @@ static PyObject *__pyx_pf_9libwalrus_2torontonian_real(CYTHON_UNUSED PyObject *_
   for (__pyx_t_3 = 0; __pyx_t_3 < __pyx_t_2; __pyx_t_3+=1) {
     __pyx_v_i = __pyx_t_3;
 
-    /* "libwalrus.pyx":113
+    /* "libwalrus.pyx":115
  * 
  *     for i in range(n):
  *         for j in range(n):             # <<<<<<<<<<<<<<
@@ -2695,7 +2715,7 @@ static PyObject *__pyx_pf_9libwalrus_2torontonian_real(CYTHON_UNUSED PyObject *_
     for (__pyx_t_6 = 0; __pyx_t_6 < __pyx_t_5; __pyx_t_6+=1) {
       __pyx_v_j = __pyx_t_6;
 
-      /* "libwalrus.pyx":114
+      /* "libwalrus.pyx":116
  *     for i in range(n):
  *         for j in range(n):
  *             mat.push_back(A[i, j])             # <<<<<<<<<<<<<<
@@ -2708,22 +2728,22 @@ static PyObject *__pyx_pf_9libwalrus_2torontonian_real(CYTHON_UNUSED PyObject *_
         __pyx_v_mat.push_back((*((double *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_A.data + __pyx_t_7 * __pyx_v_A.strides[0]) ) + __pyx_t_8 * __pyx_v_A.strides[1]) ))));
       } catch(...) {
         __Pyx_CppExn2PyErr();
-        __PYX_ERR(0, 114, __pyx_L1_error)
+        __PYX_ERR(0, 116, __pyx_L1_error)
       }
     }
   }
 
-  /* "libwalrus.pyx":117
+  /* "libwalrus.pyx":119
  * 
  * 
  *     if fsum:             # <<<<<<<<<<<<<<
  *         return torontonian_fsum(mat)
  * 
  */
-  __pyx_t_9 = __Pyx_PyObject_IsTrue(__pyx_v_fsum); if (unlikely(__pyx_t_9 < 0)) __PYX_ERR(0, 117, __pyx_L1_error)
+  __pyx_t_9 = __Pyx_PyObject_IsTrue(__pyx_v_fsum); if (unlikely(__pyx_t_9 < 0)) __PYX_ERR(0, 119, __pyx_L1_error)
   if (__pyx_t_9) {
 
-    /* "libwalrus.pyx":118
+    /* "libwalrus.pyx":120
  * 
  *     if fsum:
  *         return torontonian_fsum(mat)             # <<<<<<<<<<<<<<
@@ -2731,13 +2751,13 @@ static PyObject *__pyx_pf_9libwalrus_2torontonian_real(CYTHON_UNUSED PyObject *_
  *     return torontonian_quad(mat)
  */
     __Pyx_XDECREF(__pyx_r);
-    __pyx_t_10 = PyFloat_FromDouble(libwalrus::torontonian_fsum<double>(__pyx_v_mat)); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 118, __pyx_L1_error)
+    __pyx_t_10 = PyFloat_FromDouble(libwalrus::torontonian_fsum<double>(__pyx_v_mat)); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 120, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_10);
     __pyx_r = __pyx_t_10;
     __pyx_t_10 = 0;
     goto __pyx_L0;
 
-    /* "libwalrus.pyx":117
+    /* "libwalrus.pyx":119
  * 
  * 
  *     if fsum:             # <<<<<<<<<<<<<<
@@ -2746,7 +2766,7 @@ static PyObject *__pyx_pf_9libwalrus_2torontonian_real(CYTHON_UNUSED PyObject *_
  */
   }
 
-  /* "libwalrus.pyx":120
+  /* "libwalrus.pyx":122
  *         return torontonian_fsum(mat)
  * 
  *     return torontonian_quad(mat)             # <<<<<<<<<<<<<<
@@ -2754,13 +2774,13 @@ static PyObject *__pyx_pf_9libwalrus_2torontonian_real(CYTHON_UNUSED PyObject *_
  * 
  */
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_10 = PyFloat_FromDouble(libwalrus::torontonian_quad(__pyx_v_mat)); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 120, __pyx_L1_error)
+  __pyx_t_10 = PyFloat_FromDouble(libwalrus::torontonian_quad(__pyx_v_mat)); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 122, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_10);
   __pyx_r = __pyx_t_10;
   __pyx_t_10 = 0;
   goto __pyx_L0;
 
-  /* "libwalrus.pyx":90
+  /* "libwalrus.pyx":92
  * 
  * 
  * def torontonian_real(double[:, :] A, fsum=False):             # <<<<<<<<<<<<<<
@@ -2780,7 +2800,7 @@ static PyObject *__pyx_pf_9libwalrus_2torontonian_real(CYTHON_UNUSED PyObject *_
   return __pyx_r;
 }
 
-/* "libwalrus.pyx":127
+/* "libwalrus.pyx":129
  * 
  * 
  * def haf_rpt_real(double[:, :] A, int[:] rpt, double[:] mu=None, bint loop=False):             # <<<<<<<<<<<<<<
@@ -2827,7 +2847,7 @@ static PyObject *__pyx_pw_9libwalrus_5haf_rpt_real(PyObject *__pyx_self, PyObjec
         case  1:
         if (likely((values[1] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_rpt)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("haf_rpt_real", 0, 2, 4, 1); __PYX_ERR(0, 127, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("haf_rpt_real", 0, 2, 4, 1); __PYX_ERR(0, 129, __pyx_L3_error)
         }
         CYTHON_FALLTHROUGH;
         case  2:
@@ -2843,7 +2863,7 @@ static PyObject *__pyx_pw_9libwalrus_5haf_rpt_real(PyObject *__pyx_self, PyObjec
         }
       }
       if (unlikely(kw_args > 0)) {
-        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "haf_rpt_real") < 0)) __PYX_ERR(0, 127, __pyx_L3_error)
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "haf_rpt_real") < 0)) __PYX_ERR(0, 129, __pyx_L3_error)
       }
     } else {
       switch (PyTuple_GET_SIZE(__pyx_args)) {
@@ -2857,23 +2877,23 @@ static PyObject *__pyx_pw_9libwalrus_5haf_rpt_real(PyObject *__pyx_self, PyObjec
         default: goto __pyx_L5_argtuple_error;
       }
     }
-    __pyx_v_A = __Pyx_PyObject_to_MemoryviewSlice_dsds_double(values[0], PyBUF_WRITABLE); if (unlikely(!__pyx_v_A.memview)) __PYX_ERR(0, 127, __pyx_L3_error)
-    __pyx_v_rpt = __Pyx_PyObject_to_MemoryviewSlice_ds_int(values[1], PyBUF_WRITABLE); if (unlikely(!__pyx_v_rpt.memview)) __PYX_ERR(0, 127, __pyx_L3_error)
+    __pyx_v_A = __Pyx_PyObject_to_MemoryviewSlice_dsds_double(values[0], PyBUF_WRITABLE); if (unlikely(!__pyx_v_A.memview)) __PYX_ERR(0, 129, __pyx_L3_error)
+    __pyx_v_rpt = __Pyx_PyObject_to_MemoryviewSlice_ds_int(values[1], PyBUF_WRITABLE); if (unlikely(!__pyx_v_rpt.memview)) __PYX_ERR(0, 129, __pyx_L3_error)
     if (values[2]) {
-      __pyx_v_mu = __Pyx_PyObject_to_MemoryviewSlice_ds_double(values[2], PyBUF_WRITABLE); if (unlikely(!__pyx_v_mu.memview)) __PYX_ERR(0, 127, __pyx_L3_error)
+      __pyx_v_mu = __Pyx_PyObject_to_MemoryviewSlice_ds_double(values[2], PyBUF_WRITABLE); if (unlikely(!__pyx_v_mu.memview)) __PYX_ERR(0, 129, __pyx_L3_error)
     } else {
       __pyx_v_mu = __pyx_k_;
       __PYX_INC_MEMVIEW(&__pyx_v_mu, 1);
     }
     if (values[3]) {
-      __pyx_v_loop = __Pyx_PyObject_IsTrue(values[3]); if (unlikely((__pyx_v_loop == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 127, __pyx_L3_error)
+      __pyx_v_loop = __Pyx_PyObject_IsTrue(values[3]); if (unlikely((__pyx_v_loop == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 129, __pyx_L3_error)
     } else {
       __pyx_v_loop = ((int)0);
     }
   }
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("haf_rpt_real", 0, 2, 4, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 127, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("haf_rpt_real", 0, 2, 4, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 129, __pyx_L3_error)
   __pyx_L3_error:;
   __Pyx_AddTraceback("libwalrus.haf_rpt_real", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
@@ -2911,7 +2931,7 @@ static PyObject *__pyx_pf_9libwalrus_4haf_rpt_real(CYTHON_UNUSED PyObject *__pyx
   PyObject *__pyx_t_14 = NULL;
   __Pyx_RefNannySetupContext("haf_rpt_real", 0);
 
-  /* "libwalrus.pyx":144
+  /* "libwalrus.pyx":146
  *         np.float64: the hafnian
  *     """
  *     cdef int i, j, n = A.shape[0]             # <<<<<<<<<<<<<<
@@ -2920,7 +2940,7 @@ static PyObject *__pyx_pf_9libwalrus_4haf_rpt_real(CYTHON_UNUSED PyObject *__pyx
  */
   __pyx_v_n = (__pyx_v_A.shape[0]);
 
-  /* "libwalrus.pyx":148
+  /* "libwalrus.pyx":150
  *     cdef vector[double] mat, d
  * 
  *     for i in range(n):             # <<<<<<<<<<<<<<
@@ -2932,7 +2952,7 @@ static PyObject *__pyx_pf_9libwalrus_4haf_rpt_real(CYTHON_UNUSED PyObject *__pyx
   for (__pyx_t_3 = 0; __pyx_t_3 < __pyx_t_2; __pyx_t_3+=1) {
     __pyx_v_i = __pyx_t_3;
 
-    /* "libwalrus.pyx":149
+    /* "libwalrus.pyx":151
  * 
  *     for i in range(n):
  *         nud.push_back(rpt[i])             # <<<<<<<<<<<<<<
@@ -2944,10 +2964,10 @@ static PyObject *__pyx_pf_9libwalrus_4haf_rpt_real(CYTHON_UNUSED PyObject *__pyx
       __pyx_v_nud.push_back((*((int *) ( /* dim=0 */ (__pyx_v_rpt.data + __pyx_t_4 * __pyx_v_rpt.strides[0]) ))));
     } catch(...) {
       __Pyx_CppExn2PyErr();
-      __PYX_ERR(0, 149, __pyx_L1_error)
+      __PYX_ERR(0, 151, __pyx_L1_error)
     }
 
-    /* "libwalrus.pyx":151
+    /* "libwalrus.pyx":153
  *         nud.push_back(rpt[i])
  * 
  *         if mu is None:             # <<<<<<<<<<<<<<
@@ -2957,7 +2977,7 @@ static PyObject *__pyx_pf_9libwalrus_4haf_rpt_real(CYTHON_UNUSED PyObject *__pyx
     __pyx_t_5 = ((((PyObject *) __pyx_v_mu.memview) == Py_None) != 0);
     if (__pyx_t_5) {
 
-      /* "libwalrus.pyx":152
+      /* "libwalrus.pyx":154
  * 
  *         if mu is None:
  *             d.push_back(A[i, i])             # <<<<<<<<<<<<<<
@@ -2970,10 +2990,10 @@ static PyObject *__pyx_pf_9libwalrus_4haf_rpt_real(CYTHON_UNUSED PyObject *__pyx
         __pyx_v_d.push_back((*((double *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_A.data + __pyx_t_6 * __pyx_v_A.strides[0]) ) + __pyx_t_7 * __pyx_v_A.strides[1]) ))));
       } catch(...) {
         __Pyx_CppExn2PyErr();
-        __PYX_ERR(0, 152, __pyx_L1_error)
+        __PYX_ERR(0, 154, __pyx_L1_error)
       }
 
-      /* "libwalrus.pyx":151
+      /* "libwalrus.pyx":153
  *         nud.push_back(rpt[i])
  * 
  *         if mu is None:             # <<<<<<<<<<<<<<
@@ -2983,7 +3003,7 @@ static PyObject *__pyx_pf_9libwalrus_4haf_rpt_real(CYTHON_UNUSED PyObject *__pyx
       goto __pyx_L5;
     }
 
-    /* "libwalrus.pyx":154
+    /* "libwalrus.pyx":156
  *             d.push_back(A[i, i])
  *         else:
  *             d.push_back(mu[i])             # <<<<<<<<<<<<<<
@@ -2996,12 +3016,12 @@ static PyObject *__pyx_pf_9libwalrus_4haf_rpt_real(CYTHON_UNUSED PyObject *__pyx
         __pyx_v_d.push_back((*((double *) ( /* dim=0 */ (__pyx_v_mu.data + __pyx_t_8 * __pyx_v_mu.strides[0]) ))));
       } catch(...) {
         __Pyx_CppExn2PyErr();
-        __PYX_ERR(0, 154, __pyx_L1_error)
+        __PYX_ERR(0, 156, __pyx_L1_error)
       }
     }
     __pyx_L5:;
 
-    /* "libwalrus.pyx":156
+    /* "libwalrus.pyx":158
  *             d.push_back(mu[i])
  * 
  *         for j in range(n):             # <<<<<<<<<<<<<<
@@ -3013,7 +3033,7 @@ static PyObject *__pyx_pf_9libwalrus_4haf_rpt_real(CYTHON_UNUSED PyObject *__pyx
     for (__pyx_t_11 = 0; __pyx_t_11 < __pyx_t_10; __pyx_t_11+=1) {
       __pyx_v_j = __pyx_t_11;
 
-      /* "libwalrus.pyx":157
+      /* "libwalrus.pyx":159
  * 
  *         for j in range(n):
  *             mat.push_back(A[i, j])             # <<<<<<<<<<<<<<
@@ -3026,12 +3046,12 @@ static PyObject *__pyx_pf_9libwalrus_4haf_rpt_real(CYTHON_UNUSED PyObject *__pyx
         __pyx_v_mat.push_back((*((double *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_A.data + __pyx_t_12 * __pyx_v_A.strides[0]) ) + __pyx_t_13 * __pyx_v_A.strides[1]) ))));
       } catch(...) {
         __Pyx_CppExn2PyErr();
-        __PYX_ERR(0, 157, __pyx_L1_error)
+        __PYX_ERR(0, 159, __pyx_L1_error)
       }
     }
   }
 
-  /* "libwalrus.pyx":160
+  /* "libwalrus.pyx":162
  * 
  *     # Exposes a c function to python
  *     if loop:             # <<<<<<<<<<<<<<
@@ -3041,7 +3061,7 @@ static PyObject *__pyx_pf_9libwalrus_4haf_rpt_real(CYTHON_UNUSED PyObject *__pyx
   __pyx_t_5 = (__pyx_v_loop != 0);
   if (__pyx_t_5) {
 
-    /* "libwalrus.pyx":161
+    /* "libwalrus.pyx":163
  *     # Exposes a c function to python
  *     if loop:
  *         return loop_hafnian_rpt_quad(mat, d, nud)             # <<<<<<<<<<<<<<
@@ -3049,13 +3069,13 @@ static PyObject *__pyx_pf_9libwalrus_4haf_rpt_real(CYTHON_UNUSED PyObject *__pyx
  *     return hafnian_rpt_quad(mat, nud)
  */
     __Pyx_XDECREF(__pyx_r);
-    __pyx_t_14 = PyFloat_FromDouble(libwalrus::loop_hafnian_rpt_quad(__pyx_v_mat, __pyx_v_d, __pyx_v_nud)); if (unlikely(!__pyx_t_14)) __PYX_ERR(0, 161, __pyx_L1_error)
+    __pyx_t_14 = PyFloat_FromDouble(libwalrus::loop_hafnian_rpt_quad(__pyx_v_mat, __pyx_v_d, __pyx_v_nud)); if (unlikely(!__pyx_t_14)) __PYX_ERR(0, 163, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_14);
     __pyx_r = __pyx_t_14;
     __pyx_t_14 = 0;
     goto __pyx_L0;
 
-    /* "libwalrus.pyx":160
+    /* "libwalrus.pyx":162
  * 
  *     # Exposes a c function to python
  *     if loop:             # <<<<<<<<<<<<<<
@@ -3064,7 +3084,7 @@ static PyObject *__pyx_pf_9libwalrus_4haf_rpt_real(CYTHON_UNUSED PyObject *__pyx
  */
   }
 
-  /* "libwalrus.pyx":163
+  /* "libwalrus.pyx":165
  *         return loop_hafnian_rpt_quad(mat, d, nud)
  * 
  *     return hafnian_rpt_quad(mat, nud)             # <<<<<<<<<<<<<<
@@ -3072,13 +3092,13 @@ static PyObject *__pyx_pf_9libwalrus_4haf_rpt_real(CYTHON_UNUSED PyObject *__pyx
  * 
  */
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_14 = PyFloat_FromDouble(libwalrus::hafnian_rpt_quad(__pyx_v_mat, __pyx_v_nud)); if (unlikely(!__pyx_t_14)) __PYX_ERR(0, 163, __pyx_L1_error)
+  __pyx_t_14 = PyFloat_FromDouble(libwalrus::hafnian_rpt_quad(__pyx_v_mat, __pyx_v_nud)); if (unlikely(!__pyx_t_14)) __PYX_ERR(0, 165, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_14);
   __pyx_r = __pyx_t_14;
   __pyx_t_14 = 0;
   goto __pyx_L0;
 
-  /* "libwalrus.pyx":127
+  /* "libwalrus.pyx":129
  * 
  * 
  * def haf_rpt_real(double[:, :] A, int[:] rpt, double[:] mu=None, bint loop=False):             # <<<<<<<<<<<<<<
@@ -3100,7 +3120,7 @@ static PyObject *__pyx_pf_9libwalrus_4haf_rpt_real(CYTHON_UNUSED PyObject *__pyx
   return __pyx_r;
 }
 
-/* "libwalrus.pyx":166
+/* "libwalrus.pyx":168
  * 
  * 
  * def haf_rpt_complex(double complex[:, :] A, int[:] rpt, double complex[:] mu=None, bint loop=False):             # <<<<<<<<<<<<<<
@@ -3147,7 +3167,7 @@ static PyObject *__pyx_pw_9libwalrus_7haf_rpt_complex(PyObject *__pyx_self, PyOb
         case  1:
         if (likely((values[1] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_rpt)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("haf_rpt_complex", 0, 2, 4, 1); __PYX_ERR(0, 166, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("haf_rpt_complex", 0, 2, 4, 1); __PYX_ERR(0, 168, __pyx_L3_error)
         }
         CYTHON_FALLTHROUGH;
         case  2:
@@ -3163,7 +3183,7 @@ static PyObject *__pyx_pw_9libwalrus_7haf_rpt_complex(PyObject *__pyx_self, PyOb
         }
       }
       if (unlikely(kw_args > 0)) {
-        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "haf_rpt_complex") < 0)) __PYX_ERR(0, 166, __pyx_L3_error)
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "haf_rpt_complex") < 0)) __PYX_ERR(0, 168, __pyx_L3_error)
       }
     } else {
       switch (PyTuple_GET_SIZE(__pyx_args)) {
@@ -3177,23 +3197,23 @@ static PyObject *__pyx_pw_9libwalrus_7haf_rpt_complex(PyObject *__pyx_self, PyOb
         default: goto __pyx_L5_argtuple_error;
       }
     }
-    __pyx_v_A = __Pyx_PyObject_to_MemoryviewSlice_dsds___pyx_t_double_complex(values[0], PyBUF_WRITABLE); if (unlikely(!__pyx_v_A.memview)) __PYX_ERR(0, 166, __pyx_L3_error)
-    __pyx_v_rpt = __Pyx_PyObject_to_MemoryviewSlice_ds_int(values[1], PyBUF_WRITABLE); if (unlikely(!__pyx_v_rpt.memview)) __PYX_ERR(0, 166, __pyx_L3_error)
+    __pyx_v_A = __Pyx_PyObject_to_MemoryviewSlice_dsds___pyx_t_double_complex(values[0], PyBUF_WRITABLE); if (unlikely(!__pyx_v_A.memview)) __PYX_ERR(0, 168, __pyx_L3_error)
+    __pyx_v_rpt = __Pyx_PyObject_to_MemoryviewSlice_ds_int(values[1], PyBUF_WRITABLE); if (unlikely(!__pyx_v_rpt.memview)) __PYX_ERR(0, 168, __pyx_L3_error)
     if (values[2]) {
-      __pyx_v_mu = __Pyx_PyObject_to_MemoryviewSlice_ds___pyx_t_double_complex(values[2], PyBUF_WRITABLE); if (unlikely(!__pyx_v_mu.memview)) __PYX_ERR(0, 166, __pyx_L3_error)
+      __pyx_v_mu = __Pyx_PyObject_to_MemoryviewSlice_ds___pyx_t_double_complex(values[2], PyBUF_WRITABLE); if (unlikely(!__pyx_v_mu.memview)) __PYX_ERR(0, 168, __pyx_L3_error)
     } else {
       __pyx_v_mu = __pyx_k__2;
       __PYX_INC_MEMVIEW(&__pyx_v_mu, 1);
     }
     if (values[3]) {
-      __pyx_v_loop = __Pyx_PyObject_IsTrue(values[3]); if (unlikely((__pyx_v_loop == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 166, __pyx_L3_error)
+      __pyx_v_loop = __Pyx_PyObject_IsTrue(values[3]); if (unlikely((__pyx_v_loop == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 168, __pyx_L3_error)
     } else {
       __pyx_v_loop = ((int)0);
     }
   }
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("haf_rpt_complex", 0, 2, 4, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 166, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("haf_rpt_complex", 0, 2, 4, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 168, __pyx_L3_error)
   __pyx_L3_error:;
   __Pyx_AddTraceback("libwalrus.haf_rpt_complex", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
@@ -3232,7 +3252,7 @@ static PyObject *__pyx_pf_9libwalrus_6haf_rpt_complex(CYTHON_UNUSED PyObject *__
   PyObject *__pyx_t_15 = NULL;
   __Pyx_RefNannySetupContext("haf_rpt_complex", 0);
 
-  /* "libwalrus.pyx":183
+  /* "libwalrus.pyx":185
  *         np.complex128: the hafnian
  *     """
  *     cdef int i, j, n = A.shape[0]             # <<<<<<<<<<<<<<
@@ -3241,7 +3261,7 @@ static PyObject *__pyx_pf_9libwalrus_6haf_rpt_complex(CYTHON_UNUSED PyObject *__
  */
   __pyx_v_n = (__pyx_v_A.shape[0]);
 
-  /* "libwalrus.pyx":187
+  /* "libwalrus.pyx":189
  *     cdef vector[double complex] mat, d
  * 
  *     for i in range(n):             # <<<<<<<<<<<<<<
@@ -3253,7 +3273,7 @@ static PyObject *__pyx_pf_9libwalrus_6haf_rpt_complex(CYTHON_UNUSED PyObject *__
   for (__pyx_t_3 = 0; __pyx_t_3 < __pyx_t_2; __pyx_t_3+=1) {
     __pyx_v_i = __pyx_t_3;
 
-    /* "libwalrus.pyx":188
+    /* "libwalrus.pyx":190
  * 
  *     for i in range(n):
  *         nud.push_back(rpt[i])             # <<<<<<<<<<<<<<
@@ -3265,10 +3285,10 @@ static PyObject *__pyx_pf_9libwalrus_6haf_rpt_complex(CYTHON_UNUSED PyObject *__
       __pyx_v_nud.push_back((*((int *) ( /* dim=0 */ (__pyx_v_rpt.data + __pyx_t_4 * __pyx_v_rpt.strides[0]) ))));
     } catch(...) {
       __Pyx_CppExn2PyErr();
-      __PYX_ERR(0, 188, __pyx_L1_error)
+      __PYX_ERR(0, 190, __pyx_L1_error)
     }
 
-    /* "libwalrus.pyx":190
+    /* "libwalrus.pyx":192
  *         nud.push_back(rpt[i])
  * 
  *         if mu is None:             # <<<<<<<<<<<<<<
@@ -3278,7 +3298,7 @@ static PyObject *__pyx_pf_9libwalrus_6haf_rpt_complex(CYTHON_UNUSED PyObject *__
     __pyx_t_5 = ((((PyObject *) __pyx_v_mu.memview) == Py_None) != 0);
     if (__pyx_t_5) {
 
-      /* "libwalrus.pyx":191
+      /* "libwalrus.pyx":193
  * 
  *         if mu is None:
  *             d.push_back(A[i, i])             # <<<<<<<<<<<<<<
@@ -3291,10 +3311,10 @@ static PyObject *__pyx_pf_9libwalrus_6haf_rpt_complex(CYTHON_UNUSED PyObject *__
         __pyx_v_d.push_back((*((__pyx_t_double_complex *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_A.data + __pyx_t_6 * __pyx_v_A.strides[0]) ) + __pyx_t_7 * __pyx_v_A.strides[1]) ))));
       } catch(...) {
         __Pyx_CppExn2PyErr();
-        __PYX_ERR(0, 191, __pyx_L1_error)
+        __PYX_ERR(0, 193, __pyx_L1_error)
       }
 
-      /* "libwalrus.pyx":190
+      /* "libwalrus.pyx":192
  *         nud.push_back(rpt[i])
  * 
  *         if mu is None:             # <<<<<<<<<<<<<<
@@ -3304,7 +3324,7 @@ static PyObject *__pyx_pf_9libwalrus_6haf_rpt_complex(CYTHON_UNUSED PyObject *__
       goto __pyx_L5;
     }
 
-    /* "libwalrus.pyx":193
+    /* "libwalrus.pyx":195
  *             d.push_back(A[i, i])
  *         else:
  *             d.push_back(mu[i])             # <<<<<<<<<<<<<<
@@ -3317,12 +3337,12 @@ static PyObject *__pyx_pf_9libwalrus_6haf_rpt_complex(CYTHON_UNUSED PyObject *__
         __pyx_v_d.push_back((*((__pyx_t_double_complex *) ( /* dim=0 */ (__pyx_v_mu.data + __pyx_t_8 * __pyx_v_mu.strides[0]) ))));
       } catch(...) {
         __Pyx_CppExn2PyErr();
-        __PYX_ERR(0, 193, __pyx_L1_error)
+        __PYX_ERR(0, 195, __pyx_L1_error)
       }
     }
     __pyx_L5:;
 
-    /* "libwalrus.pyx":195
+    /* "libwalrus.pyx":197
  *             d.push_back(mu[i])
  * 
  *         for j in range(n):             # <<<<<<<<<<<<<<
@@ -3334,7 +3354,7 @@ static PyObject *__pyx_pf_9libwalrus_6haf_rpt_complex(CYTHON_UNUSED PyObject *__
     for (__pyx_t_11 = 0; __pyx_t_11 < __pyx_t_10; __pyx_t_11+=1) {
       __pyx_v_j = __pyx_t_11;
 
-      /* "libwalrus.pyx":196
+      /* "libwalrus.pyx":198
  * 
  *         for j in range(n):
  *             mat.push_back(A[i, j])             # <<<<<<<<<<<<<<
@@ -3347,12 +3367,12 @@ static PyObject *__pyx_pf_9libwalrus_6haf_rpt_complex(CYTHON_UNUSED PyObject *__
         __pyx_v_mat.push_back((*((__pyx_t_double_complex *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_A.data + __pyx_t_12 * __pyx_v_A.strides[0]) ) + __pyx_t_13 * __pyx_v_A.strides[1]) ))));
       } catch(...) {
         __Pyx_CppExn2PyErr();
-        __PYX_ERR(0, 196, __pyx_L1_error)
+        __PYX_ERR(0, 198, __pyx_L1_error)
       }
     }
   }
 
-  /* "libwalrus.pyx":199
+  /* "libwalrus.pyx":201
  * 
  *     # Exposes a c function to python
  *     if loop:             # <<<<<<<<<<<<<<
@@ -3362,7 +3382,7 @@ static PyObject *__pyx_pf_9libwalrus_6haf_rpt_complex(CYTHON_UNUSED PyObject *__
   __pyx_t_5 = (__pyx_v_loop != 0);
   if (__pyx_t_5) {
 
-    /* "libwalrus.pyx":200
+    /* "libwalrus.pyx":202
  *     # Exposes a c function to python
  *     if loop:
  *         return loop_hafnian_rpt_quad(mat, d, nud)             # <<<<<<<<<<<<<<
@@ -3371,13 +3391,13 @@ static PyObject *__pyx_pf_9libwalrus_6haf_rpt_complex(CYTHON_UNUSED PyObject *__
  */
     __Pyx_XDECREF(__pyx_r);
     __pyx_t_14 = libwalrus::loop_hafnian_rpt_quad(__pyx_v_mat, __pyx_v_d, __pyx_v_nud);
-    __pyx_t_15 = __pyx_PyComplex_FromComplex(__pyx_t_14); if (unlikely(!__pyx_t_15)) __PYX_ERR(0, 200, __pyx_L1_error)
+    __pyx_t_15 = __pyx_PyComplex_FromComplex(__pyx_t_14); if (unlikely(!__pyx_t_15)) __PYX_ERR(0, 202, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_15);
     __pyx_r = __pyx_t_15;
     __pyx_t_15 = 0;
     goto __pyx_L0;
 
-    /* "libwalrus.pyx":199
+    /* "libwalrus.pyx":201
  * 
  *     # Exposes a c function to python
  *     if loop:             # <<<<<<<<<<<<<<
@@ -3386,7 +3406,7 @@ static PyObject *__pyx_pf_9libwalrus_6haf_rpt_complex(CYTHON_UNUSED PyObject *__
  */
   }
 
-  /* "libwalrus.pyx":202
+  /* "libwalrus.pyx":204
  *         return loop_hafnian_rpt_quad(mat, d, nud)
  * 
  *     return hafnian_rpt_quad(mat, nud)             # <<<<<<<<<<<<<<
@@ -3395,13 +3415,13 @@ static PyObject *__pyx_pf_9libwalrus_6haf_rpt_complex(CYTHON_UNUSED PyObject *__
  */
   __Pyx_XDECREF(__pyx_r);
   __pyx_t_14 = libwalrus::hafnian_rpt_quad(__pyx_v_mat, __pyx_v_nud);
-  __pyx_t_15 = __pyx_PyComplex_FromComplex(__pyx_t_14); if (unlikely(!__pyx_t_15)) __PYX_ERR(0, 202, __pyx_L1_error)
+  __pyx_t_15 = __pyx_PyComplex_FromComplex(__pyx_t_14); if (unlikely(!__pyx_t_15)) __PYX_ERR(0, 204, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_15);
   __pyx_r = __pyx_t_15;
   __pyx_t_15 = 0;
   goto __pyx_L0;
 
-  /* "libwalrus.pyx":166
+  /* "libwalrus.pyx":168
  * 
  * 
  * def haf_rpt_complex(double complex[:, :] A, int[:] rpt, double complex[:] mu=None, bint loop=False):             # <<<<<<<<<<<<<<
@@ -3423,7 +3443,7 @@ static PyObject *__pyx_pf_9libwalrus_6haf_rpt_complex(CYTHON_UNUSED PyObject *__
   return __pyx_r;
 }
 
-/* "libwalrus.pyx":209
+/* "libwalrus.pyx":211
  * 
  * 
  * def haf_int(long long[:, :] A):             # <<<<<<<<<<<<<<
@@ -3441,7 +3461,7 @@ static PyObject *__pyx_pw_9libwalrus_9haf_int(PyObject *__pyx_self, PyObject *__
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("haf_int (wrapper)", 0);
   assert(__pyx_arg_A); {
-    __pyx_v_A = __Pyx_PyObject_to_MemoryviewSlice_dsds_PY_LONG_LONG(__pyx_arg_A, PyBUF_WRITABLE); if (unlikely(!__pyx_v_A.memview)) __PYX_ERR(0, 209, __pyx_L3_error)
+    __pyx_v_A = __Pyx_PyObject_to_MemoryviewSlice_dsds_PY_LONG_LONG(__pyx_arg_A, PyBUF_WRITABLE); if (unlikely(!__pyx_v_A.memview)) __PYX_ERR(0, 211, __pyx_L3_error)
   }
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L3_error:;
@@ -3474,7 +3494,7 @@ static PyObject *__pyx_pf_9libwalrus_8haf_int(CYTHON_UNUSED PyObject *__pyx_self
   PyObject *__pyx_t_9 = NULL;
   __Pyx_RefNannySetupContext("haf_int", 0);
 
-  /* "libwalrus.pyx":221
+  /* "libwalrus.pyx":223
  *         np.int64: the hafnian of matrix A
  *     """
  *     cdef int i, j, n = A.shape[0]             # <<<<<<<<<<<<<<
@@ -3483,7 +3503,7 @@ static PyObject *__pyx_pf_9libwalrus_8haf_int(CYTHON_UNUSED PyObject *__pyx_self
  */
   __pyx_v_n = (__pyx_v_A.shape[0]);
 
-  /* "libwalrus.pyx":224
+  /* "libwalrus.pyx":226
  *     cdef vector[long long] mat
  * 
  *     for i in range(n):             # <<<<<<<<<<<<<<
@@ -3495,7 +3515,7 @@ static PyObject *__pyx_pf_9libwalrus_8haf_int(CYTHON_UNUSED PyObject *__pyx_self
   for (__pyx_t_3 = 0; __pyx_t_3 < __pyx_t_2; __pyx_t_3+=1) {
     __pyx_v_i = __pyx_t_3;
 
-    /* "libwalrus.pyx":225
+    /* "libwalrus.pyx":227
  * 
  *     for i in range(n):
  *         for j in range(n):             # <<<<<<<<<<<<<<
@@ -3507,7 +3527,7 @@ static PyObject *__pyx_pf_9libwalrus_8haf_int(CYTHON_UNUSED PyObject *__pyx_self
     for (__pyx_t_6 = 0; __pyx_t_6 < __pyx_t_5; __pyx_t_6+=1) {
       __pyx_v_j = __pyx_t_6;
 
-      /* "libwalrus.pyx":226
+      /* "libwalrus.pyx":228
  *     for i in range(n):
  *         for j in range(n):
  *             mat.push_back(A[i, j])             # <<<<<<<<<<<<<<
@@ -3520,12 +3540,12 @@ static PyObject *__pyx_pf_9libwalrus_8haf_int(CYTHON_UNUSED PyObject *__pyx_self
         __pyx_v_mat.push_back((*((PY_LONG_LONG *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_A.data + __pyx_t_7 * __pyx_v_A.strides[0]) ) + __pyx_t_8 * __pyx_v_A.strides[1]) ))));
       } catch(...) {
         __Pyx_CppExn2PyErr();
-        __PYX_ERR(0, 226, __pyx_L1_error)
+        __PYX_ERR(0, 228, __pyx_L1_error)
       }
     }
   }
 
-  /* "libwalrus.pyx":229
+  /* "libwalrus.pyx":231
  * 
  *     # Exposes a c function to python
  *     return hafnian_recursive(mat)             # <<<<<<<<<<<<<<
@@ -3533,13 +3553,13 @@ static PyObject *__pyx_pf_9libwalrus_8haf_int(CYTHON_UNUSED PyObject *__pyx_self
  * 
  */
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_9 = __Pyx_PyInt_From_PY_LONG_LONG(libwalrus::hafnian_recursive<PY_LONG_LONG>(__pyx_v_mat)); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 229, __pyx_L1_error)
+  __pyx_t_9 = __Pyx_PyInt_From_PY_LONG_LONG(libwalrus::hafnian_recursive<PY_LONG_LONG>(__pyx_v_mat)); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 231, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_9);
   __pyx_r = __pyx_t_9;
   __pyx_t_9 = 0;
   goto __pyx_L0;
 
-  /* "libwalrus.pyx":209
+  /* "libwalrus.pyx":211
  * 
  * 
  * def haf_int(long long[:, :] A):             # <<<<<<<<<<<<<<
@@ -3559,7 +3579,7 @@ static PyObject *__pyx_pf_9libwalrus_8haf_int(CYTHON_UNUSED PyObject *__pyx_self
   return __pyx_r;
 }
 
-/* "libwalrus.pyx":236
+/* "libwalrus.pyx":238
  * 
  * 
  * def haf_complex(double complex[:, :] A, bint loop=False, bint recursive=True, quad=True):             # <<<<<<<<<<<<<<
@@ -3623,7 +3643,7 @@ static PyObject *__pyx_pw_9libwalrus_11haf_complex(PyObject *__pyx_self, PyObjec
         }
       }
       if (unlikely(kw_args > 0)) {
-        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "haf_complex") < 0)) __PYX_ERR(0, 236, __pyx_L3_error)
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "haf_complex") < 0)) __PYX_ERR(0, 238, __pyx_L3_error)
       }
     } else {
       switch (PyTuple_GET_SIZE(__pyx_args)) {
@@ -3638,14 +3658,14 @@ static PyObject *__pyx_pw_9libwalrus_11haf_complex(PyObject *__pyx_self, PyObjec
         default: goto __pyx_L5_argtuple_error;
       }
     }
-    __pyx_v_A = __Pyx_PyObject_to_MemoryviewSlice_dsds___pyx_t_double_complex(values[0], PyBUF_WRITABLE); if (unlikely(!__pyx_v_A.memview)) __PYX_ERR(0, 236, __pyx_L3_error)
+    __pyx_v_A = __Pyx_PyObject_to_MemoryviewSlice_dsds___pyx_t_double_complex(values[0], PyBUF_WRITABLE); if (unlikely(!__pyx_v_A.memview)) __PYX_ERR(0, 238, __pyx_L3_error)
     if (values[1]) {
-      __pyx_v_loop = __Pyx_PyObject_IsTrue(values[1]); if (unlikely((__pyx_v_loop == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 236, __pyx_L3_error)
+      __pyx_v_loop = __Pyx_PyObject_IsTrue(values[1]); if (unlikely((__pyx_v_loop == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 238, __pyx_L3_error)
     } else {
       __pyx_v_loop = ((int)0);
     }
     if (values[2]) {
-      __pyx_v_recursive = __Pyx_PyObject_IsTrue(values[2]); if (unlikely((__pyx_v_recursive == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 236, __pyx_L3_error)
+      __pyx_v_recursive = __Pyx_PyObject_IsTrue(values[2]); if (unlikely((__pyx_v_recursive == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 238, __pyx_L3_error)
     } else {
       __pyx_v_recursive = ((int)1);
     }
@@ -3653,7 +3673,7 @@ static PyObject *__pyx_pw_9libwalrus_11haf_complex(PyObject *__pyx_self, PyObjec
   }
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("haf_complex", 0, 1, 4, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 236, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("haf_complex", 0, 1, 4, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 238, __pyx_L3_error)
   __pyx_L3_error:;
   __Pyx_AddTraceback("libwalrus.haf_complex", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
@@ -3686,7 +3706,7 @@ static PyObject *__pyx_pf_9libwalrus_10haf_complex(CYTHON_UNUSED PyObject *__pyx
   PyObject *__pyx_t_11 = NULL;
   __Pyx_RefNannySetupContext("haf_complex", 0);
 
-  /* "libwalrus.pyx":250
+  /* "libwalrus.pyx":252
  *         np.complex128: the hafnian of matrix A
  *     """
  *     cdef int i, j, n = A.shape[0]             # <<<<<<<<<<<<<<
@@ -3695,7 +3715,7 @@ static PyObject *__pyx_pf_9libwalrus_10haf_complex(CYTHON_UNUSED PyObject *__pyx
  */
   __pyx_v_n = (__pyx_v_A.shape[0]);
 
-  /* "libwalrus.pyx":253
+  /* "libwalrus.pyx":255
  *     cdef vector[double complex] mat
  * 
  *     for i in range(n):             # <<<<<<<<<<<<<<
@@ -3707,7 +3727,7 @@ static PyObject *__pyx_pf_9libwalrus_10haf_complex(CYTHON_UNUSED PyObject *__pyx
   for (__pyx_t_3 = 0; __pyx_t_3 < __pyx_t_2; __pyx_t_3+=1) {
     __pyx_v_i = __pyx_t_3;
 
-    /* "libwalrus.pyx":254
+    /* "libwalrus.pyx":256
  * 
  *     for i in range(n):
  *         for j in range(n):             # <<<<<<<<<<<<<<
@@ -3719,7 +3739,7 @@ static PyObject *__pyx_pf_9libwalrus_10haf_complex(CYTHON_UNUSED PyObject *__pyx
     for (__pyx_t_6 = 0; __pyx_t_6 < __pyx_t_5; __pyx_t_6+=1) {
       __pyx_v_j = __pyx_t_6;
 
-      /* "libwalrus.pyx":255
+      /* "libwalrus.pyx":257
  *     for i in range(n):
  *         for j in range(n):
  *             mat.push_back(A[i, j])             # <<<<<<<<<<<<<<
@@ -3732,12 +3752,12 @@ static PyObject *__pyx_pf_9libwalrus_10haf_complex(CYTHON_UNUSED PyObject *__pyx
         __pyx_v_mat.push_back((*((__pyx_t_double_complex *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_A.data + __pyx_t_7 * __pyx_v_A.strides[0]) ) + __pyx_t_8 * __pyx_v_A.strides[1]) ))));
       } catch(...) {
         __Pyx_CppExn2PyErr();
-        __PYX_ERR(0, 255, __pyx_L1_error)
+        __PYX_ERR(0, 257, __pyx_L1_error)
       }
     }
   }
 
-  /* "libwalrus.pyx":258
+  /* "libwalrus.pyx":260
  * 
  *     # Exposes a c function to python
  *     if loop:             # <<<<<<<<<<<<<<
@@ -3747,7 +3767,7 @@ static PyObject *__pyx_pf_9libwalrus_10haf_complex(CYTHON_UNUSED PyObject *__pyx
   __pyx_t_9 = (__pyx_v_loop != 0);
   if (__pyx_t_9) {
 
-    /* "libwalrus.pyx":259
+    /* "libwalrus.pyx":261
  *     # Exposes a c function to python
  *     if loop:
  *         return loop_hafnian(mat)             # <<<<<<<<<<<<<<
@@ -3756,13 +3776,13 @@ static PyObject *__pyx_pf_9libwalrus_10haf_complex(CYTHON_UNUSED PyObject *__pyx
  */
     __Pyx_XDECREF(__pyx_r);
     __pyx_t_10 = libwalrus::loop_hafnian<__pyx_t_double_complex>(__pyx_v_mat);
-    __pyx_t_11 = __pyx_PyComplex_FromComplex(__pyx_t_10); if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 259, __pyx_L1_error)
+    __pyx_t_11 = __pyx_PyComplex_FromComplex(__pyx_t_10); if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 261, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_11);
     __pyx_r = __pyx_t_11;
     __pyx_t_11 = 0;
     goto __pyx_L0;
 
-    /* "libwalrus.pyx":258
+    /* "libwalrus.pyx":260
  * 
  *     # Exposes a c function to python
  *     if loop:             # <<<<<<<<<<<<<<
@@ -3771,7 +3791,7 @@ static PyObject *__pyx_pf_9libwalrus_10haf_complex(CYTHON_UNUSED PyObject *__pyx
  */
   }
 
-  /* "libwalrus.pyx":261
+  /* "libwalrus.pyx":263
  *         return loop_hafnian(mat)
  * 
  *     if recursive:             # <<<<<<<<<<<<<<
@@ -3781,17 +3801,17 @@ static PyObject *__pyx_pf_9libwalrus_10haf_complex(CYTHON_UNUSED PyObject *__pyx
   __pyx_t_9 = (__pyx_v_recursive != 0);
   if (__pyx_t_9) {
 
-    /* "libwalrus.pyx":262
+    /* "libwalrus.pyx":264
  * 
  *     if recursive:
  *         if quad:             # <<<<<<<<<<<<<<
  *             return hafnian_recursive_quad(mat)
  *         return hafnian_recursive(mat)
  */
-    __pyx_t_9 = __Pyx_PyObject_IsTrue(__pyx_v_quad); if (unlikely(__pyx_t_9 < 0)) __PYX_ERR(0, 262, __pyx_L1_error)
+    __pyx_t_9 = __Pyx_PyObject_IsTrue(__pyx_v_quad); if (unlikely(__pyx_t_9 < 0)) __PYX_ERR(0, 264, __pyx_L1_error)
     if (__pyx_t_9) {
 
-      /* "libwalrus.pyx":263
+      /* "libwalrus.pyx":265
  *     if recursive:
  *         if quad:
  *             return hafnian_recursive_quad(mat)             # <<<<<<<<<<<<<<
@@ -3800,13 +3820,13 @@ static PyObject *__pyx_pf_9libwalrus_10haf_complex(CYTHON_UNUSED PyObject *__pyx
  */
       __Pyx_XDECREF(__pyx_r);
       __pyx_t_10 = libwalrus::hafnian_recursive_quad(__pyx_v_mat);
-      __pyx_t_11 = __pyx_PyComplex_FromComplex(__pyx_t_10); if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 263, __pyx_L1_error)
+      __pyx_t_11 = __pyx_PyComplex_FromComplex(__pyx_t_10); if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 265, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_11);
       __pyx_r = __pyx_t_11;
       __pyx_t_11 = 0;
       goto __pyx_L0;
 
-      /* "libwalrus.pyx":262
+      /* "libwalrus.pyx":264
  * 
  *     if recursive:
  *         if quad:             # <<<<<<<<<<<<<<
@@ -3815,7 +3835,7 @@ static PyObject *__pyx_pf_9libwalrus_10haf_complex(CYTHON_UNUSED PyObject *__pyx
  */
     }
 
-    /* "libwalrus.pyx":264
+    /* "libwalrus.pyx":266
  *         if quad:
  *             return hafnian_recursive_quad(mat)
  *         return hafnian_recursive(mat)             # <<<<<<<<<<<<<<
@@ -3824,13 +3844,13 @@ static PyObject *__pyx_pf_9libwalrus_10haf_complex(CYTHON_UNUSED PyObject *__pyx
  */
     __Pyx_XDECREF(__pyx_r);
     __pyx_t_10 = libwalrus::hafnian_recursive<__pyx_t_double_complex>(__pyx_v_mat);
-    __pyx_t_11 = __pyx_PyComplex_FromComplex(__pyx_t_10); if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 264, __pyx_L1_error)
+    __pyx_t_11 = __pyx_PyComplex_FromComplex(__pyx_t_10); if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 266, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_11);
     __pyx_r = __pyx_t_11;
     __pyx_t_11 = 0;
     goto __pyx_L0;
 
-    /* "libwalrus.pyx":261
+    /* "libwalrus.pyx":263
  *         return loop_hafnian(mat)
  * 
  *     if recursive:             # <<<<<<<<<<<<<<
@@ -3839,7 +3859,7 @@ static PyObject *__pyx_pf_9libwalrus_10haf_complex(CYTHON_UNUSED PyObject *__pyx
  */
   }
 
-  /* "libwalrus.pyx":266
+  /* "libwalrus.pyx":268
  *         return hafnian_recursive(mat)
  * 
  *     return hafnian(mat)             # <<<<<<<<<<<<<<
@@ -3848,13 +3868,13 @@ static PyObject *__pyx_pf_9libwalrus_10haf_complex(CYTHON_UNUSED PyObject *__pyx
  */
   __Pyx_XDECREF(__pyx_r);
   __pyx_t_10 = libwalrus::hafnian<__pyx_t_double_complex>(__pyx_v_mat);
-  __pyx_t_11 = __pyx_PyComplex_FromComplex(__pyx_t_10); if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 266, __pyx_L1_error)
+  __pyx_t_11 = __pyx_PyComplex_FromComplex(__pyx_t_10); if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 268, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_11);
   __pyx_r = __pyx_t_11;
   __pyx_t_11 = 0;
   goto __pyx_L0;
 
-  /* "libwalrus.pyx":236
+  /* "libwalrus.pyx":238
  * 
  * 
  * def haf_complex(double complex[:, :] A, bint loop=False, bint recursive=True, quad=True):             # <<<<<<<<<<<<<<
@@ -3874,7 +3894,7 @@ static PyObject *__pyx_pf_9libwalrus_10haf_complex(CYTHON_UNUSED PyObject *__pyx
   return __pyx_r;
 }
 
-/* "libwalrus.pyx":269
+/* "libwalrus.pyx":271
  * 
  * 
  * def haf_real(double[:, :] A, bint loop=False, bint recursive=True, quad=True, bint approx=False, nsamples=1000):             # <<<<<<<<<<<<<<
@@ -3957,7 +3977,7 @@ static PyObject *__pyx_pw_9libwalrus_13haf_real(PyObject *__pyx_self, PyObject *
         }
       }
       if (unlikely(kw_args > 0)) {
-        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "haf_real") < 0)) __PYX_ERR(0, 269, __pyx_L3_error)
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "haf_real") < 0)) __PYX_ERR(0, 271, __pyx_L3_error)
       }
     } else {
       switch (PyTuple_GET_SIZE(__pyx_args)) {
@@ -3976,20 +3996,20 @@ static PyObject *__pyx_pw_9libwalrus_13haf_real(PyObject *__pyx_self, PyObject *
         default: goto __pyx_L5_argtuple_error;
       }
     }
-    __pyx_v_A = __Pyx_PyObject_to_MemoryviewSlice_dsds_double(values[0], PyBUF_WRITABLE); if (unlikely(!__pyx_v_A.memview)) __PYX_ERR(0, 269, __pyx_L3_error)
+    __pyx_v_A = __Pyx_PyObject_to_MemoryviewSlice_dsds_double(values[0], PyBUF_WRITABLE); if (unlikely(!__pyx_v_A.memview)) __PYX_ERR(0, 271, __pyx_L3_error)
     if (values[1]) {
-      __pyx_v_loop = __Pyx_PyObject_IsTrue(values[1]); if (unlikely((__pyx_v_loop == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 269, __pyx_L3_error)
+      __pyx_v_loop = __Pyx_PyObject_IsTrue(values[1]); if (unlikely((__pyx_v_loop == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 271, __pyx_L3_error)
     } else {
       __pyx_v_loop = ((int)0);
     }
     if (values[2]) {
-      __pyx_v_recursive = __Pyx_PyObject_IsTrue(values[2]); if (unlikely((__pyx_v_recursive == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 269, __pyx_L3_error)
+      __pyx_v_recursive = __Pyx_PyObject_IsTrue(values[2]); if (unlikely((__pyx_v_recursive == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 271, __pyx_L3_error)
     } else {
       __pyx_v_recursive = ((int)1);
     }
     __pyx_v_quad = values[3];
     if (values[4]) {
-      __pyx_v_approx = __Pyx_PyObject_IsTrue(values[4]); if (unlikely((__pyx_v_approx == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 269, __pyx_L3_error)
+      __pyx_v_approx = __Pyx_PyObject_IsTrue(values[4]); if (unlikely((__pyx_v_approx == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 271, __pyx_L3_error)
     } else {
       __pyx_v_approx = ((int)0);
     }
@@ -3997,7 +4017,7 @@ static PyObject *__pyx_pw_9libwalrus_13haf_real(PyObject *__pyx_self, PyObject *
   }
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("haf_real", 0, 1, 6, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 269, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("haf_real", 0, 1, 6, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 271, __pyx_L3_error)
   __pyx_L3_error:;
   __Pyx_AddTraceback("libwalrus.haf_real", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
@@ -4029,7 +4049,7 @@ static PyObject *__pyx_pf_9libwalrus_12haf_real(CYTHON_UNUSED PyObject *__pyx_se
   PyObject *__pyx_t_10 = NULL;
   __Pyx_RefNannySetupContext("haf_real", 0);
 
-  /* "libwalrus.pyx":287
+  /* "libwalrus.pyx":289
  *         np.float64: the hafnian of matrix A
  *     """
  *     cdef int i, j, n = A.shape[0]             # <<<<<<<<<<<<<<
@@ -4038,7 +4058,7 @@ static PyObject *__pyx_pf_9libwalrus_12haf_real(CYTHON_UNUSED PyObject *__pyx_se
  */
   __pyx_v_n = (__pyx_v_A.shape[0]);
 
-  /* "libwalrus.pyx":290
+  /* "libwalrus.pyx":292
  *     cdef vector[double] mat
  * 
  *     for i in range(n):             # <<<<<<<<<<<<<<
@@ -4050,7 +4070,7 @@ static PyObject *__pyx_pf_9libwalrus_12haf_real(CYTHON_UNUSED PyObject *__pyx_se
   for (__pyx_t_3 = 0; __pyx_t_3 < __pyx_t_2; __pyx_t_3+=1) {
     __pyx_v_i = __pyx_t_3;
 
-    /* "libwalrus.pyx":291
+    /* "libwalrus.pyx":293
  * 
  *     for i in range(n):
  *         for j in range(n):             # <<<<<<<<<<<<<<
@@ -4062,7 +4082,7 @@ static PyObject *__pyx_pf_9libwalrus_12haf_real(CYTHON_UNUSED PyObject *__pyx_se
     for (__pyx_t_6 = 0; __pyx_t_6 < __pyx_t_5; __pyx_t_6+=1) {
       __pyx_v_j = __pyx_t_6;
 
-      /* "libwalrus.pyx":292
+      /* "libwalrus.pyx":294
  *     for i in range(n):
  *         for j in range(n):
  *             mat.push_back(A[i, j])             # <<<<<<<<<<<<<<
@@ -4075,12 +4095,12 @@ static PyObject *__pyx_pf_9libwalrus_12haf_real(CYTHON_UNUSED PyObject *__pyx_se
         __pyx_v_mat.push_back((*((double *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_A.data + __pyx_t_7 * __pyx_v_A.strides[0]) ) + __pyx_t_8 * __pyx_v_A.strides[1]) ))));
       } catch(...) {
         __Pyx_CppExn2PyErr();
-        __PYX_ERR(0, 292, __pyx_L1_error)
+        __PYX_ERR(0, 294, __pyx_L1_error)
       }
     }
   }
 
-  /* "libwalrus.pyx":295
+  /* "libwalrus.pyx":297
  * 
  *     # Exposes a c function to python
  *     if loop:             # <<<<<<<<<<<<<<
@@ -4090,7 +4110,7 @@ static PyObject *__pyx_pf_9libwalrus_12haf_real(CYTHON_UNUSED PyObject *__pyx_se
   __pyx_t_9 = (__pyx_v_loop != 0);
   if (__pyx_t_9) {
 
-    /* "libwalrus.pyx":296
+    /* "libwalrus.pyx":298
  *     # Exposes a c function to python
  *     if loop:
  *         return loop_hafnian(mat)             # <<<<<<<<<<<<<<
@@ -4098,13 +4118,13 @@ static PyObject *__pyx_pf_9libwalrus_12haf_real(CYTHON_UNUSED PyObject *__pyx_se
  *     if approx:
  */
     __Pyx_XDECREF(__pyx_r);
-    __pyx_t_10 = PyFloat_FromDouble(libwalrus::loop_hafnian<double>(__pyx_v_mat)); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 296, __pyx_L1_error)
+    __pyx_t_10 = PyFloat_FromDouble(libwalrus::loop_hafnian<double>(__pyx_v_mat)); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 298, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_10);
     __pyx_r = __pyx_t_10;
     __pyx_t_10 = 0;
     goto __pyx_L0;
 
-    /* "libwalrus.pyx":295
+    /* "libwalrus.pyx":297
  * 
  *     # Exposes a c function to python
  *     if loop:             # <<<<<<<<<<<<<<
@@ -4113,7 +4133,7 @@ static PyObject *__pyx_pf_9libwalrus_12haf_real(CYTHON_UNUSED PyObject *__pyx_se
  */
   }
 
-  /* "libwalrus.pyx":298
+  /* "libwalrus.pyx":300
  *         return loop_hafnian(mat)
  * 
  *     if approx:             # <<<<<<<<<<<<<<
@@ -4123,7 +4143,7 @@ static PyObject *__pyx_pf_9libwalrus_12haf_real(CYTHON_UNUSED PyObject *__pyx_se
   __pyx_t_9 = (__pyx_v_approx != 0);
   if (__pyx_t_9) {
 
-    /* "libwalrus.pyx":299
+    /* "libwalrus.pyx":301
  * 
  *     if approx:
  *         return hafnian_approx(mat, nsamples)             # <<<<<<<<<<<<<<
@@ -4131,14 +4151,14 @@ static PyObject *__pyx_pf_9libwalrus_12haf_real(CYTHON_UNUSED PyObject *__pyx_se
  *     if recursive:
  */
     __Pyx_XDECREF(__pyx_r);
-    __pyx_t_1 = __Pyx_PyInt_As_int(__pyx_v_nsamples); if (unlikely((__pyx_t_1 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 299, __pyx_L1_error)
-    __pyx_t_10 = PyFloat_FromDouble(libwalrus::hafnian_approx(__pyx_v_mat, __pyx_t_1)); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 299, __pyx_L1_error)
+    __pyx_t_1 = __Pyx_PyInt_As_int(__pyx_v_nsamples); if (unlikely((__pyx_t_1 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 301, __pyx_L1_error)
+    __pyx_t_10 = PyFloat_FromDouble(libwalrus::hafnian_approx(__pyx_v_mat, __pyx_t_1)); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 301, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_10);
     __pyx_r = __pyx_t_10;
     __pyx_t_10 = 0;
     goto __pyx_L0;
 
-    /* "libwalrus.pyx":298
+    /* "libwalrus.pyx":300
  *         return loop_hafnian(mat)
  * 
  *     if approx:             # <<<<<<<<<<<<<<
@@ -4147,7 +4167,7 @@ static PyObject *__pyx_pf_9libwalrus_12haf_real(CYTHON_UNUSED PyObject *__pyx_se
  */
   }
 
-  /* "libwalrus.pyx":301
+  /* "libwalrus.pyx":303
  *         return hafnian_approx(mat, nsamples)
  * 
  *     if recursive:             # <<<<<<<<<<<<<<
@@ -4157,17 +4177,17 @@ static PyObject *__pyx_pf_9libwalrus_12haf_real(CYTHON_UNUSED PyObject *__pyx_se
   __pyx_t_9 = (__pyx_v_recursive != 0);
   if (__pyx_t_9) {
 
-    /* "libwalrus.pyx":302
+    /* "libwalrus.pyx":304
  * 
  *     if recursive:
  *         if quad:             # <<<<<<<<<<<<<<
  *             return hafnian_recursive_quad(mat)
  *         return hafnian_recursive(mat)
  */
-    __pyx_t_9 = __Pyx_PyObject_IsTrue(__pyx_v_quad); if (unlikely(__pyx_t_9 < 0)) __PYX_ERR(0, 302, __pyx_L1_error)
+    __pyx_t_9 = __Pyx_PyObject_IsTrue(__pyx_v_quad); if (unlikely(__pyx_t_9 < 0)) __PYX_ERR(0, 304, __pyx_L1_error)
     if (__pyx_t_9) {
 
-      /* "libwalrus.pyx":303
+      /* "libwalrus.pyx":305
  *     if recursive:
  *         if quad:
  *             return hafnian_recursive_quad(mat)             # <<<<<<<<<<<<<<
@@ -4175,13 +4195,13 @@ static PyObject *__pyx_pf_9libwalrus_12haf_real(CYTHON_UNUSED PyObject *__pyx_se
  * 
  */
       __Pyx_XDECREF(__pyx_r);
-      __pyx_t_10 = PyFloat_FromDouble(libwalrus::hafnian_recursive_quad(__pyx_v_mat)); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 303, __pyx_L1_error)
+      __pyx_t_10 = PyFloat_FromDouble(libwalrus::hafnian_recursive_quad(__pyx_v_mat)); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 305, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_10);
       __pyx_r = __pyx_t_10;
       __pyx_t_10 = 0;
       goto __pyx_L0;
 
-      /* "libwalrus.pyx":302
+      /* "libwalrus.pyx":304
  * 
  *     if recursive:
  *         if quad:             # <<<<<<<<<<<<<<
@@ -4190,7 +4210,7 @@ static PyObject *__pyx_pf_9libwalrus_12haf_real(CYTHON_UNUSED PyObject *__pyx_se
  */
     }
 
-    /* "libwalrus.pyx":304
+    /* "libwalrus.pyx":306
  *         if quad:
  *             return hafnian_recursive_quad(mat)
  *         return hafnian_recursive(mat)             # <<<<<<<<<<<<<<
@@ -4198,13 +4218,13 @@ static PyObject *__pyx_pf_9libwalrus_12haf_real(CYTHON_UNUSED PyObject *__pyx_se
  *     return hafnian(mat)
  */
     __Pyx_XDECREF(__pyx_r);
-    __pyx_t_10 = PyFloat_FromDouble(libwalrus::hafnian_recursive<double>(__pyx_v_mat)); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 304, __pyx_L1_error)
+    __pyx_t_10 = PyFloat_FromDouble(libwalrus::hafnian_recursive<double>(__pyx_v_mat)); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 306, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_10);
     __pyx_r = __pyx_t_10;
     __pyx_t_10 = 0;
     goto __pyx_L0;
 
-    /* "libwalrus.pyx":301
+    /* "libwalrus.pyx":303
  *         return hafnian_approx(mat, nsamples)
  * 
  *     if recursive:             # <<<<<<<<<<<<<<
@@ -4213,7 +4233,7 @@ static PyObject *__pyx_pf_9libwalrus_12haf_real(CYTHON_UNUSED PyObject *__pyx_se
  */
   }
 
-  /* "libwalrus.pyx":306
+  /* "libwalrus.pyx":308
  *         return hafnian_recursive(mat)
  * 
  *     return hafnian(mat)             # <<<<<<<<<<<<<<
@@ -4221,13 +4241,13 @@ static PyObject *__pyx_pf_9libwalrus_12haf_real(CYTHON_UNUSED PyObject *__pyx_se
  * 
  */
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_10 = PyFloat_FromDouble(libwalrus::hafnian<double>(__pyx_v_mat)); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 306, __pyx_L1_error)
+  __pyx_t_10 = PyFloat_FromDouble(libwalrus::hafnian<double>(__pyx_v_mat)); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 308, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_10);
   __pyx_r = __pyx_t_10;
   __pyx_t_10 = 0;
   goto __pyx_L0;
 
-  /* "libwalrus.pyx":269
+  /* "libwalrus.pyx":271
  * 
  * 
  * def haf_real(double[:, :] A, bint loop=False, bint recursive=True, quad=True, bint approx=False, nsamples=1000):             # <<<<<<<<<<<<<<
@@ -4247,7 +4267,7 @@ static PyObject *__pyx_pf_9libwalrus_12haf_real(CYTHON_UNUSED PyObject *__pyx_se
   return __pyx_r;
 }
 
-/* "libwalrus.pyx":314
+/* "libwalrus.pyx":316
  * 
  * 
  * def perm_complex(double complex[:, :] A, quad=True):             # <<<<<<<<<<<<<<
@@ -4293,7 +4313,7 @@ static PyObject *__pyx_pw_9libwalrus_15perm_complex(PyObject *__pyx_self, PyObje
         }
       }
       if (unlikely(kw_args > 0)) {
-        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "perm_complex") < 0)) __PYX_ERR(0, 314, __pyx_L3_error)
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "perm_complex") < 0)) __PYX_ERR(0, 316, __pyx_L3_error)
       }
     } else {
       switch (PyTuple_GET_SIZE(__pyx_args)) {
@@ -4304,12 +4324,12 @@ static PyObject *__pyx_pw_9libwalrus_15perm_complex(PyObject *__pyx_self, PyObje
         default: goto __pyx_L5_argtuple_error;
       }
     }
-    __pyx_v_A = __Pyx_PyObject_to_MemoryviewSlice_dsds___pyx_t_double_complex(values[0], PyBUF_WRITABLE); if (unlikely(!__pyx_v_A.memview)) __PYX_ERR(0, 314, __pyx_L3_error)
+    __pyx_v_A = __Pyx_PyObject_to_MemoryviewSlice_dsds___pyx_t_double_complex(values[0], PyBUF_WRITABLE); if (unlikely(!__pyx_v_A.memview)) __PYX_ERR(0, 316, __pyx_L3_error)
     __pyx_v_quad = values[1];
   }
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("perm_complex", 0, 1, 2, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 314, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("perm_complex", 0, 1, 2, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 316, __pyx_L3_error)
   __pyx_L3_error:;
   __Pyx_AddTraceback("libwalrus.perm_complex", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
@@ -4342,7 +4362,7 @@ static PyObject *__pyx_pf_9libwalrus_14perm_complex(CYTHON_UNUSED PyObject *__py
   PyObject *__pyx_t_11 = NULL;
   __Pyx_RefNannySetupContext("perm_complex", 0);
 
-  /* "libwalrus.pyx":325
+  /* "libwalrus.pyx":327
  *         np.complex128: the hafnian of matrix A
  *     """
  *     cdef int i, j, n = A.shape[0]             # <<<<<<<<<<<<<<
@@ -4351,7 +4371,7 @@ static PyObject *__pyx_pf_9libwalrus_14perm_complex(CYTHON_UNUSED PyObject *__py
  */
   __pyx_v_n = (__pyx_v_A.shape[0]);
 
-  /* "libwalrus.pyx":328
+  /* "libwalrus.pyx":330
  *     cdef vector[double complex] mat
  * 
  *     for i in range(n):             # <<<<<<<<<<<<<<
@@ -4363,7 +4383,7 @@ static PyObject *__pyx_pf_9libwalrus_14perm_complex(CYTHON_UNUSED PyObject *__py
   for (__pyx_t_3 = 0; __pyx_t_3 < __pyx_t_2; __pyx_t_3+=1) {
     __pyx_v_i = __pyx_t_3;
 
-    /* "libwalrus.pyx":329
+    /* "libwalrus.pyx":331
  * 
  *     for i in range(n):
  *         for j in range(n):             # <<<<<<<<<<<<<<
@@ -4375,7 +4395,7 @@ static PyObject *__pyx_pf_9libwalrus_14perm_complex(CYTHON_UNUSED PyObject *__py
     for (__pyx_t_6 = 0; __pyx_t_6 < __pyx_t_5; __pyx_t_6+=1) {
       __pyx_v_j = __pyx_t_6;
 
-      /* "libwalrus.pyx":330
+      /* "libwalrus.pyx":332
  *     for i in range(n):
  *         for j in range(n):
  *             mat.push_back(A[i, j])             # <<<<<<<<<<<<<<
@@ -4388,22 +4408,22 @@ static PyObject *__pyx_pf_9libwalrus_14perm_complex(CYTHON_UNUSED PyObject *__py
         __pyx_v_mat.push_back((*((__pyx_t_double_complex *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_A.data + __pyx_t_7 * __pyx_v_A.strides[0]) ) + __pyx_t_8 * __pyx_v_A.strides[1]) ))));
       } catch(...) {
         __Pyx_CppExn2PyErr();
-        __PYX_ERR(0, 330, __pyx_L1_error)
+        __PYX_ERR(0, 332, __pyx_L1_error)
       }
     }
   }
 
-  /* "libwalrus.pyx":333
+  /* "libwalrus.pyx":335
  * 
  *     # Exposes a c function to python
  *     if quad:             # <<<<<<<<<<<<<<
  *         return permanent_quad(mat)
  * 
  */
-  __pyx_t_9 = __Pyx_PyObject_IsTrue(__pyx_v_quad); if (unlikely(__pyx_t_9 < 0)) __PYX_ERR(0, 333, __pyx_L1_error)
+  __pyx_t_9 = __Pyx_PyObject_IsTrue(__pyx_v_quad); if (unlikely(__pyx_t_9 < 0)) __PYX_ERR(0, 335, __pyx_L1_error)
   if (__pyx_t_9) {
 
-    /* "libwalrus.pyx":334
+    /* "libwalrus.pyx":336
  *     # Exposes a c function to python
  *     if quad:
  *         return permanent_quad(mat)             # <<<<<<<<<<<<<<
@@ -4412,13 +4432,13 @@ static PyObject *__pyx_pf_9libwalrus_14perm_complex(CYTHON_UNUSED PyObject *__py
  */
     __Pyx_XDECREF(__pyx_r);
     __pyx_t_10 = libwalrus::permanent_quad(__pyx_v_mat);
-    __pyx_t_11 = __pyx_PyComplex_FromComplex(__pyx_t_10); if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 334, __pyx_L1_error)
+    __pyx_t_11 = __pyx_PyComplex_FromComplex(__pyx_t_10); if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 336, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_11);
     __pyx_r = __pyx_t_11;
     __pyx_t_11 = 0;
     goto __pyx_L0;
 
-    /* "libwalrus.pyx":333
+    /* "libwalrus.pyx":335
  * 
  *     # Exposes a c function to python
  *     if quad:             # <<<<<<<<<<<<<<
@@ -4427,7 +4447,7 @@ static PyObject *__pyx_pf_9libwalrus_14perm_complex(CYTHON_UNUSED PyObject *__py
  */
   }
 
-  /* "libwalrus.pyx":336
+  /* "libwalrus.pyx":338
  *         return permanent_quad(mat)
  * 
  *     return permanent(mat)             # <<<<<<<<<<<<<<
@@ -4436,13 +4456,13 @@ static PyObject *__pyx_pf_9libwalrus_14perm_complex(CYTHON_UNUSED PyObject *__py
  */
   __Pyx_XDECREF(__pyx_r);
   __pyx_t_10 = libwalrus::permanent<__pyx_t_double_complex>(__pyx_v_mat);
-  __pyx_t_11 = __pyx_PyComplex_FromComplex(__pyx_t_10); if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 336, __pyx_L1_error)
+  __pyx_t_11 = __pyx_PyComplex_FromComplex(__pyx_t_10); if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 338, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_11);
   __pyx_r = __pyx_t_11;
   __pyx_t_11 = 0;
   goto __pyx_L0;
 
-  /* "libwalrus.pyx":314
+  /* "libwalrus.pyx":316
  * 
  * 
  * def perm_complex(double complex[:, :] A, quad=True):             # <<<<<<<<<<<<<<
@@ -4462,7 +4482,7 @@ static PyObject *__pyx_pf_9libwalrus_14perm_complex(CYTHON_UNUSED PyObject *__py
   return __pyx_r;
 }
 
-/* "libwalrus.pyx":339
+/* "libwalrus.pyx":341
  * 
  * 
  * def perm_real(double [:, :] A, quad=True, fsum=False):             # <<<<<<<<<<<<<<
@@ -4518,7 +4538,7 @@ static PyObject *__pyx_pw_9libwalrus_17perm_real(PyObject *__pyx_self, PyObject 
         }
       }
       if (unlikely(kw_args > 0)) {
-        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "perm_real") < 0)) __PYX_ERR(0, 339, __pyx_L3_error)
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "perm_real") < 0)) __PYX_ERR(0, 341, __pyx_L3_error)
       }
     } else {
       switch (PyTuple_GET_SIZE(__pyx_args)) {
@@ -4531,13 +4551,13 @@ static PyObject *__pyx_pw_9libwalrus_17perm_real(PyObject *__pyx_self, PyObject 
         default: goto __pyx_L5_argtuple_error;
       }
     }
-    __pyx_v_A = __Pyx_PyObject_to_MemoryviewSlice_dsds_double(values[0], PyBUF_WRITABLE); if (unlikely(!__pyx_v_A.memview)) __PYX_ERR(0, 339, __pyx_L3_error)
+    __pyx_v_A = __Pyx_PyObject_to_MemoryviewSlice_dsds_double(values[0], PyBUF_WRITABLE); if (unlikely(!__pyx_v_A.memview)) __PYX_ERR(0, 341, __pyx_L3_error)
     __pyx_v_quad = values[1];
     __pyx_v_fsum = values[2];
   }
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("perm_real", 0, 1, 3, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 339, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("perm_real", 0, 1, 3, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 341, __pyx_L3_error)
   __pyx_L3_error:;
   __Pyx_AddTraceback("libwalrus.perm_real", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
@@ -4569,7 +4589,7 @@ static PyObject *__pyx_pf_9libwalrus_16perm_real(CYTHON_UNUSED PyObject *__pyx_s
   PyObject *__pyx_t_10 = NULL;
   __Pyx_RefNannySetupContext("perm_real", 0);
 
-  /* "libwalrus.pyx":352
+  /* "libwalrus.pyx":354
  *         np.float64: the hafnian of matrix A
  *     """
  *     cdef int i, j, n = A.shape[0]             # <<<<<<<<<<<<<<
@@ -4578,7 +4598,7 @@ static PyObject *__pyx_pf_9libwalrus_16perm_real(CYTHON_UNUSED PyObject *__pyx_s
  */
   __pyx_v_n = (__pyx_v_A.shape[0]);
 
-  /* "libwalrus.pyx":355
+  /* "libwalrus.pyx":357
  *     cdef vector[double] mat
  * 
  *     for i in range(n):             # <<<<<<<<<<<<<<
@@ -4590,7 +4610,7 @@ static PyObject *__pyx_pf_9libwalrus_16perm_real(CYTHON_UNUSED PyObject *__pyx_s
   for (__pyx_t_3 = 0; __pyx_t_3 < __pyx_t_2; __pyx_t_3+=1) {
     __pyx_v_i = __pyx_t_3;
 
-    /* "libwalrus.pyx":356
+    /* "libwalrus.pyx":358
  * 
  *     for i in range(n):
  *         for j in range(n):             # <<<<<<<<<<<<<<
@@ -4602,7 +4622,7 @@ static PyObject *__pyx_pf_9libwalrus_16perm_real(CYTHON_UNUSED PyObject *__pyx_s
     for (__pyx_t_6 = 0; __pyx_t_6 < __pyx_t_5; __pyx_t_6+=1) {
       __pyx_v_j = __pyx_t_6;
 
-      /* "libwalrus.pyx":357
+      /* "libwalrus.pyx":359
  *     for i in range(n):
  *         for j in range(n):
  *             mat.push_back(A[i, j])             # <<<<<<<<<<<<<<
@@ -4615,22 +4635,22 @@ static PyObject *__pyx_pf_9libwalrus_16perm_real(CYTHON_UNUSED PyObject *__pyx_s
         __pyx_v_mat.push_back((*((double *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_A.data + __pyx_t_7 * __pyx_v_A.strides[0]) ) + __pyx_t_8 * __pyx_v_A.strides[1]) ))));
       } catch(...) {
         __Pyx_CppExn2PyErr();
-        __PYX_ERR(0, 357, __pyx_L1_error)
+        __PYX_ERR(0, 359, __pyx_L1_error)
       }
     }
   }
 
-  /* "libwalrus.pyx":359
+  /* "libwalrus.pyx":361
  *             mat.push_back(A[i, j])
  * 
  *     if fsum:             # <<<<<<<<<<<<<<
  *         return permanent_fsum(mat)
  * 
  */
-  __pyx_t_9 = __Pyx_PyObject_IsTrue(__pyx_v_fsum); if (unlikely(__pyx_t_9 < 0)) __PYX_ERR(0, 359, __pyx_L1_error)
+  __pyx_t_9 = __Pyx_PyObject_IsTrue(__pyx_v_fsum); if (unlikely(__pyx_t_9 < 0)) __PYX_ERR(0, 361, __pyx_L1_error)
   if (__pyx_t_9) {
 
-    /* "libwalrus.pyx":360
+    /* "libwalrus.pyx":362
  * 
  *     if fsum:
  *         return permanent_fsum(mat)             # <<<<<<<<<<<<<<
@@ -4638,13 +4658,13 @@ static PyObject *__pyx_pf_9libwalrus_16perm_real(CYTHON_UNUSED PyObject *__pyx_s
  *     # Exposes a c function to python
  */
     __Pyx_XDECREF(__pyx_r);
-    __pyx_t_10 = PyFloat_FromDouble(libwalrus::permanent_fsum(__pyx_v_mat)); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 360, __pyx_L1_error)
+    __pyx_t_10 = PyFloat_FromDouble(libwalrus::permanent_fsum(__pyx_v_mat)); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 362, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_10);
     __pyx_r = __pyx_t_10;
     __pyx_t_10 = 0;
     goto __pyx_L0;
 
-    /* "libwalrus.pyx":359
+    /* "libwalrus.pyx":361
  *             mat.push_back(A[i, j])
  * 
  *     if fsum:             # <<<<<<<<<<<<<<
@@ -4653,17 +4673,17 @@ static PyObject *__pyx_pf_9libwalrus_16perm_real(CYTHON_UNUSED PyObject *__pyx_s
  */
   }
 
-  /* "libwalrus.pyx":363
+  /* "libwalrus.pyx":365
  * 
  *     # Exposes a c function to python
  *     if quad:             # <<<<<<<<<<<<<<
  *         return permanent_quad(mat)
  * 
  */
-  __pyx_t_9 = __Pyx_PyObject_IsTrue(__pyx_v_quad); if (unlikely(__pyx_t_9 < 0)) __PYX_ERR(0, 363, __pyx_L1_error)
+  __pyx_t_9 = __Pyx_PyObject_IsTrue(__pyx_v_quad); if (unlikely(__pyx_t_9 < 0)) __PYX_ERR(0, 365, __pyx_L1_error)
   if (__pyx_t_9) {
 
-    /* "libwalrus.pyx":364
+    /* "libwalrus.pyx":366
  *     # Exposes a c function to python
  *     if quad:
  *         return permanent_quad(mat)             # <<<<<<<<<<<<<<
@@ -4671,13 +4691,13 @@ static PyObject *__pyx_pf_9libwalrus_16perm_real(CYTHON_UNUSED PyObject *__pyx_s
  *     return permanent(mat)
  */
     __Pyx_XDECREF(__pyx_r);
-    __pyx_t_10 = PyFloat_FromDouble(libwalrus::permanent_quad(__pyx_v_mat)); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 364, __pyx_L1_error)
+    __pyx_t_10 = PyFloat_FromDouble(libwalrus::permanent_quad(__pyx_v_mat)); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 366, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_10);
     __pyx_r = __pyx_t_10;
     __pyx_t_10 = 0;
     goto __pyx_L0;
 
-    /* "libwalrus.pyx":363
+    /* "libwalrus.pyx":365
  * 
  *     # Exposes a c function to python
  *     if quad:             # <<<<<<<<<<<<<<
@@ -4686,7 +4706,7 @@ static PyObject *__pyx_pf_9libwalrus_16perm_real(CYTHON_UNUSED PyObject *__pyx_s
  */
   }
 
-  /* "libwalrus.pyx":366
+  /* "libwalrus.pyx":368
  *         return permanent_quad(mat)
  * 
  *     return permanent(mat)             # <<<<<<<<<<<<<<
@@ -4694,13 +4714,13 @@ static PyObject *__pyx_pf_9libwalrus_16perm_real(CYTHON_UNUSED PyObject *__pyx_s
  * 
  */
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_10 = PyFloat_FromDouble(libwalrus::permanent<double>(__pyx_v_mat)); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 366, __pyx_L1_error)
+  __pyx_t_10 = PyFloat_FromDouble(libwalrus::permanent<double>(__pyx_v_mat)); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 368, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_10);
   __pyx_r = __pyx_t_10;
   __pyx_t_10 = 0;
   goto __pyx_L0;
 
-  /* "libwalrus.pyx":339
+  /* "libwalrus.pyx":341
  * 
  * 
  * def perm_real(double [:, :] A, quad=True, fsum=False):             # <<<<<<<<<<<<<<
@@ -4720,7 +4740,7 @@ static PyObject *__pyx_pf_9libwalrus_16perm_real(CYTHON_UNUSED PyObject *__pyx_s
   return __pyx_r;
 }
 
-/* "libwalrus.pyx":372
+/* "libwalrus.pyx":374
  * # Batch hafnian
  * 
  * def hermite_multidimensional(double complex[:, :] R, double complex[:] y, int cutoff):             # <<<<<<<<<<<<<<
@@ -4764,17 +4784,17 @@ static PyObject *__pyx_pw_9libwalrus_19hermite_multidimensional(PyObject *__pyx_
         case  1:
         if (likely((values[1] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_y)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("hermite_multidimensional", 1, 3, 3, 1); __PYX_ERR(0, 372, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("hermite_multidimensional", 1, 3, 3, 1); __PYX_ERR(0, 374, __pyx_L3_error)
         }
         CYTHON_FALLTHROUGH;
         case  2:
         if (likely((values[2] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_cutoff)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("hermite_multidimensional", 1, 3, 3, 2); __PYX_ERR(0, 372, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("hermite_multidimensional", 1, 3, 3, 2); __PYX_ERR(0, 374, __pyx_L3_error)
         }
       }
       if (unlikely(kw_args > 0)) {
-        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "hermite_multidimensional") < 0)) __PYX_ERR(0, 372, __pyx_L3_error)
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "hermite_multidimensional") < 0)) __PYX_ERR(0, 374, __pyx_L3_error)
       }
     } else if (PyTuple_GET_SIZE(__pyx_args) != 3) {
       goto __pyx_L5_argtuple_error;
@@ -4783,13 +4803,13 @@ static PyObject *__pyx_pw_9libwalrus_19hermite_multidimensional(PyObject *__pyx_
       values[1] = PyTuple_GET_ITEM(__pyx_args, 1);
       values[2] = PyTuple_GET_ITEM(__pyx_args, 2);
     }
-    __pyx_v_R = __Pyx_PyObject_to_MemoryviewSlice_dsds___pyx_t_double_complex(values[0], PyBUF_WRITABLE); if (unlikely(!__pyx_v_R.memview)) __PYX_ERR(0, 372, __pyx_L3_error)
-    __pyx_v_y = __Pyx_PyObject_to_MemoryviewSlice_ds___pyx_t_double_complex(values[1], PyBUF_WRITABLE); if (unlikely(!__pyx_v_y.memview)) __PYX_ERR(0, 372, __pyx_L3_error)
-    __pyx_v_cutoff = __Pyx_PyInt_As_int(values[2]); if (unlikely((__pyx_v_cutoff == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 372, __pyx_L3_error)
+    __pyx_v_R = __Pyx_PyObject_to_MemoryviewSlice_dsds___pyx_t_double_complex(values[0], PyBUF_WRITABLE); if (unlikely(!__pyx_v_R.memview)) __PYX_ERR(0, 374, __pyx_L3_error)
+    __pyx_v_y = __Pyx_PyObject_to_MemoryviewSlice_ds___pyx_t_double_complex(values[1], PyBUF_WRITABLE); if (unlikely(!__pyx_v_y.memview)) __PYX_ERR(0, 374, __pyx_L3_error)
+    __pyx_v_cutoff = __Pyx_PyInt_As_int(values[2]); if (unlikely((__pyx_v_cutoff == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 374, __pyx_L3_error)
   }
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("hermite_multidimensional", 1, 3, 3, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 372, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("hermite_multidimensional", 1, 3, 3, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 374, __pyx_L3_error)
   __pyx_L3_error:;
   __Pyx_AddTraceback("libwalrus.hermite_multidimensional", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
@@ -4822,7 +4842,7 @@ static PyObject *__pyx_pf_9libwalrus_18hermite_multidimensional(CYTHON_UNUSED Py
   PyObject *__pyx_t_10 = NULL;
   __Pyx_RefNannySetupContext("hermite_multidimensional", 0);
 
-  /* "libwalrus.pyx":384
+  /* "libwalrus.pyx":386
  *         array[complex128]: the multidimensional Hermite polynomials
  *     """
  *     cdef int i, j, n = R.shape[0]             # <<<<<<<<<<<<<<
@@ -4831,7 +4851,7 @@ static PyObject *__pyx_pf_9libwalrus_18hermite_multidimensional(CYTHON_UNUSED Py
  */
   __pyx_v_n = (__pyx_v_R.shape[0]);
 
-  /* "libwalrus.pyx":387
+  /* "libwalrus.pyx":389
  *     cdef vector[double complex] R_mat, y_mat
  * 
  *     for i in range(n):             # <<<<<<<<<<<<<<
@@ -4843,7 +4863,7 @@ static PyObject *__pyx_pf_9libwalrus_18hermite_multidimensional(CYTHON_UNUSED Py
   for (__pyx_t_3 = 0; __pyx_t_3 < __pyx_t_2; __pyx_t_3+=1) {
     __pyx_v_i = __pyx_t_3;
 
-    /* "libwalrus.pyx":388
+    /* "libwalrus.pyx":390
  * 
  *     for i in range(n):
  *         for j in range(n):             # <<<<<<<<<<<<<<
@@ -4855,7 +4875,7 @@ static PyObject *__pyx_pf_9libwalrus_18hermite_multidimensional(CYTHON_UNUSED Py
     for (__pyx_t_6 = 0; __pyx_t_6 < __pyx_t_5; __pyx_t_6+=1) {
       __pyx_v_j = __pyx_t_6;
 
-      /* "libwalrus.pyx":389
+      /* "libwalrus.pyx":391
  *     for i in range(n):
  *         for j in range(n):
  *             R_mat.push_back(R[i, j])             # <<<<<<<<<<<<<<
@@ -4868,12 +4888,12 @@ static PyObject *__pyx_pf_9libwalrus_18hermite_multidimensional(CYTHON_UNUSED Py
         __pyx_v_R_mat.push_back((*((__pyx_t_double_complex *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_R.data + __pyx_t_7 * __pyx_v_R.strides[0]) ) + __pyx_t_8 * __pyx_v_R.strides[1]) ))));
       } catch(...) {
         __Pyx_CppExn2PyErr();
-        __PYX_ERR(0, 389, __pyx_L1_error)
+        __PYX_ERR(0, 391, __pyx_L1_error)
       }
     }
   }
 
-  /* "libwalrus.pyx":391
+  /* "libwalrus.pyx":393
  *             R_mat.push_back(R[i, j])
  * 
  *     for i in range(n):             # <<<<<<<<<<<<<<
@@ -4885,7 +4905,7 @@ static PyObject *__pyx_pf_9libwalrus_18hermite_multidimensional(CYTHON_UNUSED Py
   for (__pyx_t_3 = 0; __pyx_t_3 < __pyx_t_2; __pyx_t_3+=1) {
     __pyx_v_i = __pyx_t_3;
 
-    /* "libwalrus.pyx":392
+    /* "libwalrus.pyx":394
  * 
  *     for i in range(n):
  *         y_mat.push_back(y[i])             # <<<<<<<<<<<<<<
@@ -4897,11 +4917,11 @@ static PyObject *__pyx_pf_9libwalrus_18hermite_multidimensional(CYTHON_UNUSED Py
       __pyx_v_y_mat.push_back((*((__pyx_t_double_complex *) ( /* dim=0 */ (__pyx_v_y.data + __pyx_t_9 * __pyx_v_y.strides[0]) ))));
     } catch(...) {
       __Pyx_CppExn2PyErr();
-      __PYX_ERR(0, 392, __pyx_L1_error)
+      __PYX_ERR(0, 394, __pyx_L1_error)
     }
   }
 
-  /* "libwalrus.pyx":394
+  /* "libwalrus.pyx":396
  *         y_mat.push_back(y[i])
  * 
  *     return hermite_multidimensional_cpp(R_mat, y_mat, cutoff)             # <<<<<<<<<<<<<<
@@ -4909,13 +4929,13 @@ static PyObject *__pyx_pf_9libwalrus_18hermite_multidimensional(CYTHON_UNUSED Py
  * 
  */
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_10 = __pyx_convert_vector_to_py___pyx_t_double_complex(libwalrus::hermite_multidimensional_cpp<__pyx_t_double_complex>(__pyx_v_R_mat, __pyx_v_y_mat, __pyx_v_cutoff)); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 394, __pyx_L1_error)
+  __pyx_t_10 = __pyx_convert_vector_to_py___pyx_t_double_complex(libwalrus::hermite_multidimensional_cpp<__pyx_t_double_complex>(__pyx_v_R_mat, __pyx_v_y_mat, __pyx_v_cutoff)); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 396, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_10);
   __pyx_r = __pyx_t_10;
   __pyx_t_10 = 0;
   goto __pyx_L0;
 
-  /* "libwalrus.pyx":372
+  /* "libwalrus.pyx":374
  * # Batch hafnian
  * 
  * def hermite_multidimensional(double complex[:, :] R, double complex[:] y, int cutoff):             # <<<<<<<<<<<<<<
@@ -4936,7 +4956,7 @@ static PyObject *__pyx_pf_9libwalrus_18hermite_multidimensional(CYTHON_UNUSED Py
   return __pyx_r;
 }
 
-/* "libwalrus.pyx":397
+/* "libwalrus.pyx":399
  * 
  * 
  * def hermite_multidimensional_real(double [:, :] R, double [:] y, int cutoff):             # <<<<<<<<<<<<<<
@@ -4980,17 +5000,17 @@ static PyObject *__pyx_pw_9libwalrus_21hermite_multidimensional_real(PyObject *_
         case  1:
         if (likely((values[1] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_y)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("hermite_multidimensional_real", 1, 3, 3, 1); __PYX_ERR(0, 397, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("hermite_multidimensional_real", 1, 3, 3, 1); __PYX_ERR(0, 399, __pyx_L3_error)
         }
         CYTHON_FALLTHROUGH;
         case  2:
         if (likely((values[2] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_cutoff)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("hermite_multidimensional_real", 1, 3, 3, 2); __PYX_ERR(0, 397, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("hermite_multidimensional_real", 1, 3, 3, 2); __PYX_ERR(0, 399, __pyx_L3_error)
         }
       }
       if (unlikely(kw_args > 0)) {
-        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "hermite_multidimensional_real") < 0)) __PYX_ERR(0, 397, __pyx_L3_error)
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "hermite_multidimensional_real") < 0)) __PYX_ERR(0, 399, __pyx_L3_error)
       }
     } else if (PyTuple_GET_SIZE(__pyx_args) != 3) {
       goto __pyx_L5_argtuple_error;
@@ -4999,13 +5019,13 @@ static PyObject *__pyx_pw_9libwalrus_21hermite_multidimensional_real(PyObject *_
       values[1] = PyTuple_GET_ITEM(__pyx_args, 1);
       values[2] = PyTuple_GET_ITEM(__pyx_args, 2);
     }
-    __pyx_v_R = __Pyx_PyObject_to_MemoryviewSlice_dsds_double(values[0], PyBUF_WRITABLE); if (unlikely(!__pyx_v_R.memview)) __PYX_ERR(0, 397, __pyx_L3_error)
-    __pyx_v_y = __Pyx_PyObject_to_MemoryviewSlice_ds_double(values[1], PyBUF_WRITABLE); if (unlikely(!__pyx_v_y.memview)) __PYX_ERR(0, 397, __pyx_L3_error)
-    __pyx_v_cutoff = __Pyx_PyInt_As_int(values[2]); if (unlikely((__pyx_v_cutoff == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 397, __pyx_L3_error)
+    __pyx_v_R = __Pyx_PyObject_to_MemoryviewSlice_dsds_double(values[0], PyBUF_WRITABLE); if (unlikely(!__pyx_v_R.memview)) __PYX_ERR(0, 399, __pyx_L3_error)
+    __pyx_v_y = __Pyx_PyObject_to_MemoryviewSlice_ds_double(values[1], PyBUF_WRITABLE); if (unlikely(!__pyx_v_y.memview)) __PYX_ERR(0, 399, __pyx_L3_error)
+    __pyx_v_cutoff = __Pyx_PyInt_As_int(values[2]); if (unlikely((__pyx_v_cutoff == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 399, __pyx_L3_error)
   }
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("hermite_multidimensional_real", 1, 3, 3, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 397, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("hermite_multidimensional_real", 1, 3, 3, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 399, __pyx_L3_error)
   __pyx_L3_error:;
   __Pyx_AddTraceback("libwalrus.hermite_multidimensional_real", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
@@ -5038,7 +5058,7 @@ static PyObject *__pyx_pf_9libwalrus_20hermite_multidimensional_real(CYTHON_UNUS
   PyObject *__pyx_t_10 = NULL;
   __Pyx_RefNannySetupContext("hermite_multidimensional_real", 0);
 
-  /* "libwalrus.pyx":409
+  /* "libwalrus.pyx":411
  *         array[float64]: the multidimensional Hermite polynomials
  *     """
  *     cdef int i, j, n = R.shape[0]             # <<<<<<<<<<<<<<
@@ -5047,7 +5067,7 @@ static PyObject *__pyx_pf_9libwalrus_20hermite_multidimensional_real(CYTHON_UNUS
  */
   __pyx_v_n = (__pyx_v_R.shape[0]);
 
-  /* "libwalrus.pyx":412
+  /* "libwalrus.pyx":414
  *     cdef vector[double] R_mat, y_mat
  * 
  *     for i in range(n):             # <<<<<<<<<<<<<<
@@ -5059,7 +5079,7 @@ static PyObject *__pyx_pf_9libwalrus_20hermite_multidimensional_real(CYTHON_UNUS
   for (__pyx_t_3 = 0; __pyx_t_3 < __pyx_t_2; __pyx_t_3+=1) {
     __pyx_v_i = __pyx_t_3;
 
-    /* "libwalrus.pyx":413
+    /* "libwalrus.pyx":415
  * 
  *     for i in range(n):
  *         for j in range(n):             # <<<<<<<<<<<<<<
@@ -5071,7 +5091,7 @@ static PyObject *__pyx_pf_9libwalrus_20hermite_multidimensional_real(CYTHON_UNUS
     for (__pyx_t_6 = 0; __pyx_t_6 < __pyx_t_5; __pyx_t_6+=1) {
       __pyx_v_j = __pyx_t_6;
 
-      /* "libwalrus.pyx":414
+      /* "libwalrus.pyx":416
  *     for i in range(n):
  *         for j in range(n):
  *             R_mat.push_back(R[i, j])             # <<<<<<<<<<<<<<
@@ -5084,12 +5104,12 @@ static PyObject *__pyx_pf_9libwalrus_20hermite_multidimensional_real(CYTHON_UNUS
         __pyx_v_R_mat.push_back((*((double *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_R.data + __pyx_t_7 * __pyx_v_R.strides[0]) ) + __pyx_t_8 * __pyx_v_R.strides[1]) ))));
       } catch(...) {
         __Pyx_CppExn2PyErr();
-        __PYX_ERR(0, 414, __pyx_L1_error)
+        __PYX_ERR(0, 416, __pyx_L1_error)
       }
     }
   }
 
-  /* "libwalrus.pyx":416
+  /* "libwalrus.pyx":418
  *             R_mat.push_back(R[i, j])
  * 
  *     for i in range(n):             # <<<<<<<<<<<<<<
@@ -5101,7 +5121,7 @@ static PyObject *__pyx_pf_9libwalrus_20hermite_multidimensional_real(CYTHON_UNUS
   for (__pyx_t_3 = 0; __pyx_t_3 < __pyx_t_2; __pyx_t_3+=1) {
     __pyx_v_i = __pyx_t_3;
 
-    /* "libwalrus.pyx":417
+    /* "libwalrus.pyx":419
  * 
  *     for i in range(n):
  *         y_mat.push_back(y[i])             # <<<<<<<<<<<<<<
@@ -5113,11 +5133,11 @@ static PyObject *__pyx_pf_9libwalrus_20hermite_multidimensional_real(CYTHON_UNUS
       __pyx_v_y_mat.push_back((*((double *) ( /* dim=0 */ (__pyx_v_y.data + __pyx_t_9 * __pyx_v_y.strides[0]) ))));
     } catch(...) {
       __Pyx_CppExn2PyErr();
-      __PYX_ERR(0, 417, __pyx_L1_error)
+      __PYX_ERR(0, 419, __pyx_L1_error)
     }
   }
 
-  /* "libwalrus.pyx":419
+  /* "libwalrus.pyx":421
  *         y_mat.push_back(y[i])
  * 
  *     return hermite_multidimensional_cpp(R_mat, y_mat, cutoff)             # <<<<<<<<<<<<<<
@@ -5125,13 +5145,13 @@ static PyObject *__pyx_pf_9libwalrus_20hermite_multidimensional_real(CYTHON_UNUS
  * 
  */
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_10 = __pyx_convert_vector_to_py_double(libwalrus::hermite_multidimensional_cpp<double>(__pyx_v_R_mat, __pyx_v_y_mat, __pyx_v_cutoff)); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 419, __pyx_L1_error)
+  __pyx_t_10 = __pyx_convert_vector_to_py_double(libwalrus::hermite_multidimensional_cpp<double>(__pyx_v_R_mat, __pyx_v_y_mat, __pyx_v_cutoff)); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 421, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_10);
   __pyx_r = __pyx_t_10;
   __pyx_t_10 = 0;
   goto __pyx_L0;
 
-  /* "libwalrus.pyx":397
+  /* "libwalrus.pyx":399
  * 
  * 
  * def hermite_multidimensional_real(double [:, :] R, double [:] y, int cutoff):             # <<<<<<<<<<<<<<
@@ -5152,7 +5172,7 @@ static PyObject *__pyx_pf_9libwalrus_20hermite_multidimensional_real(CYTHON_UNUS
   return __pyx_r;
 }
 
-/* "libwalrus.pyx":424
+/* "libwalrus.pyx":426
  * 
  * 
  * def renorm_hermite_multidimensional(double complex[:, :] R, double complex[:] y, int cutoff):             # <<<<<<<<<<<<<<
@@ -5196,17 +5216,17 @@ static PyObject *__pyx_pw_9libwalrus_23renorm_hermite_multidimensional(PyObject 
         case  1:
         if (likely((values[1] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_y)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("renorm_hermite_multidimensional", 1, 3, 3, 1); __PYX_ERR(0, 424, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("renorm_hermite_multidimensional", 1, 3, 3, 1); __PYX_ERR(0, 426, __pyx_L3_error)
         }
         CYTHON_FALLTHROUGH;
         case  2:
         if (likely((values[2] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_cutoff)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("renorm_hermite_multidimensional", 1, 3, 3, 2); __PYX_ERR(0, 424, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("renorm_hermite_multidimensional", 1, 3, 3, 2); __PYX_ERR(0, 426, __pyx_L3_error)
         }
       }
       if (unlikely(kw_args > 0)) {
-        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "renorm_hermite_multidimensional") < 0)) __PYX_ERR(0, 424, __pyx_L3_error)
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "renorm_hermite_multidimensional") < 0)) __PYX_ERR(0, 426, __pyx_L3_error)
       }
     } else if (PyTuple_GET_SIZE(__pyx_args) != 3) {
       goto __pyx_L5_argtuple_error;
@@ -5215,13 +5235,13 @@ static PyObject *__pyx_pw_9libwalrus_23renorm_hermite_multidimensional(PyObject 
       values[1] = PyTuple_GET_ITEM(__pyx_args, 1);
       values[2] = PyTuple_GET_ITEM(__pyx_args, 2);
     }
-    __pyx_v_R = __Pyx_PyObject_to_MemoryviewSlice_dsds___pyx_t_double_complex(values[0], PyBUF_WRITABLE); if (unlikely(!__pyx_v_R.memview)) __PYX_ERR(0, 424, __pyx_L3_error)
-    __pyx_v_y = __Pyx_PyObject_to_MemoryviewSlice_ds___pyx_t_double_complex(values[1], PyBUF_WRITABLE); if (unlikely(!__pyx_v_y.memview)) __PYX_ERR(0, 424, __pyx_L3_error)
-    __pyx_v_cutoff = __Pyx_PyInt_As_int(values[2]); if (unlikely((__pyx_v_cutoff == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 424, __pyx_L3_error)
+    __pyx_v_R = __Pyx_PyObject_to_MemoryviewSlice_dsds___pyx_t_double_complex(values[0], PyBUF_WRITABLE); if (unlikely(!__pyx_v_R.memview)) __PYX_ERR(0, 426, __pyx_L3_error)
+    __pyx_v_y = __Pyx_PyObject_to_MemoryviewSlice_ds___pyx_t_double_complex(values[1], PyBUF_WRITABLE); if (unlikely(!__pyx_v_y.memview)) __PYX_ERR(0, 426, __pyx_L3_error)
+    __pyx_v_cutoff = __Pyx_PyInt_As_int(values[2]); if (unlikely((__pyx_v_cutoff == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 426, __pyx_L3_error)
   }
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("renorm_hermite_multidimensional", 1, 3, 3, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 424, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("renorm_hermite_multidimensional", 1, 3, 3, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 426, __pyx_L3_error)
   __pyx_L3_error:;
   __Pyx_AddTraceback("libwalrus.renorm_hermite_multidimensional", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
@@ -5254,7 +5274,7 @@ static PyObject *__pyx_pf_9libwalrus_22renorm_hermite_multidimensional(CYTHON_UN
   PyObject *__pyx_t_10 = NULL;
   __Pyx_RefNannySetupContext("renorm_hermite_multidimensional", 0);
 
-  /* "libwalrus.pyx":437
+  /* "libwalrus.pyx":439
  *         array[complex128]: the renormalized multidimensional Hermite polynomials
  *     """
  *     cdef int i, j, n = R.shape[0]             # <<<<<<<<<<<<<<
@@ -5263,7 +5283,7 @@ static PyObject *__pyx_pf_9libwalrus_22renorm_hermite_multidimensional(CYTHON_UN
  */
   __pyx_v_n = (__pyx_v_R.shape[0]);
 
-  /* "libwalrus.pyx":440
+  /* "libwalrus.pyx":442
  *     cdef vector[double complex] R_mat, y_mat
  * 
  *     for i in range(n):             # <<<<<<<<<<<<<<
@@ -5275,7 +5295,7 @@ static PyObject *__pyx_pf_9libwalrus_22renorm_hermite_multidimensional(CYTHON_UN
   for (__pyx_t_3 = 0; __pyx_t_3 < __pyx_t_2; __pyx_t_3+=1) {
     __pyx_v_i = __pyx_t_3;
 
-    /* "libwalrus.pyx":441
+    /* "libwalrus.pyx":443
  * 
  *     for i in range(n):
  *         for j in range(n):             # <<<<<<<<<<<<<<
@@ -5287,7 +5307,7 @@ static PyObject *__pyx_pf_9libwalrus_22renorm_hermite_multidimensional(CYTHON_UN
     for (__pyx_t_6 = 0; __pyx_t_6 < __pyx_t_5; __pyx_t_6+=1) {
       __pyx_v_j = __pyx_t_6;
 
-      /* "libwalrus.pyx":442
+      /* "libwalrus.pyx":444
  *     for i in range(n):
  *         for j in range(n):
  *             R_mat.push_back(R[i, j])             # <<<<<<<<<<<<<<
@@ -5300,12 +5320,12 @@ static PyObject *__pyx_pf_9libwalrus_22renorm_hermite_multidimensional(CYTHON_UN
         __pyx_v_R_mat.push_back((*((__pyx_t_double_complex *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_R.data + __pyx_t_7 * __pyx_v_R.strides[0]) ) + __pyx_t_8 * __pyx_v_R.strides[1]) ))));
       } catch(...) {
         __Pyx_CppExn2PyErr();
-        __PYX_ERR(0, 442, __pyx_L1_error)
+        __PYX_ERR(0, 444, __pyx_L1_error)
       }
     }
   }
 
-  /* "libwalrus.pyx":444
+  /* "libwalrus.pyx":446
  *             R_mat.push_back(R[i, j])
  * 
  *     for i in range(n):             # <<<<<<<<<<<<<<
@@ -5317,7 +5337,7 @@ static PyObject *__pyx_pf_9libwalrus_22renorm_hermite_multidimensional(CYTHON_UN
   for (__pyx_t_3 = 0; __pyx_t_3 < __pyx_t_2; __pyx_t_3+=1) {
     __pyx_v_i = __pyx_t_3;
 
-    /* "libwalrus.pyx":445
+    /* "libwalrus.pyx":447
  * 
  *     for i in range(n):
  *         y_mat.push_back(y[i])             # <<<<<<<<<<<<<<
@@ -5329,11 +5349,11 @@ static PyObject *__pyx_pf_9libwalrus_22renorm_hermite_multidimensional(CYTHON_UN
       __pyx_v_y_mat.push_back((*((__pyx_t_double_complex *) ( /* dim=0 */ (__pyx_v_y.data + __pyx_t_9 * __pyx_v_y.strides[0]) ))));
     } catch(...) {
       __Pyx_CppExn2PyErr();
-      __PYX_ERR(0, 445, __pyx_L1_error)
+      __PYX_ERR(0, 447, __pyx_L1_error)
     }
   }
 
-  /* "libwalrus.pyx":447
+  /* "libwalrus.pyx":449
  *         y_mat.push_back(y[i])
  * 
  *     return renorm_hermite_multidimensional_cpp(R_mat, y_mat, cutoff)             # <<<<<<<<<<<<<<
@@ -5341,13 +5361,13 @@ static PyObject *__pyx_pf_9libwalrus_22renorm_hermite_multidimensional(CYTHON_UN
  * 
  */
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_10 = __pyx_convert_vector_to_py___pyx_t_double_complex(libwalrus::renorm_hermite_multidimensional_cpp<__pyx_t_double_complex>(__pyx_v_R_mat, __pyx_v_y_mat, __pyx_v_cutoff)); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 447, __pyx_L1_error)
+  __pyx_t_10 = __pyx_convert_vector_to_py___pyx_t_double_complex(libwalrus::renorm_hermite_multidimensional_cpp<__pyx_t_double_complex>(__pyx_v_R_mat, __pyx_v_y_mat, __pyx_v_cutoff)); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 449, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_10);
   __pyx_r = __pyx_t_10;
   __pyx_t_10 = 0;
   goto __pyx_L0;
 
-  /* "libwalrus.pyx":424
+  /* "libwalrus.pyx":426
  * 
  * 
  * def renorm_hermite_multidimensional(double complex[:, :] R, double complex[:] y, int cutoff):             # <<<<<<<<<<<<<<
@@ -5368,7 +5388,7 @@ static PyObject *__pyx_pf_9libwalrus_22renorm_hermite_multidimensional(CYTHON_UN
   return __pyx_r;
 }
 
-/* "libwalrus.pyx":450
+/* "libwalrus.pyx":452
  * 
  * 
  * def renorm_hermite_multidimensional_real(double [:, :] R, double [:] y, int cutoff):             # <<<<<<<<<<<<<<
@@ -5412,17 +5432,17 @@ static PyObject *__pyx_pw_9libwalrus_25renorm_hermite_multidimensional_real(PyOb
         case  1:
         if (likely((values[1] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_y)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("renorm_hermite_multidimensional_real", 1, 3, 3, 1); __PYX_ERR(0, 450, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("renorm_hermite_multidimensional_real", 1, 3, 3, 1); __PYX_ERR(0, 452, __pyx_L3_error)
         }
         CYTHON_FALLTHROUGH;
         case  2:
         if (likely((values[2] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_cutoff)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("renorm_hermite_multidimensional_real", 1, 3, 3, 2); __PYX_ERR(0, 450, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("renorm_hermite_multidimensional_real", 1, 3, 3, 2); __PYX_ERR(0, 452, __pyx_L3_error)
         }
       }
       if (unlikely(kw_args > 0)) {
-        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "renorm_hermite_multidimensional_real") < 0)) __PYX_ERR(0, 450, __pyx_L3_error)
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "renorm_hermite_multidimensional_real") < 0)) __PYX_ERR(0, 452, __pyx_L3_error)
       }
     } else if (PyTuple_GET_SIZE(__pyx_args) != 3) {
       goto __pyx_L5_argtuple_error;
@@ -5431,13 +5451,13 @@ static PyObject *__pyx_pw_9libwalrus_25renorm_hermite_multidimensional_real(PyOb
       values[1] = PyTuple_GET_ITEM(__pyx_args, 1);
       values[2] = PyTuple_GET_ITEM(__pyx_args, 2);
     }
-    __pyx_v_R = __Pyx_PyObject_to_MemoryviewSlice_dsds_double(values[0], PyBUF_WRITABLE); if (unlikely(!__pyx_v_R.memview)) __PYX_ERR(0, 450, __pyx_L3_error)
-    __pyx_v_y = __Pyx_PyObject_to_MemoryviewSlice_ds_double(values[1], PyBUF_WRITABLE); if (unlikely(!__pyx_v_y.memview)) __PYX_ERR(0, 450, __pyx_L3_error)
-    __pyx_v_cutoff = __Pyx_PyInt_As_int(values[2]); if (unlikely((__pyx_v_cutoff == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 450, __pyx_L3_error)
+    __pyx_v_R = __Pyx_PyObject_to_MemoryviewSlice_dsds_double(values[0], PyBUF_WRITABLE); if (unlikely(!__pyx_v_R.memview)) __PYX_ERR(0, 452, __pyx_L3_error)
+    __pyx_v_y = __Pyx_PyObject_to_MemoryviewSlice_ds_double(values[1], PyBUF_WRITABLE); if (unlikely(!__pyx_v_y.memview)) __PYX_ERR(0, 452, __pyx_L3_error)
+    __pyx_v_cutoff = __Pyx_PyInt_As_int(values[2]); if (unlikely((__pyx_v_cutoff == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 452, __pyx_L3_error)
   }
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("renorm_hermite_multidimensional_real", 1, 3, 3, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 450, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("renorm_hermite_multidimensional_real", 1, 3, 3, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 452, __pyx_L3_error)
   __pyx_L3_error:;
   __Pyx_AddTraceback("libwalrus.renorm_hermite_multidimensional_real", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
@@ -5470,7 +5490,7 @@ static PyObject *__pyx_pf_9libwalrus_24renorm_hermite_multidimensional_real(CYTH
   PyObject *__pyx_t_10 = NULL;
   __Pyx_RefNannySetupContext("renorm_hermite_multidimensional_real", 0);
 
-  /* "libwalrus.pyx":463
+  /* "libwalrus.pyx":465
  *         array[float64]: the renormalized multidimensional Hermite polynomials
  *     """
  *     cdef int i, j, n = R.shape[0]             # <<<<<<<<<<<<<<
@@ -5479,7 +5499,7 @@ static PyObject *__pyx_pf_9libwalrus_24renorm_hermite_multidimensional_real(CYTH
  */
   __pyx_v_n = (__pyx_v_R.shape[0]);
 
-  /* "libwalrus.pyx":466
+  /* "libwalrus.pyx":468
  *     cdef vector[double] R_mat, y_mat
  * 
  *     for i in range(n):             # <<<<<<<<<<<<<<
@@ -5491,7 +5511,7 @@ static PyObject *__pyx_pf_9libwalrus_24renorm_hermite_multidimensional_real(CYTH
   for (__pyx_t_3 = 0; __pyx_t_3 < __pyx_t_2; __pyx_t_3+=1) {
     __pyx_v_i = __pyx_t_3;
 
-    /* "libwalrus.pyx":467
+    /* "libwalrus.pyx":469
  * 
  *     for i in range(n):
  *         for j in range(n):             # <<<<<<<<<<<<<<
@@ -5503,7 +5523,7 @@ static PyObject *__pyx_pf_9libwalrus_24renorm_hermite_multidimensional_real(CYTH
     for (__pyx_t_6 = 0; __pyx_t_6 < __pyx_t_5; __pyx_t_6+=1) {
       __pyx_v_j = __pyx_t_6;
 
-      /* "libwalrus.pyx":468
+      /* "libwalrus.pyx":470
  *     for i in range(n):
  *         for j in range(n):
  *             R_mat.push_back(R[i, j])             # <<<<<<<<<<<<<<
@@ -5516,12 +5536,12 @@ static PyObject *__pyx_pf_9libwalrus_24renorm_hermite_multidimensional_real(CYTH
         __pyx_v_R_mat.push_back((*((double *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_R.data + __pyx_t_7 * __pyx_v_R.strides[0]) ) + __pyx_t_8 * __pyx_v_R.strides[1]) ))));
       } catch(...) {
         __Pyx_CppExn2PyErr();
-        __PYX_ERR(0, 468, __pyx_L1_error)
+        __PYX_ERR(0, 470, __pyx_L1_error)
       }
     }
   }
 
-  /* "libwalrus.pyx":470
+  /* "libwalrus.pyx":472
  *             R_mat.push_back(R[i, j])
  * 
  *     for i in range(n):             # <<<<<<<<<<<<<<
@@ -5533,7 +5553,7 @@ static PyObject *__pyx_pf_9libwalrus_24renorm_hermite_multidimensional_real(CYTH
   for (__pyx_t_3 = 0; __pyx_t_3 < __pyx_t_2; __pyx_t_3+=1) {
     __pyx_v_i = __pyx_t_3;
 
-    /* "libwalrus.pyx":471
+    /* "libwalrus.pyx":473
  * 
  *     for i in range(n):
  *         y_mat.push_back(y[i])             # <<<<<<<<<<<<<<
@@ -5545,11 +5565,11 @@ static PyObject *__pyx_pf_9libwalrus_24renorm_hermite_multidimensional_real(CYTH
       __pyx_v_y_mat.push_back((*((double *) ( /* dim=0 */ (__pyx_v_y.data + __pyx_t_9 * __pyx_v_y.strides[0]) ))));
     } catch(...) {
       __Pyx_CppExn2PyErr();
-      __PYX_ERR(0, 471, __pyx_L1_error)
+      __PYX_ERR(0, 473, __pyx_L1_error)
     }
   }
 
-  /* "libwalrus.pyx":473
+  /* "libwalrus.pyx":475
  *         y_mat.push_back(y[i])
  * 
  *     return renorm_hermite_multidimensional_cpp(R_mat, y_mat, cutoff)             # <<<<<<<<<<<<<<
@@ -5557,13 +5577,13 @@ static PyObject *__pyx_pf_9libwalrus_24renorm_hermite_multidimensional_real(CYTH
  * 
  */
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_10 = __pyx_convert_vector_to_py_double(libwalrus::renorm_hermite_multidimensional_cpp<double>(__pyx_v_R_mat, __pyx_v_y_mat, __pyx_v_cutoff)); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 473, __pyx_L1_error)
+  __pyx_t_10 = __pyx_convert_vector_to_py_double(libwalrus::renorm_hermite_multidimensional_cpp<double>(__pyx_v_R_mat, __pyx_v_y_mat, __pyx_v_cutoff)); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 475, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_10);
   __pyx_r = __pyx_t_10;
   __pyx_t_10 = 0;
   goto __pyx_L0;
 
-  /* "libwalrus.pyx":450
+  /* "libwalrus.pyx":452
  * 
  * 
  * def renorm_hermite_multidimensional_real(double [:, :] R, double [:] y, int cutoff):             # <<<<<<<<<<<<<<
@@ -5584,7 +5604,7 @@ static PyObject *__pyx_pf_9libwalrus_24renorm_hermite_multidimensional_real(CYTH
   return __pyx_r;
 }
 
-/* "libwalrus.pyx":478
+/* "libwalrus.pyx":480
  * 
  * 
  * def interferometer(double complex[:, :] R, int cutoff):             # <<<<<<<<<<<<<<
@@ -5625,11 +5645,11 @@ static PyObject *__pyx_pw_9libwalrus_27interferometer(PyObject *__pyx_self, PyOb
         case  1:
         if (likely((values[1] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_cutoff)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("interferometer", 1, 2, 2, 1); __PYX_ERR(0, 478, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("interferometer", 1, 2, 2, 1); __PYX_ERR(0, 480, __pyx_L3_error)
         }
       }
       if (unlikely(kw_args > 0)) {
-        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "interferometer") < 0)) __PYX_ERR(0, 478, __pyx_L3_error)
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "interferometer") < 0)) __PYX_ERR(0, 480, __pyx_L3_error)
       }
     } else if (PyTuple_GET_SIZE(__pyx_args) != 2) {
       goto __pyx_L5_argtuple_error;
@@ -5637,12 +5657,12 @@ static PyObject *__pyx_pw_9libwalrus_27interferometer(PyObject *__pyx_self, PyOb
       values[0] = PyTuple_GET_ITEM(__pyx_args, 0);
       values[1] = PyTuple_GET_ITEM(__pyx_args, 1);
     }
-    __pyx_v_R = __Pyx_PyObject_to_MemoryviewSlice_dsds___pyx_t_double_complex(values[0], PyBUF_WRITABLE); if (unlikely(!__pyx_v_R.memview)) __PYX_ERR(0, 478, __pyx_L3_error)
-    __pyx_v_cutoff = __Pyx_PyInt_As_int(values[1]); if (unlikely((__pyx_v_cutoff == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 478, __pyx_L3_error)
+    __pyx_v_R = __Pyx_PyObject_to_MemoryviewSlice_dsds___pyx_t_double_complex(values[0], PyBUF_WRITABLE); if (unlikely(!__pyx_v_R.memview)) __PYX_ERR(0, 480, __pyx_L3_error)
+    __pyx_v_cutoff = __Pyx_PyInt_As_int(values[1]); if (unlikely((__pyx_v_cutoff == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 480, __pyx_L3_error)
   }
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("interferometer", 1, 2, 2, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 478, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("interferometer", 1, 2, 2, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 480, __pyx_L3_error)
   __pyx_L3_error:;
   __Pyx_AddTraceback("libwalrus.interferometer", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
@@ -5673,7 +5693,7 @@ static PyObject *__pyx_pf_9libwalrus_26interferometer(CYTHON_UNUSED PyObject *__
   PyObject *__pyx_t_9 = NULL;
   __Pyx_RefNannySetupContext("interferometer", 0);
 
-  /* "libwalrus.pyx":491
+  /* "libwalrus.pyx":493
  *         array[complex128]: the renormalized multidimensional Hermite polynomials
  *     """
  *     cdef int i, j, n = R.shape[0]             # <<<<<<<<<<<<<<
@@ -5682,7 +5702,7 @@ static PyObject *__pyx_pf_9libwalrus_26interferometer(CYTHON_UNUSED PyObject *__
  */
   __pyx_v_n = (__pyx_v_R.shape[0]);
 
-  /* "libwalrus.pyx":494
+  /* "libwalrus.pyx":496
  *     cdef vector[double complex] R_mat
  * 
  *     for i in range(n):             # <<<<<<<<<<<<<<
@@ -5694,7 +5714,7 @@ static PyObject *__pyx_pf_9libwalrus_26interferometer(CYTHON_UNUSED PyObject *__
   for (__pyx_t_3 = 0; __pyx_t_3 < __pyx_t_2; __pyx_t_3+=1) {
     __pyx_v_i = __pyx_t_3;
 
-    /* "libwalrus.pyx":495
+    /* "libwalrus.pyx":497
  * 
  *     for i in range(n):
  *         for j in range(n):             # <<<<<<<<<<<<<<
@@ -5706,7 +5726,7 @@ static PyObject *__pyx_pf_9libwalrus_26interferometer(CYTHON_UNUSED PyObject *__
     for (__pyx_t_6 = 0; __pyx_t_6 < __pyx_t_5; __pyx_t_6+=1) {
       __pyx_v_j = __pyx_t_6;
 
-      /* "libwalrus.pyx":496
+      /* "libwalrus.pyx":498
  *     for i in range(n):
  *         for j in range(n):
  *             R_mat.push_back(R[i, j])             # <<<<<<<<<<<<<<
@@ -5719,12 +5739,12 @@ static PyObject *__pyx_pf_9libwalrus_26interferometer(CYTHON_UNUSED PyObject *__
         __pyx_v_R_mat.push_back((*((__pyx_t_double_complex *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_R.data + __pyx_t_7 * __pyx_v_R.strides[0]) ) + __pyx_t_8 * __pyx_v_R.strides[1]) ))));
       } catch(...) {
         __Pyx_CppExn2PyErr();
-        __PYX_ERR(0, 496, __pyx_L1_error)
+        __PYX_ERR(0, 498, __pyx_L1_error)
       }
     }
   }
 
-  /* "libwalrus.pyx":498
+  /* "libwalrus.pyx":500
  *             R_mat.push_back(R[i, j])
  * 
  *     return interferometer_cpp(R_mat, cutoff)             # <<<<<<<<<<<<<<
@@ -5732,13 +5752,13 @@ static PyObject *__pyx_pf_9libwalrus_26interferometer(CYTHON_UNUSED PyObject *__
  * 
  */
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_9 = __pyx_convert_vector_to_py___pyx_t_double_complex(libwalrus::interferometer_cpp<__pyx_t_double_complex>(__pyx_v_R_mat, __pyx_v_cutoff)); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 498, __pyx_L1_error)
+  __pyx_t_9 = __pyx_convert_vector_to_py___pyx_t_double_complex(libwalrus::interferometer_cpp<__pyx_t_double_complex>(__pyx_v_R_mat, __pyx_v_cutoff)); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 500, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_9);
   __pyx_r = __pyx_t_9;
   __pyx_t_9 = 0;
   goto __pyx_L0;
 
-  /* "libwalrus.pyx":478
+  /* "libwalrus.pyx":480
  * 
  * 
  * def interferometer(double complex[:, :] R, int cutoff):             # <<<<<<<<<<<<<<
@@ -5758,7 +5778,7 @@ static PyObject *__pyx_pf_9libwalrus_26interferometer(CYTHON_UNUSED PyObject *__
   return __pyx_r;
 }
 
-/* "libwalrus.pyx":501
+/* "libwalrus.pyx":503
  * 
  * 
  * def interferometer_real(double [:, :] R, int cutoff):             # <<<<<<<<<<<<<<
@@ -5799,11 +5819,11 @@ static PyObject *__pyx_pw_9libwalrus_29interferometer_real(PyObject *__pyx_self,
         case  1:
         if (likely((values[1] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_cutoff)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("interferometer_real", 1, 2, 2, 1); __PYX_ERR(0, 501, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("interferometer_real", 1, 2, 2, 1); __PYX_ERR(0, 503, __pyx_L3_error)
         }
       }
       if (unlikely(kw_args > 0)) {
-        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "interferometer_real") < 0)) __PYX_ERR(0, 501, __pyx_L3_error)
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "interferometer_real") < 0)) __PYX_ERR(0, 503, __pyx_L3_error)
       }
     } else if (PyTuple_GET_SIZE(__pyx_args) != 2) {
       goto __pyx_L5_argtuple_error;
@@ -5811,12 +5831,12 @@ static PyObject *__pyx_pw_9libwalrus_29interferometer_real(PyObject *__pyx_self,
       values[0] = PyTuple_GET_ITEM(__pyx_args, 0);
       values[1] = PyTuple_GET_ITEM(__pyx_args, 1);
     }
-    __pyx_v_R = __Pyx_PyObject_to_MemoryviewSlice_dsds_double(values[0], PyBUF_WRITABLE); if (unlikely(!__pyx_v_R.memview)) __PYX_ERR(0, 501, __pyx_L3_error)
-    __pyx_v_cutoff = __Pyx_PyInt_As_int(values[1]); if (unlikely((__pyx_v_cutoff == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 501, __pyx_L3_error)
+    __pyx_v_R = __Pyx_PyObject_to_MemoryviewSlice_dsds_double(values[0], PyBUF_WRITABLE); if (unlikely(!__pyx_v_R.memview)) __PYX_ERR(0, 503, __pyx_L3_error)
+    __pyx_v_cutoff = __Pyx_PyInt_As_int(values[1]); if (unlikely((__pyx_v_cutoff == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 503, __pyx_L3_error)
   }
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("interferometer_real", 1, 2, 2, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 501, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("interferometer_real", 1, 2, 2, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 503, __pyx_L3_error)
   __pyx_L3_error:;
   __Pyx_AddTraceback("libwalrus.interferometer_real", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
@@ -5847,7 +5867,7 @@ static PyObject *__pyx_pf_9libwalrus_28interferometer_real(CYTHON_UNUSED PyObjec
   PyObject *__pyx_t_9 = NULL;
   __Pyx_RefNannySetupContext("interferometer_real", 0);
 
-  /* "libwalrus.pyx":514
+  /* "libwalrus.pyx":516
  *         array[float64]: the renormalized multidimensional Hermite polynomials
  *     """
  *     cdef int i, j, n = R.shape[0]             # <<<<<<<<<<<<<<
@@ -5856,7 +5876,7 @@ static PyObject *__pyx_pf_9libwalrus_28interferometer_real(CYTHON_UNUSED PyObjec
  */
   __pyx_v_n = (__pyx_v_R.shape[0]);
 
-  /* "libwalrus.pyx":517
+  /* "libwalrus.pyx":519
  *     cdef vector[double] R_mat
  * 
  *     for i in range(n):             # <<<<<<<<<<<<<<
@@ -5868,7 +5888,7 @@ static PyObject *__pyx_pf_9libwalrus_28interferometer_real(CYTHON_UNUSED PyObjec
   for (__pyx_t_3 = 0; __pyx_t_3 < __pyx_t_2; __pyx_t_3+=1) {
     __pyx_v_i = __pyx_t_3;
 
-    /* "libwalrus.pyx":518
+    /* "libwalrus.pyx":520
  * 
  *     for i in range(n):
  *         for j in range(n):             # <<<<<<<<<<<<<<
@@ -5880,7 +5900,7 @@ static PyObject *__pyx_pf_9libwalrus_28interferometer_real(CYTHON_UNUSED PyObjec
     for (__pyx_t_6 = 0; __pyx_t_6 < __pyx_t_5; __pyx_t_6+=1) {
       __pyx_v_j = __pyx_t_6;
 
-      /* "libwalrus.pyx":519
+      /* "libwalrus.pyx":521
  *     for i in range(n):
  *         for j in range(n):
  *             R_mat.push_back(R[i, j])             # <<<<<<<<<<<<<<
@@ -5893,24 +5913,26 @@ static PyObject *__pyx_pf_9libwalrus_28interferometer_real(CYTHON_UNUSED PyObjec
         __pyx_v_R_mat.push_back((*((double *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_R.data + __pyx_t_7 * __pyx_v_R.strides[0]) ) + __pyx_t_8 * __pyx_v_R.strides[1]) ))));
       } catch(...) {
         __Pyx_CppExn2PyErr();
-        __PYX_ERR(0, 519, __pyx_L1_error)
+        __PYX_ERR(0, 521, __pyx_L1_error)
       }
     }
   }
 
-  /* "libwalrus.pyx":522
+  /* "libwalrus.pyx":524
  * 
  * 
  *     return interferometer_cpp(R_mat, cutoff)             # <<<<<<<<<<<<<<
+ * 
+ * 
  */
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_9 = __pyx_convert_vector_to_py_double(libwalrus::interferometer_cpp<double>(__pyx_v_R_mat, __pyx_v_cutoff)); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 522, __pyx_L1_error)
+  __pyx_t_9 = __pyx_convert_vector_to_py_double(libwalrus::interferometer_cpp<double>(__pyx_v_R_mat, __pyx_v_cutoff)); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 524, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_9);
   __pyx_r = __pyx_t_9;
   __pyx_t_9 = 0;
   goto __pyx_L0;
 
-  /* "libwalrus.pyx":501
+  /* "libwalrus.pyx":503
  * 
  * 
  * def interferometer_real(double [:, :] R, int cutoff):             # <<<<<<<<<<<<<<
@@ -5925,6 +5947,664 @@ static PyObject *__pyx_pf_9libwalrus_28interferometer_real(CYTHON_UNUSED PyObjec
   __pyx_r = NULL;
   __pyx_L0:;
   __PYX_XDEC_MEMVIEW(&__pyx_v_R, 1);
+  __Pyx_XGIVEREF(__pyx_r);
+  __Pyx_RefNannyFinishContext();
+  return __pyx_r;
+}
+
+/* "libwalrus.pyx":528
+ * 
+ * 
+ * def squeezing(double complex[:, :] R, int cutoff):             # <<<<<<<<<<<<<<
+ *     r"""Returns the renormalized multidimensional Hermite polynomials :math:`rH_k^{(R)}(y)`
+ *     via the C++ libwalrus library. They are given in terms of the standard multidimensional
+ */
+
+/* Python wrapper */
+static PyObject *__pyx_pw_9libwalrus_31squeezing(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
+static char __pyx_doc_9libwalrus_30squeezing[] = "squeezing(double complex[:, :] R, int cutoff)\nReturns the renormalized multidimensional Hermite polynomials :math:`rH_k^{(R)}(y)`\n    via the C++ libwalrus library. They are given in terms of the standard multidimensional\n    Hermite polynomials as :math:`H_k^{(R)}(y)/\\sqrt{\\prod(\\prod_i k_i!)}`.\n\n    Args:\n        R (array[complex128]): square matrix parametrizing the Hermite polynomial family\n        y (array[complex128]): vector argument of the Hermite polynomial\n        cutoff (int): maximum size of the subindices in the Hermite polynomial\n\n    Returns:\n        array[complex128]: the renormalized multidimensional Hermite polynomials\n    ";
+static PyMethodDef __pyx_mdef_9libwalrus_31squeezing = {"squeezing", (PyCFunction)(void*)(PyCFunctionWithKeywords)__pyx_pw_9libwalrus_31squeezing, METH_VARARGS|METH_KEYWORDS, __pyx_doc_9libwalrus_30squeezing};
+static PyObject *__pyx_pw_9libwalrus_31squeezing(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
+  __Pyx_memviewslice __pyx_v_R = { 0, 0, { 0 }, { 0 }, { 0 } };
+  int __pyx_v_cutoff;
+  PyObject *__pyx_r = 0;
+  __Pyx_RefNannyDeclarations
+  __Pyx_RefNannySetupContext("squeezing (wrapper)", 0);
+  {
+    static PyObject **__pyx_pyargnames[] = {&__pyx_n_s_R,&__pyx_n_s_cutoff,0};
+    PyObject* values[2] = {0,0};
+    if (unlikely(__pyx_kwds)) {
+      Py_ssize_t kw_args;
+      const Py_ssize_t pos_args = PyTuple_GET_SIZE(__pyx_args);
+      switch (pos_args) {
+        case  2: values[1] = PyTuple_GET_ITEM(__pyx_args, 1);
+        CYTHON_FALLTHROUGH;
+        case  1: values[0] = PyTuple_GET_ITEM(__pyx_args, 0);
+        CYTHON_FALLTHROUGH;
+        case  0: break;
+        default: goto __pyx_L5_argtuple_error;
+      }
+      kw_args = PyDict_Size(__pyx_kwds);
+      switch (pos_args) {
+        case  0:
+        if (likely((values[0] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_R)) != 0)) kw_args--;
+        else goto __pyx_L5_argtuple_error;
+        CYTHON_FALLTHROUGH;
+        case  1:
+        if (likely((values[1] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_cutoff)) != 0)) kw_args--;
+        else {
+          __Pyx_RaiseArgtupleInvalid("squeezing", 1, 2, 2, 1); __PYX_ERR(0, 528, __pyx_L3_error)
+        }
+      }
+      if (unlikely(kw_args > 0)) {
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "squeezing") < 0)) __PYX_ERR(0, 528, __pyx_L3_error)
+      }
+    } else if (PyTuple_GET_SIZE(__pyx_args) != 2) {
+      goto __pyx_L5_argtuple_error;
+    } else {
+      values[0] = PyTuple_GET_ITEM(__pyx_args, 0);
+      values[1] = PyTuple_GET_ITEM(__pyx_args, 1);
+    }
+    __pyx_v_R = __Pyx_PyObject_to_MemoryviewSlice_dsds___pyx_t_double_complex(values[0], PyBUF_WRITABLE); if (unlikely(!__pyx_v_R.memview)) __PYX_ERR(0, 528, __pyx_L3_error)
+    __pyx_v_cutoff = __Pyx_PyInt_As_int(values[1]); if (unlikely((__pyx_v_cutoff == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 528, __pyx_L3_error)
+  }
+  goto __pyx_L4_argument_unpacking_done;
+  __pyx_L5_argtuple_error:;
+  __Pyx_RaiseArgtupleInvalid("squeezing", 1, 2, 2, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 528, __pyx_L3_error)
+  __pyx_L3_error:;
+  __Pyx_AddTraceback("libwalrus.squeezing", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_RefNannyFinishContext();
+  return NULL;
+  __pyx_L4_argument_unpacking_done:;
+  __pyx_r = __pyx_pf_9libwalrus_30squeezing(__pyx_self, __pyx_v_R, __pyx_v_cutoff);
+
+  /* function exit code */
+  __Pyx_RefNannyFinishContext();
+  return __pyx_r;
+}
+
+static PyObject *__pyx_pf_9libwalrus_30squeezing(CYTHON_UNUSED PyObject *__pyx_self, __Pyx_memviewslice __pyx_v_R, int __pyx_v_cutoff) {
+  int __pyx_v_i;
+  int __pyx_v_j;
+  int __pyx_v_n;
+  std::vector<__pyx_t_double_complex>  __pyx_v_R_mat;
+  PyObject *__pyx_r = NULL;
+  __Pyx_RefNannyDeclarations
+  int __pyx_t_1;
+  int __pyx_t_2;
+  int __pyx_t_3;
+  int __pyx_t_4;
+  int __pyx_t_5;
+  int __pyx_t_6;
+  Py_ssize_t __pyx_t_7;
+  Py_ssize_t __pyx_t_8;
+  PyObject *__pyx_t_9 = NULL;
+  __Pyx_RefNannySetupContext("squeezing", 0);
+
+  /* "libwalrus.pyx":541
+ *         array[complex128]: the renormalized multidimensional Hermite polynomials
+ *     """
+ *     cdef int i, j, n = R.shape[0]             # <<<<<<<<<<<<<<
+ *     cdef vector[double complex] R_mat
+ * 
+ */
+  __pyx_v_n = (__pyx_v_R.shape[0]);
+
+  /* "libwalrus.pyx":544
+ *     cdef vector[double complex] R_mat
+ * 
+ *     for i in range(n):             # <<<<<<<<<<<<<<
+ *         for j in range(n):
+ *             R_mat.push_back(R[i, j])
+ */
+  __pyx_t_1 = __pyx_v_n;
+  __pyx_t_2 = __pyx_t_1;
+  for (__pyx_t_3 = 0; __pyx_t_3 < __pyx_t_2; __pyx_t_3+=1) {
+    __pyx_v_i = __pyx_t_3;
+
+    /* "libwalrus.pyx":545
+ * 
+ *     for i in range(n):
+ *         for j in range(n):             # <<<<<<<<<<<<<<
+ *             R_mat.push_back(R[i, j])
+ * 
+ */
+    __pyx_t_4 = __pyx_v_n;
+    __pyx_t_5 = __pyx_t_4;
+    for (__pyx_t_6 = 0; __pyx_t_6 < __pyx_t_5; __pyx_t_6+=1) {
+      __pyx_v_j = __pyx_t_6;
+
+      /* "libwalrus.pyx":546
+ *     for i in range(n):
+ *         for j in range(n):
+ *             R_mat.push_back(R[i, j])             # <<<<<<<<<<<<<<
+ * 
+ *     return squeezing_cpp(R_mat, cutoff)
+ */
+      __pyx_t_7 = __pyx_v_i;
+      __pyx_t_8 = __pyx_v_j;
+      try {
+        __pyx_v_R_mat.push_back((*((__pyx_t_double_complex *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_R.data + __pyx_t_7 * __pyx_v_R.strides[0]) ) + __pyx_t_8 * __pyx_v_R.strides[1]) ))));
+      } catch(...) {
+        __Pyx_CppExn2PyErr();
+        __PYX_ERR(0, 546, __pyx_L1_error)
+      }
+    }
+  }
+
+  /* "libwalrus.pyx":548
+ *             R_mat.push_back(R[i, j])
+ * 
+ *     return squeezing_cpp(R_mat, cutoff)             # <<<<<<<<<<<<<<
+ * 
+ * 
+ */
+  __Pyx_XDECREF(__pyx_r);
+  __pyx_t_9 = __pyx_convert_vector_to_py___pyx_t_double_complex(libwalrus::squeezing_cpp<__pyx_t_double_complex>(__pyx_v_R_mat, __pyx_v_cutoff)); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 548, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_9);
+  __pyx_r = __pyx_t_9;
+  __pyx_t_9 = 0;
+  goto __pyx_L0;
+
+  /* "libwalrus.pyx":528
+ * 
+ * 
+ * def squeezing(double complex[:, :] R, int cutoff):             # <<<<<<<<<<<<<<
+ *     r"""Returns the renormalized multidimensional Hermite polynomials :math:`rH_k^{(R)}(y)`
+ *     via the C++ libwalrus library. They are given in terms of the standard multidimensional
+ */
+
+  /* function exit code */
+  __pyx_L1_error:;
+  __Pyx_XDECREF(__pyx_t_9);
+  __Pyx_AddTraceback("libwalrus.squeezing", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __pyx_r = NULL;
+  __pyx_L0:;
+  __PYX_XDEC_MEMVIEW(&__pyx_v_R, 1);
+  __Pyx_XGIVEREF(__pyx_r);
+  __Pyx_RefNannyFinishContext();
+  return __pyx_r;
+}
+
+/* "libwalrus.pyx":551
+ * 
+ * 
+ * def squeezing_real(double [:, :] R, int cutoff):             # <<<<<<<<<<<<<<
+ *     r"""Returns the renormalized multidimensional Hermite polynomials :math:`rH_k^{(R)}(y)`
+ *     via the C++ libwalrus library. They are given in terms of the standard multidimensional
+ */
+
+/* Python wrapper */
+static PyObject *__pyx_pw_9libwalrus_33squeezing_real(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
+static char __pyx_doc_9libwalrus_32squeezing_real[] = "squeezing_real(double[:, :] R, int cutoff)\nReturns the renormalized multidimensional Hermite polynomials :math:`rH_k^{(R)}(y)`\n    via the C++ libwalrus library. They are given in terms of the standard multidimensional\n    Hermite polynomials as :math:`H_k^{(R)}(y)/\\sqrt{\\prod(\\prod_i k_i!)}`.\n\n    Args:\n        R (array[float64]): square matrix parametrizing the Hermite polynomial family\n        y (array[float64]): vector argument of the Hermite polynomial\n        cutoff (int): maximum size of the subindices in the Hermite polynomial\n\n    Returns:\n        array[float64]: the renormalized multidimensional Hermite polynomials\n    ";
+static PyMethodDef __pyx_mdef_9libwalrus_33squeezing_real = {"squeezing_real", (PyCFunction)(void*)(PyCFunctionWithKeywords)__pyx_pw_9libwalrus_33squeezing_real, METH_VARARGS|METH_KEYWORDS, __pyx_doc_9libwalrus_32squeezing_real};
+static PyObject *__pyx_pw_9libwalrus_33squeezing_real(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
+  __Pyx_memviewslice __pyx_v_R = { 0, 0, { 0 }, { 0 }, { 0 } };
+  int __pyx_v_cutoff;
+  PyObject *__pyx_r = 0;
+  __Pyx_RefNannyDeclarations
+  __Pyx_RefNannySetupContext("squeezing_real (wrapper)", 0);
+  {
+    static PyObject **__pyx_pyargnames[] = {&__pyx_n_s_R,&__pyx_n_s_cutoff,0};
+    PyObject* values[2] = {0,0};
+    if (unlikely(__pyx_kwds)) {
+      Py_ssize_t kw_args;
+      const Py_ssize_t pos_args = PyTuple_GET_SIZE(__pyx_args);
+      switch (pos_args) {
+        case  2: values[1] = PyTuple_GET_ITEM(__pyx_args, 1);
+        CYTHON_FALLTHROUGH;
+        case  1: values[0] = PyTuple_GET_ITEM(__pyx_args, 0);
+        CYTHON_FALLTHROUGH;
+        case  0: break;
+        default: goto __pyx_L5_argtuple_error;
+      }
+      kw_args = PyDict_Size(__pyx_kwds);
+      switch (pos_args) {
+        case  0:
+        if (likely((values[0] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_R)) != 0)) kw_args--;
+        else goto __pyx_L5_argtuple_error;
+        CYTHON_FALLTHROUGH;
+        case  1:
+        if (likely((values[1] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_cutoff)) != 0)) kw_args--;
+        else {
+          __Pyx_RaiseArgtupleInvalid("squeezing_real", 1, 2, 2, 1); __PYX_ERR(0, 551, __pyx_L3_error)
+        }
+      }
+      if (unlikely(kw_args > 0)) {
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "squeezing_real") < 0)) __PYX_ERR(0, 551, __pyx_L3_error)
+      }
+    } else if (PyTuple_GET_SIZE(__pyx_args) != 2) {
+      goto __pyx_L5_argtuple_error;
+    } else {
+      values[0] = PyTuple_GET_ITEM(__pyx_args, 0);
+      values[1] = PyTuple_GET_ITEM(__pyx_args, 1);
+    }
+    __pyx_v_R = __Pyx_PyObject_to_MemoryviewSlice_dsds_double(values[0], PyBUF_WRITABLE); if (unlikely(!__pyx_v_R.memview)) __PYX_ERR(0, 551, __pyx_L3_error)
+    __pyx_v_cutoff = __Pyx_PyInt_As_int(values[1]); if (unlikely((__pyx_v_cutoff == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 551, __pyx_L3_error)
+  }
+  goto __pyx_L4_argument_unpacking_done;
+  __pyx_L5_argtuple_error:;
+  __Pyx_RaiseArgtupleInvalid("squeezing_real", 1, 2, 2, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 551, __pyx_L3_error)
+  __pyx_L3_error:;
+  __Pyx_AddTraceback("libwalrus.squeezing_real", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_RefNannyFinishContext();
+  return NULL;
+  __pyx_L4_argument_unpacking_done:;
+  __pyx_r = __pyx_pf_9libwalrus_32squeezing_real(__pyx_self, __pyx_v_R, __pyx_v_cutoff);
+
+  /* function exit code */
+  __Pyx_RefNannyFinishContext();
+  return __pyx_r;
+}
+
+static PyObject *__pyx_pf_9libwalrus_32squeezing_real(CYTHON_UNUSED PyObject *__pyx_self, __Pyx_memviewslice __pyx_v_R, int __pyx_v_cutoff) {
+  int __pyx_v_i;
+  int __pyx_v_j;
+  int __pyx_v_n;
+  std::vector<double>  __pyx_v_R_mat;
+  PyObject *__pyx_r = NULL;
+  __Pyx_RefNannyDeclarations
+  int __pyx_t_1;
+  int __pyx_t_2;
+  int __pyx_t_3;
+  int __pyx_t_4;
+  int __pyx_t_5;
+  int __pyx_t_6;
+  Py_ssize_t __pyx_t_7;
+  Py_ssize_t __pyx_t_8;
+  PyObject *__pyx_t_9 = NULL;
+  __Pyx_RefNannySetupContext("squeezing_real", 0);
+
+  /* "libwalrus.pyx":564
+ *         array[float64]: the renormalized multidimensional Hermite polynomials
+ *     """
+ *     cdef int i, j, n = R.shape[0]             # <<<<<<<<<<<<<<
+ *     cdef vector[double] R_mat
+ * 
+ */
+  __pyx_v_n = (__pyx_v_R.shape[0]);
+
+  /* "libwalrus.pyx":567
+ *     cdef vector[double] R_mat
+ * 
+ *     for i in range(n):             # <<<<<<<<<<<<<<
+ *         for j in range(n):
+ *             R_mat.push_back(R[i, j])
+ */
+  __pyx_t_1 = __pyx_v_n;
+  __pyx_t_2 = __pyx_t_1;
+  for (__pyx_t_3 = 0; __pyx_t_3 < __pyx_t_2; __pyx_t_3+=1) {
+    __pyx_v_i = __pyx_t_3;
+
+    /* "libwalrus.pyx":568
+ * 
+ *     for i in range(n):
+ *         for j in range(n):             # <<<<<<<<<<<<<<
+ *             R_mat.push_back(R[i, j])
+ * 
+ */
+    __pyx_t_4 = __pyx_v_n;
+    __pyx_t_5 = __pyx_t_4;
+    for (__pyx_t_6 = 0; __pyx_t_6 < __pyx_t_5; __pyx_t_6+=1) {
+      __pyx_v_j = __pyx_t_6;
+
+      /* "libwalrus.pyx":569
+ *     for i in range(n):
+ *         for j in range(n):
+ *             R_mat.push_back(R[i, j])             # <<<<<<<<<<<<<<
+ * 
+ * 
+ */
+      __pyx_t_7 = __pyx_v_i;
+      __pyx_t_8 = __pyx_v_j;
+      try {
+        __pyx_v_R_mat.push_back((*((double *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_R.data + __pyx_t_7 * __pyx_v_R.strides[0]) ) + __pyx_t_8 * __pyx_v_R.strides[1]) ))));
+      } catch(...) {
+        __Pyx_CppExn2PyErr();
+        __PYX_ERR(0, 569, __pyx_L1_error)
+      }
+    }
+  }
+
+  /* "libwalrus.pyx":572
+ * 
+ * 
+ *     return squeezing_cpp(R_mat, cutoff)             # <<<<<<<<<<<<<<
+ * 
+ * 
+ */
+  __Pyx_XDECREF(__pyx_r);
+  __pyx_t_9 = __pyx_convert_vector_to_py_double(libwalrus::squeezing_cpp<double>(__pyx_v_R_mat, __pyx_v_cutoff)); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 572, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_9);
+  __pyx_r = __pyx_t_9;
+  __pyx_t_9 = 0;
+  goto __pyx_L0;
+
+  /* "libwalrus.pyx":551
+ * 
+ * 
+ * def squeezing_real(double [:, :] R, int cutoff):             # <<<<<<<<<<<<<<
+ *     r"""Returns the renormalized multidimensional Hermite polynomials :math:`rH_k^{(R)}(y)`
+ *     via the C++ libwalrus library. They are given in terms of the standard multidimensional
+ */
+
+  /* function exit code */
+  __pyx_L1_error:;
+  __Pyx_XDECREF(__pyx_t_9);
+  __Pyx_AddTraceback("libwalrus.squeezing_real", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __pyx_r = NULL;
+  __pyx_L0:;
+  __PYX_XDEC_MEMVIEW(&__pyx_v_R, 1);
+  __Pyx_XGIVEREF(__pyx_r);
+  __Pyx_RefNannyFinishContext();
+  return __pyx_r;
+}
+
+/* "libwalrus.pyx":576
+ * 
+ * 
+ * def displacement(double complex [:] y, int cutoff):             # <<<<<<<<<<<<<<
+ *     r"""Returns the renormalized multidimensional Hermite polynomials :math:`rH_k^{(R)}(y)`
+ *     via the C++ libwalrus library. They are given in terms of the standard multidimensional
+ */
+
+/* Python wrapper */
+static PyObject *__pyx_pw_9libwalrus_35displacement(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
+static char __pyx_doc_9libwalrus_34displacement[] = "displacement(double complex[:] y, int cutoff)\nReturns the renormalized multidimensional Hermite polynomials :math:`rH_k^{(R)}(y)`\n    via the C++ libwalrus library. They are given in terms of the standard multidimensional\n    Hermite polynomials as :math:`H_k^{(R)}(y)/\\sqrt{\\prod(\\prod_i k_i!)}`.\n\n    Args:\n        R (array[float64]): square matrix parametrizing the Hermite polynomial family\n        y (array[float64]): vector argument of the Hermite polynomial\n        cutoff (int): maximum size of the subindices in the Hermite polynomial\n\n    Returns:\n        array[float64]: the renormalized multidimensional Hermite polynomials\n    ";
+static PyMethodDef __pyx_mdef_9libwalrus_35displacement = {"displacement", (PyCFunction)(void*)(PyCFunctionWithKeywords)__pyx_pw_9libwalrus_35displacement, METH_VARARGS|METH_KEYWORDS, __pyx_doc_9libwalrus_34displacement};
+static PyObject *__pyx_pw_9libwalrus_35displacement(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
+  __Pyx_memviewslice __pyx_v_y = { 0, 0, { 0 }, { 0 }, { 0 } };
+  int __pyx_v_cutoff;
+  PyObject *__pyx_r = 0;
+  __Pyx_RefNannyDeclarations
+  __Pyx_RefNannySetupContext("displacement (wrapper)", 0);
+  {
+    static PyObject **__pyx_pyargnames[] = {&__pyx_n_s_y,&__pyx_n_s_cutoff,0};
+    PyObject* values[2] = {0,0};
+    if (unlikely(__pyx_kwds)) {
+      Py_ssize_t kw_args;
+      const Py_ssize_t pos_args = PyTuple_GET_SIZE(__pyx_args);
+      switch (pos_args) {
+        case  2: values[1] = PyTuple_GET_ITEM(__pyx_args, 1);
+        CYTHON_FALLTHROUGH;
+        case  1: values[0] = PyTuple_GET_ITEM(__pyx_args, 0);
+        CYTHON_FALLTHROUGH;
+        case  0: break;
+        default: goto __pyx_L5_argtuple_error;
+      }
+      kw_args = PyDict_Size(__pyx_kwds);
+      switch (pos_args) {
+        case  0:
+        if (likely((values[0] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_y)) != 0)) kw_args--;
+        else goto __pyx_L5_argtuple_error;
+        CYTHON_FALLTHROUGH;
+        case  1:
+        if (likely((values[1] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_cutoff)) != 0)) kw_args--;
+        else {
+          __Pyx_RaiseArgtupleInvalid("displacement", 1, 2, 2, 1); __PYX_ERR(0, 576, __pyx_L3_error)
+        }
+      }
+      if (unlikely(kw_args > 0)) {
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "displacement") < 0)) __PYX_ERR(0, 576, __pyx_L3_error)
+      }
+    } else if (PyTuple_GET_SIZE(__pyx_args) != 2) {
+      goto __pyx_L5_argtuple_error;
+    } else {
+      values[0] = PyTuple_GET_ITEM(__pyx_args, 0);
+      values[1] = PyTuple_GET_ITEM(__pyx_args, 1);
+    }
+    __pyx_v_y = __Pyx_PyObject_to_MemoryviewSlice_ds___pyx_t_double_complex(values[0], PyBUF_WRITABLE); if (unlikely(!__pyx_v_y.memview)) __PYX_ERR(0, 576, __pyx_L3_error)
+    __pyx_v_cutoff = __Pyx_PyInt_As_int(values[1]); if (unlikely((__pyx_v_cutoff == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 576, __pyx_L3_error)
+  }
+  goto __pyx_L4_argument_unpacking_done;
+  __pyx_L5_argtuple_error:;
+  __Pyx_RaiseArgtupleInvalid("displacement", 1, 2, 2, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 576, __pyx_L3_error)
+  __pyx_L3_error:;
+  __Pyx_AddTraceback("libwalrus.displacement", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_RefNannyFinishContext();
+  return NULL;
+  __pyx_L4_argument_unpacking_done:;
+  __pyx_r = __pyx_pf_9libwalrus_34displacement(__pyx_self, __pyx_v_y, __pyx_v_cutoff);
+
+  /* function exit code */
+  __Pyx_RefNannyFinishContext();
+  return __pyx_r;
+}
+
+static PyObject *__pyx_pf_9libwalrus_34displacement(CYTHON_UNUSED PyObject *__pyx_self, __Pyx_memviewslice __pyx_v_y, int __pyx_v_cutoff) {
+  int __pyx_v_i;
+  int __pyx_v_n;
+  std::vector<__pyx_t_double_complex>  __pyx_v_y_mat;
+  PyObject *__pyx_r = NULL;
+  __Pyx_RefNannyDeclarations
+  int __pyx_t_1;
+  int __pyx_t_2;
+  int __pyx_t_3;
+  Py_ssize_t __pyx_t_4;
+  PyObject *__pyx_t_5 = NULL;
+  __Pyx_RefNannySetupContext("displacement", 0);
+
+  /* "libwalrus.pyx":589
+ *         array[float64]: the renormalized multidimensional Hermite polynomials
+ *     """
+ *     cdef int i, n = 2             # <<<<<<<<<<<<<<
+ *     cdef vector[double complex] y_mat
+ *     for i in range(n):
+ */
+  __pyx_v_n = 2;
+
+  /* "libwalrus.pyx":591
+ *     cdef int i, n = 2
+ *     cdef vector[double complex] y_mat
+ *     for i in range(n):             # <<<<<<<<<<<<<<
+ *         y_mat.push_back(y[i])
+ * 
+ */
+  __pyx_t_1 = __pyx_v_n;
+  __pyx_t_2 = __pyx_t_1;
+  for (__pyx_t_3 = 0; __pyx_t_3 < __pyx_t_2; __pyx_t_3+=1) {
+    __pyx_v_i = __pyx_t_3;
+
+    /* "libwalrus.pyx":592
+ *     cdef vector[double complex] y_mat
+ *     for i in range(n):
+ *         y_mat.push_back(y[i])             # <<<<<<<<<<<<<<
+ * 
+ * 
+ */
+    __pyx_t_4 = __pyx_v_i;
+    try {
+      __pyx_v_y_mat.push_back((*((__pyx_t_double_complex *) ( /* dim=0 */ (__pyx_v_y.data + __pyx_t_4 * __pyx_v_y.strides[0]) ))));
+    } catch(...) {
+      __Pyx_CppExn2PyErr();
+      __PYX_ERR(0, 592, __pyx_L1_error)
+    }
+  }
+
+  /* "libwalrus.pyx":596
+ * 
+ * 
+ *     return displacement_cpp(y_mat, cutoff)             # <<<<<<<<<<<<<<
+ * 
+ * def displacement_real(double [:] y, int cutoff):
+ */
+  __Pyx_XDECREF(__pyx_r);
+  __pyx_t_5 = __pyx_convert_vector_to_py___pyx_t_double_complex(libwalrus::displacement_cpp<__pyx_t_double_complex>(__pyx_v_y_mat, __pyx_v_cutoff)); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 596, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_5);
+  __pyx_r = __pyx_t_5;
+  __pyx_t_5 = 0;
+  goto __pyx_L0;
+
+  /* "libwalrus.pyx":576
+ * 
+ * 
+ * def displacement(double complex [:] y, int cutoff):             # <<<<<<<<<<<<<<
+ *     r"""Returns the renormalized multidimensional Hermite polynomials :math:`rH_k^{(R)}(y)`
+ *     via the C++ libwalrus library. They are given in terms of the standard multidimensional
+ */
+
+  /* function exit code */
+  __pyx_L1_error:;
+  __Pyx_XDECREF(__pyx_t_5);
+  __Pyx_AddTraceback("libwalrus.displacement", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __pyx_r = NULL;
+  __pyx_L0:;
+  __PYX_XDEC_MEMVIEW(&__pyx_v_y, 1);
+  __Pyx_XGIVEREF(__pyx_r);
+  __Pyx_RefNannyFinishContext();
+  return __pyx_r;
+}
+
+/* "libwalrus.pyx":598
+ *     return displacement_cpp(y_mat, cutoff)
+ * 
+ * def displacement_real(double [:] y, int cutoff):             # <<<<<<<<<<<<<<
+ *     r"""Returns the renormalized multidimensional Hermite polynomials :math:`rH_k^{(R)}(y)`
+ *     via the C++ libwalrus library. They are given in terms of the standard multidimensional
+ */
+
+/* Python wrapper */
+static PyObject *__pyx_pw_9libwalrus_37displacement_real(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
+static char __pyx_doc_9libwalrus_36displacement_real[] = "displacement_real(double[:] y, int cutoff)\nReturns the renormalized multidimensional Hermite polynomials :math:`rH_k^{(R)}(y)`\n    via the C++ libwalrus library. They are given in terms of the standard multidimensional\n    Hermite polynomials as :math:`H_k^{(R)}(y)/\\sqrt{\\prod(\\prod_i k_i!)}`.\n\n    Args:\n        R (array[float64]): square matrix parametrizing the Hermite polynomial family\n        y (array[float64]): vector argument of the Hermite polynomial\n        cutoff (int): maximum size of the subindices in the Hermite polynomial\n\n    Returns:\n        array[float64]: the renormalized multidimensional Hermite polynomials\n    ";
+static PyMethodDef __pyx_mdef_9libwalrus_37displacement_real = {"displacement_real", (PyCFunction)(void*)(PyCFunctionWithKeywords)__pyx_pw_9libwalrus_37displacement_real, METH_VARARGS|METH_KEYWORDS, __pyx_doc_9libwalrus_36displacement_real};
+static PyObject *__pyx_pw_9libwalrus_37displacement_real(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
+  __Pyx_memviewslice __pyx_v_y = { 0, 0, { 0 }, { 0 }, { 0 } };
+  int __pyx_v_cutoff;
+  PyObject *__pyx_r = 0;
+  __Pyx_RefNannyDeclarations
+  __Pyx_RefNannySetupContext("displacement_real (wrapper)", 0);
+  {
+    static PyObject **__pyx_pyargnames[] = {&__pyx_n_s_y,&__pyx_n_s_cutoff,0};
+    PyObject* values[2] = {0,0};
+    if (unlikely(__pyx_kwds)) {
+      Py_ssize_t kw_args;
+      const Py_ssize_t pos_args = PyTuple_GET_SIZE(__pyx_args);
+      switch (pos_args) {
+        case  2: values[1] = PyTuple_GET_ITEM(__pyx_args, 1);
+        CYTHON_FALLTHROUGH;
+        case  1: values[0] = PyTuple_GET_ITEM(__pyx_args, 0);
+        CYTHON_FALLTHROUGH;
+        case  0: break;
+        default: goto __pyx_L5_argtuple_error;
+      }
+      kw_args = PyDict_Size(__pyx_kwds);
+      switch (pos_args) {
+        case  0:
+        if (likely((values[0] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_y)) != 0)) kw_args--;
+        else goto __pyx_L5_argtuple_error;
+        CYTHON_FALLTHROUGH;
+        case  1:
+        if (likely((values[1] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_cutoff)) != 0)) kw_args--;
+        else {
+          __Pyx_RaiseArgtupleInvalid("displacement_real", 1, 2, 2, 1); __PYX_ERR(0, 598, __pyx_L3_error)
+        }
+      }
+      if (unlikely(kw_args > 0)) {
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "displacement_real") < 0)) __PYX_ERR(0, 598, __pyx_L3_error)
+      }
+    } else if (PyTuple_GET_SIZE(__pyx_args) != 2) {
+      goto __pyx_L5_argtuple_error;
+    } else {
+      values[0] = PyTuple_GET_ITEM(__pyx_args, 0);
+      values[1] = PyTuple_GET_ITEM(__pyx_args, 1);
+    }
+    __pyx_v_y = __Pyx_PyObject_to_MemoryviewSlice_ds_double(values[0], PyBUF_WRITABLE); if (unlikely(!__pyx_v_y.memview)) __PYX_ERR(0, 598, __pyx_L3_error)
+    __pyx_v_cutoff = __Pyx_PyInt_As_int(values[1]); if (unlikely((__pyx_v_cutoff == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 598, __pyx_L3_error)
+  }
+  goto __pyx_L4_argument_unpacking_done;
+  __pyx_L5_argtuple_error:;
+  __Pyx_RaiseArgtupleInvalid("displacement_real", 1, 2, 2, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 598, __pyx_L3_error)
+  __pyx_L3_error:;
+  __Pyx_AddTraceback("libwalrus.displacement_real", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_RefNannyFinishContext();
+  return NULL;
+  __pyx_L4_argument_unpacking_done:;
+  __pyx_r = __pyx_pf_9libwalrus_36displacement_real(__pyx_self, __pyx_v_y, __pyx_v_cutoff);
+
+  /* function exit code */
+  __Pyx_RefNannyFinishContext();
+  return __pyx_r;
+}
+
+static PyObject *__pyx_pf_9libwalrus_36displacement_real(CYTHON_UNUSED PyObject *__pyx_self, __Pyx_memviewslice __pyx_v_y, int __pyx_v_cutoff) {
+  int __pyx_v_i;
+  int __pyx_v_n;
+  std::vector<double>  __pyx_v_y_mat;
+  PyObject *__pyx_r = NULL;
+  __Pyx_RefNannyDeclarations
+  int __pyx_t_1;
+  int __pyx_t_2;
+  int __pyx_t_3;
+  Py_ssize_t __pyx_t_4;
+  PyObject *__pyx_t_5 = NULL;
+  __Pyx_RefNannySetupContext("displacement_real", 0);
+
+  /* "libwalrus.pyx":611
+ *         array[float64]: the renormalized multidimensional Hermite polynomials
+ *     """
+ *     cdef int i, n = 2             # <<<<<<<<<<<<<<
+ *     cdef vector[double] y_mat
+ *     for i in range(n):
+ */
+  __pyx_v_n = 2;
+
+  /* "libwalrus.pyx":613
+ *     cdef int i, n = 2
+ *     cdef vector[double] y_mat
+ *     for i in range(n):             # <<<<<<<<<<<<<<
+ *         y_mat.push_back(y[i])
+ * 
+ */
+  __pyx_t_1 = __pyx_v_n;
+  __pyx_t_2 = __pyx_t_1;
+  for (__pyx_t_3 = 0; __pyx_t_3 < __pyx_t_2; __pyx_t_3+=1) {
+    __pyx_v_i = __pyx_t_3;
+
+    /* "libwalrus.pyx":614
+ *     cdef vector[double] y_mat
+ *     for i in range(n):
+ *         y_mat.push_back(y[i])             # <<<<<<<<<<<<<<
+ * 
+ * 
+ */
+    __pyx_t_4 = __pyx_v_i;
+    try {
+      __pyx_v_y_mat.push_back((*((double *) ( /* dim=0 */ (__pyx_v_y.data + __pyx_t_4 * __pyx_v_y.strides[0]) ))));
+    } catch(...) {
+      __Pyx_CppExn2PyErr();
+      __PYX_ERR(0, 614, __pyx_L1_error)
+    }
+  }
+
+  /* "libwalrus.pyx":618
+ * 
+ * 
+ *     return displacement_cpp(y_mat, cutoff)             # <<<<<<<<<<<<<<
+ * 
+ * 
+ */
+  __Pyx_XDECREF(__pyx_r);
+  __pyx_t_5 = __pyx_convert_vector_to_py_double(libwalrus::displacement_cpp<double>(__pyx_v_y_mat, __pyx_v_cutoff)); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 618, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_5);
+  __pyx_r = __pyx_t_5;
+  __pyx_t_5 = 0;
+  goto __pyx_L0;
+
+  /* "libwalrus.pyx":598
+ *     return displacement_cpp(y_mat, cutoff)
+ * 
+ * def displacement_real(double [:] y, int cutoff):             # <<<<<<<<<<<<<<
+ *     r"""Returns the renormalized multidimensional Hermite polynomials :math:`rH_k^{(R)}(y)`
+ *     via the C++ libwalrus library. They are given in terms of the standard multidimensional
+ */
+
+  /* function exit code */
+  __pyx_L1_error:;
+  __Pyx_XDECREF(__pyx_t_5);
+  __Pyx_AddTraceback("libwalrus.displacement_real", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __pyx_r = NULL;
+  __pyx_L0:;
+  __PYX_XDEC_MEMVIEW(&__pyx_v_y, 1);
   __Pyx_XGIVEREF(__pyx_r);
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
@@ -19670,6 +20350,8 @@ static __Pyx_StringTabEntry __pyx_string_tab[] = {
   {&__pyx_n_s_cutoff, __pyx_k_cutoff, sizeof(__pyx_k_cutoff), 0, 0, 1, 1},
   {&__pyx_n_s_d, __pyx_k_d, sizeof(__pyx_k_d), 0, 0, 1, 1},
   {&__pyx_n_s_dict, __pyx_k_dict, sizeof(__pyx_k_dict), 0, 0, 1, 1},
+  {&__pyx_n_s_displacement, __pyx_k_displacement, sizeof(__pyx_k_displacement), 0, 0, 1, 1},
+  {&__pyx_n_s_displacement_real, __pyx_k_displacement_real, sizeof(__pyx_k_displacement_real), 0, 0, 1, 1},
   {&__pyx_n_s_dtype_is_object, __pyx_k_dtype_is_object, sizeof(__pyx_k_dtype_is_object), 0, 0, 1, 1},
   {&__pyx_n_s_encode, __pyx_k_encode, sizeof(__pyx_k_encode), 0, 0, 1, 1},
   {&__pyx_n_s_enumerate, __pyx_k_enumerate, sizeof(__pyx_k_enumerate), 0, 0, 1, 1},
@@ -19738,6 +20420,8 @@ static __Pyx_StringTabEntry __pyx_string_tab[] = {
   {&__pyx_n_s_setstate_cython, __pyx_k_setstate_cython, sizeof(__pyx_k_setstate_cython), 0, 0, 1, 1},
   {&__pyx_n_s_shape, __pyx_k_shape, sizeof(__pyx_k_shape), 0, 0, 1, 1},
   {&__pyx_n_s_size, __pyx_k_size, sizeof(__pyx_k_size), 0, 0, 1, 1},
+  {&__pyx_n_s_squeezing, __pyx_k_squeezing, sizeof(__pyx_k_squeezing), 0, 0, 1, 1},
+  {&__pyx_n_s_squeezing_real, __pyx_k_squeezing_real, sizeof(__pyx_k_squeezing_real), 0, 0, 1, 1},
   {&__pyx_n_s_start, __pyx_k_start, sizeof(__pyx_k_start), 0, 0, 1, 1},
   {&__pyx_n_s_step, __pyx_k_step, sizeof(__pyx_k_step), 0, 0, 1, 1},
   {&__pyx_n_s_stop, __pyx_k_stop, sizeof(__pyx_k_stop), 0, 0, 1, 1},
@@ -19759,7 +20443,7 @@ static __Pyx_StringTabEntry __pyx_string_tab[] = {
   {0, 0, 0, 0, 0, 0, 0}
 };
 static CYTHON_SMALL_CODE int __Pyx_InitCachedBuiltins(void) {
-  __pyx_builtin_range = __Pyx_GetBuiltinName(__pyx_n_s_range); if (!__pyx_builtin_range) __PYX_ERR(0, 80, __pyx_L1_error)
+  __pyx_builtin_range = __Pyx_GetBuiltinName(__pyx_n_s_range); if (!__pyx_builtin_range) __PYX_ERR(0, 82, __pyx_L1_error)
   __pyx_builtin_ValueError = __Pyx_GetBuiltinName(__pyx_n_s_ValueError); if (!__pyx_builtin_ValueError) __PYX_ERR(1, 133, __pyx_L1_error)
   __pyx_builtin_MemoryError = __Pyx_GetBuiltinName(__pyx_n_s_MemoryError); if (!__pyx_builtin_MemoryError) __PYX_ERR(1, 148, __pyx_L1_error)
   __pyx_builtin_enumerate = __Pyx_GetBuiltinName(__pyx_n_s_enumerate); if (!__pyx_builtin_enumerate) __PYX_ERR(1, 151, __pyx_L1_error)
@@ -19968,185 +20652,233 @@ static CYTHON_SMALL_CODE int __Pyx_InitCachedConstants(void) {
   __Pyx_GOTREF(__pyx_tuple__20);
   __Pyx_GIVEREF(__pyx_tuple__20);
 
-  /* "libwalrus.pyx":58
+  /* "libwalrus.pyx":60
  * 
  * 
  * def torontonian_complex(double complex[:, :] A, fsum=False):             # <<<<<<<<<<<<<<
  *     """Returns the Torontonian of a complex matrix A via the C++ libwalrus library.
  * 
  */
-  __pyx_tuple__21 = PyTuple_Pack(7, __pyx_n_s_A, __pyx_n_s_fsum, __pyx_n_s_i, __pyx_n_s_j, __pyx_n_s_n, __pyx_n_s_mat, __pyx_n_s_m); if (unlikely(!__pyx_tuple__21)) __PYX_ERR(0, 58, __pyx_L1_error)
+  __pyx_tuple__21 = PyTuple_Pack(7, __pyx_n_s_A, __pyx_n_s_fsum, __pyx_n_s_i, __pyx_n_s_j, __pyx_n_s_n, __pyx_n_s_mat, __pyx_n_s_m); if (unlikely(!__pyx_tuple__21)) __PYX_ERR(0, 60, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__21);
   __Pyx_GIVEREF(__pyx_tuple__21);
-  __pyx_codeobj__22 = (PyObject*)__Pyx_PyCode_New(2, 0, 7, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__21, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_thewalrus_libwalrus_pyx, __pyx_n_s_torontonian_complex, 58, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__22)) __PYX_ERR(0, 58, __pyx_L1_error)
+  __pyx_codeobj__22 = (PyObject*)__Pyx_PyCode_New(2, 0, 7, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__21, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_thewalrus_libwalrus_pyx, __pyx_n_s_torontonian_complex, 60, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__22)) __PYX_ERR(0, 60, __pyx_L1_error)
 
-  /* "libwalrus.pyx":90
+  /* "libwalrus.pyx":92
  * 
  * 
  * def torontonian_real(double[:, :] A, fsum=False):             # <<<<<<<<<<<<<<
  *     """Returns the Torontonian of a real matrix A via the C++ libwalrus library.
  * 
  */
-  __pyx_tuple__23 = PyTuple_Pack(7, __pyx_n_s_A, __pyx_n_s_fsum, __pyx_n_s_i, __pyx_n_s_j, __pyx_n_s_n, __pyx_n_s_mat, __pyx_n_s_m); if (unlikely(!__pyx_tuple__23)) __PYX_ERR(0, 90, __pyx_L1_error)
+  __pyx_tuple__23 = PyTuple_Pack(7, __pyx_n_s_A, __pyx_n_s_fsum, __pyx_n_s_i, __pyx_n_s_j, __pyx_n_s_n, __pyx_n_s_mat, __pyx_n_s_m); if (unlikely(!__pyx_tuple__23)) __PYX_ERR(0, 92, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__23);
   __Pyx_GIVEREF(__pyx_tuple__23);
-  __pyx_codeobj__24 = (PyObject*)__Pyx_PyCode_New(2, 0, 7, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__23, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_thewalrus_libwalrus_pyx, __pyx_n_s_torontonian_real, 90, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__24)) __PYX_ERR(0, 90, __pyx_L1_error)
+  __pyx_codeobj__24 = (PyObject*)__Pyx_PyCode_New(2, 0, 7, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__23, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_thewalrus_libwalrus_pyx, __pyx_n_s_torontonian_real, 92, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__24)) __PYX_ERR(0, 92, __pyx_L1_error)
 
-  /* "libwalrus.pyx":127
+  /* "libwalrus.pyx":129
  * 
  * 
  * def haf_rpt_real(double[:, :] A, int[:] rpt, double[:] mu=None, bint loop=False):             # <<<<<<<<<<<<<<
  *     r"""Returns the hafnian of a real matrix A via the C++ libwalrus library
  *     using the rpt method. This method is more efficient for matrices with
  */
-  __pyx_tuple__25 = PyTuple_Pack(10, __pyx_n_s_A, __pyx_n_s_rpt, __pyx_n_s_mu, __pyx_n_s_loop, __pyx_n_s_i, __pyx_n_s_j, __pyx_n_s_n, __pyx_n_s_nud, __pyx_n_s_mat, __pyx_n_s_d); if (unlikely(!__pyx_tuple__25)) __PYX_ERR(0, 127, __pyx_L1_error)
+  __pyx_tuple__25 = PyTuple_Pack(10, __pyx_n_s_A, __pyx_n_s_rpt, __pyx_n_s_mu, __pyx_n_s_loop, __pyx_n_s_i, __pyx_n_s_j, __pyx_n_s_n, __pyx_n_s_nud, __pyx_n_s_mat, __pyx_n_s_d); if (unlikely(!__pyx_tuple__25)) __PYX_ERR(0, 129, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__25);
   __Pyx_GIVEREF(__pyx_tuple__25);
-  __pyx_codeobj__26 = (PyObject*)__Pyx_PyCode_New(4, 0, 10, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__25, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_thewalrus_libwalrus_pyx, __pyx_n_s_haf_rpt_real, 127, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__26)) __PYX_ERR(0, 127, __pyx_L1_error)
+  __pyx_codeobj__26 = (PyObject*)__Pyx_PyCode_New(4, 0, 10, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__25, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_thewalrus_libwalrus_pyx, __pyx_n_s_haf_rpt_real, 129, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__26)) __PYX_ERR(0, 129, __pyx_L1_error)
 
-  /* "libwalrus.pyx":166
+  /* "libwalrus.pyx":168
  * 
  * 
  * def haf_rpt_complex(double complex[:, :] A, int[:] rpt, double complex[:] mu=None, bint loop=False):             # <<<<<<<<<<<<<<
  *     r"""Returns the hafnian of a complex matrix A via the C++ libwalrus library
  *     using the rpt method. This method is more efficient for matrices with
  */
-  __pyx_tuple__27 = PyTuple_Pack(10, __pyx_n_s_A, __pyx_n_s_rpt, __pyx_n_s_mu, __pyx_n_s_loop, __pyx_n_s_i, __pyx_n_s_j, __pyx_n_s_n, __pyx_n_s_nud, __pyx_n_s_mat, __pyx_n_s_d); if (unlikely(!__pyx_tuple__27)) __PYX_ERR(0, 166, __pyx_L1_error)
+  __pyx_tuple__27 = PyTuple_Pack(10, __pyx_n_s_A, __pyx_n_s_rpt, __pyx_n_s_mu, __pyx_n_s_loop, __pyx_n_s_i, __pyx_n_s_j, __pyx_n_s_n, __pyx_n_s_nud, __pyx_n_s_mat, __pyx_n_s_d); if (unlikely(!__pyx_tuple__27)) __PYX_ERR(0, 168, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__27);
   __Pyx_GIVEREF(__pyx_tuple__27);
-  __pyx_codeobj__28 = (PyObject*)__Pyx_PyCode_New(4, 0, 10, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__27, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_thewalrus_libwalrus_pyx, __pyx_n_s_haf_rpt_complex, 166, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__28)) __PYX_ERR(0, 166, __pyx_L1_error)
+  __pyx_codeobj__28 = (PyObject*)__Pyx_PyCode_New(4, 0, 10, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__27, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_thewalrus_libwalrus_pyx, __pyx_n_s_haf_rpt_complex, 168, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__28)) __PYX_ERR(0, 168, __pyx_L1_error)
 
-  /* "libwalrus.pyx":209
+  /* "libwalrus.pyx":211
  * 
  * 
  * def haf_int(long long[:, :] A):             # <<<<<<<<<<<<<<
  *     """Returns the hafnian of an integer matrix A via the C++ libwalrus library.
  *     Modified with permission from https://github.com/eklotek/Hafnian.
  */
-  __pyx_tuple__29 = PyTuple_Pack(6, __pyx_n_s_A, __pyx_n_s_A, __pyx_n_s_i, __pyx_n_s_j, __pyx_n_s_n, __pyx_n_s_mat); if (unlikely(!__pyx_tuple__29)) __PYX_ERR(0, 209, __pyx_L1_error)
+  __pyx_tuple__29 = PyTuple_Pack(6, __pyx_n_s_A, __pyx_n_s_A, __pyx_n_s_i, __pyx_n_s_j, __pyx_n_s_n, __pyx_n_s_mat); if (unlikely(!__pyx_tuple__29)) __PYX_ERR(0, 211, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__29);
   __Pyx_GIVEREF(__pyx_tuple__29);
-  __pyx_codeobj__30 = (PyObject*)__Pyx_PyCode_New(1, 0, 6, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__29, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_thewalrus_libwalrus_pyx, __pyx_n_s_haf_int, 209, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__30)) __PYX_ERR(0, 209, __pyx_L1_error)
+  __pyx_codeobj__30 = (PyObject*)__Pyx_PyCode_New(1, 0, 6, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__29, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_thewalrus_libwalrus_pyx, __pyx_n_s_haf_int, 211, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__30)) __PYX_ERR(0, 211, __pyx_L1_error)
 
-  /* "libwalrus.pyx":236
+  /* "libwalrus.pyx":238
  * 
  * 
  * def haf_complex(double complex[:, :] A, bint loop=False, bint recursive=True, quad=True):             # <<<<<<<<<<<<<<
  *     """Returns the hafnian of a complex matrix A via the C++ libwalrus library.
  * 
  */
-  __pyx_tuple__31 = PyTuple_Pack(8, __pyx_n_s_A, __pyx_n_s_loop, __pyx_n_s_recursive, __pyx_n_s_quad, __pyx_n_s_i, __pyx_n_s_j, __pyx_n_s_n, __pyx_n_s_mat); if (unlikely(!__pyx_tuple__31)) __PYX_ERR(0, 236, __pyx_L1_error)
+  __pyx_tuple__31 = PyTuple_Pack(8, __pyx_n_s_A, __pyx_n_s_loop, __pyx_n_s_recursive, __pyx_n_s_quad, __pyx_n_s_i, __pyx_n_s_j, __pyx_n_s_n, __pyx_n_s_mat); if (unlikely(!__pyx_tuple__31)) __PYX_ERR(0, 238, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__31);
   __Pyx_GIVEREF(__pyx_tuple__31);
-  __pyx_codeobj__32 = (PyObject*)__Pyx_PyCode_New(4, 0, 8, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__31, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_thewalrus_libwalrus_pyx, __pyx_n_s_haf_complex, 236, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__32)) __PYX_ERR(0, 236, __pyx_L1_error)
+  __pyx_codeobj__32 = (PyObject*)__Pyx_PyCode_New(4, 0, 8, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__31, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_thewalrus_libwalrus_pyx, __pyx_n_s_haf_complex, 238, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__32)) __PYX_ERR(0, 238, __pyx_L1_error)
 
-  /* "libwalrus.pyx":269
+  /* "libwalrus.pyx":271
  * 
  * 
  * def haf_real(double[:, :] A, bint loop=False, bint recursive=True, quad=True, bint approx=False, nsamples=1000):             # <<<<<<<<<<<<<<
  *     """Returns the hafnian of a real matrix A via the C++ libwalrus library.
  * 
  */
-  __pyx_tuple__33 = PyTuple_Pack(10, __pyx_n_s_A, __pyx_n_s_loop, __pyx_n_s_recursive, __pyx_n_s_quad, __pyx_n_s_approx, __pyx_n_s_nsamples, __pyx_n_s_i, __pyx_n_s_j, __pyx_n_s_n, __pyx_n_s_mat); if (unlikely(!__pyx_tuple__33)) __PYX_ERR(0, 269, __pyx_L1_error)
+  __pyx_tuple__33 = PyTuple_Pack(10, __pyx_n_s_A, __pyx_n_s_loop, __pyx_n_s_recursive, __pyx_n_s_quad, __pyx_n_s_approx, __pyx_n_s_nsamples, __pyx_n_s_i, __pyx_n_s_j, __pyx_n_s_n, __pyx_n_s_mat); if (unlikely(!__pyx_tuple__33)) __PYX_ERR(0, 271, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__33);
   __Pyx_GIVEREF(__pyx_tuple__33);
-  __pyx_codeobj__34 = (PyObject*)__Pyx_PyCode_New(6, 0, 10, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__33, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_thewalrus_libwalrus_pyx, __pyx_n_s_haf_real, 269, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__34)) __PYX_ERR(0, 269, __pyx_L1_error)
+  __pyx_codeobj__34 = (PyObject*)__Pyx_PyCode_New(6, 0, 10, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__33, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_thewalrus_libwalrus_pyx, __pyx_n_s_haf_real, 271, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__34)) __PYX_ERR(0, 271, __pyx_L1_error)
 
-  /* "libwalrus.pyx":314
+  /* "libwalrus.pyx":316
  * 
  * 
  * def perm_complex(double complex[:, :] A, quad=True):             # <<<<<<<<<<<<<<
  *     """Returns the hafnian of a complex matrix A via the C++ libwalrus library.
  * 
  */
-  __pyx_tuple__35 = PyTuple_Pack(6, __pyx_n_s_A, __pyx_n_s_quad, __pyx_n_s_i, __pyx_n_s_j, __pyx_n_s_n, __pyx_n_s_mat); if (unlikely(!__pyx_tuple__35)) __PYX_ERR(0, 314, __pyx_L1_error)
+  __pyx_tuple__35 = PyTuple_Pack(6, __pyx_n_s_A, __pyx_n_s_quad, __pyx_n_s_i, __pyx_n_s_j, __pyx_n_s_n, __pyx_n_s_mat); if (unlikely(!__pyx_tuple__35)) __PYX_ERR(0, 316, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__35);
   __Pyx_GIVEREF(__pyx_tuple__35);
-  __pyx_codeobj__36 = (PyObject*)__Pyx_PyCode_New(2, 0, 6, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__35, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_thewalrus_libwalrus_pyx, __pyx_n_s_perm_complex, 314, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__36)) __PYX_ERR(0, 314, __pyx_L1_error)
+  __pyx_codeobj__36 = (PyObject*)__Pyx_PyCode_New(2, 0, 6, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__35, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_thewalrus_libwalrus_pyx, __pyx_n_s_perm_complex, 316, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__36)) __PYX_ERR(0, 316, __pyx_L1_error)
 
-  /* "libwalrus.pyx":339
+  /* "libwalrus.pyx":341
  * 
  * 
  * def perm_real(double [:, :] A, quad=True, fsum=False):             # <<<<<<<<<<<<<<
  *     """Returns the hafnian of a real matrix A via the C++ libwalrus library.
  * 
  */
-  __pyx_tuple__37 = PyTuple_Pack(7, __pyx_n_s_A, __pyx_n_s_quad, __pyx_n_s_fsum, __pyx_n_s_i, __pyx_n_s_j, __pyx_n_s_n, __pyx_n_s_mat); if (unlikely(!__pyx_tuple__37)) __PYX_ERR(0, 339, __pyx_L1_error)
+  __pyx_tuple__37 = PyTuple_Pack(7, __pyx_n_s_A, __pyx_n_s_quad, __pyx_n_s_fsum, __pyx_n_s_i, __pyx_n_s_j, __pyx_n_s_n, __pyx_n_s_mat); if (unlikely(!__pyx_tuple__37)) __PYX_ERR(0, 341, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__37);
   __Pyx_GIVEREF(__pyx_tuple__37);
-  __pyx_codeobj__38 = (PyObject*)__Pyx_PyCode_New(3, 0, 7, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__37, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_thewalrus_libwalrus_pyx, __pyx_n_s_perm_real, 339, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__38)) __PYX_ERR(0, 339, __pyx_L1_error)
+  __pyx_codeobj__38 = (PyObject*)__Pyx_PyCode_New(3, 0, 7, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__37, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_thewalrus_libwalrus_pyx, __pyx_n_s_perm_real, 341, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__38)) __PYX_ERR(0, 341, __pyx_L1_error)
 
-  /* "libwalrus.pyx":372
+  /* "libwalrus.pyx":374
  * # Batch hafnian
  * 
  * def hermite_multidimensional(double complex[:, :] R, double complex[:] y, int cutoff):             # <<<<<<<<<<<<<<
  *     r"""Returns the multidimensional Hermite polynomials :math:`H_k^{(R)}(y)`
  *     via the C++ libwalrus library.
  */
-  __pyx_tuple__39 = PyTuple_Pack(8, __pyx_n_s_R, __pyx_n_s_y, __pyx_n_s_cutoff, __pyx_n_s_i, __pyx_n_s_j, __pyx_n_s_n, __pyx_n_s_R_mat, __pyx_n_s_y_mat); if (unlikely(!__pyx_tuple__39)) __PYX_ERR(0, 372, __pyx_L1_error)
+  __pyx_tuple__39 = PyTuple_Pack(8, __pyx_n_s_R, __pyx_n_s_y, __pyx_n_s_cutoff, __pyx_n_s_i, __pyx_n_s_j, __pyx_n_s_n, __pyx_n_s_R_mat, __pyx_n_s_y_mat); if (unlikely(!__pyx_tuple__39)) __PYX_ERR(0, 374, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__39);
   __Pyx_GIVEREF(__pyx_tuple__39);
-  __pyx_codeobj__40 = (PyObject*)__Pyx_PyCode_New(3, 0, 8, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__39, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_thewalrus_libwalrus_pyx, __pyx_n_s_hermite_multidimensional, 372, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__40)) __PYX_ERR(0, 372, __pyx_L1_error)
+  __pyx_codeobj__40 = (PyObject*)__Pyx_PyCode_New(3, 0, 8, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__39, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_thewalrus_libwalrus_pyx, __pyx_n_s_hermite_multidimensional, 374, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__40)) __PYX_ERR(0, 374, __pyx_L1_error)
 
-  /* "libwalrus.pyx":397
+  /* "libwalrus.pyx":399
  * 
  * 
  * def hermite_multidimensional_real(double [:, :] R, double [:] y, int cutoff):             # <<<<<<<<<<<<<<
  *     r"""Returns the multidimensional Hermite polynomials :math:`H_k^{(R)}(y)`
  *     via the C++ libwalrus library.
  */
-  __pyx_tuple__41 = PyTuple_Pack(8, __pyx_n_s_R, __pyx_n_s_y, __pyx_n_s_cutoff, __pyx_n_s_i, __pyx_n_s_j, __pyx_n_s_n, __pyx_n_s_R_mat, __pyx_n_s_y_mat); if (unlikely(!__pyx_tuple__41)) __PYX_ERR(0, 397, __pyx_L1_error)
+  __pyx_tuple__41 = PyTuple_Pack(8, __pyx_n_s_R, __pyx_n_s_y, __pyx_n_s_cutoff, __pyx_n_s_i, __pyx_n_s_j, __pyx_n_s_n, __pyx_n_s_R_mat, __pyx_n_s_y_mat); if (unlikely(!__pyx_tuple__41)) __PYX_ERR(0, 399, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__41);
   __Pyx_GIVEREF(__pyx_tuple__41);
-  __pyx_codeobj__42 = (PyObject*)__Pyx_PyCode_New(3, 0, 8, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__41, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_thewalrus_libwalrus_pyx, __pyx_n_s_hermite_multidimensional_real, 397, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__42)) __PYX_ERR(0, 397, __pyx_L1_error)
+  __pyx_codeobj__42 = (PyObject*)__Pyx_PyCode_New(3, 0, 8, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__41, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_thewalrus_libwalrus_pyx, __pyx_n_s_hermite_multidimensional_real, 399, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__42)) __PYX_ERR(0, 399, __pyx_L1_error)
 
-  /* "libwalrus.pyx":424
+  /* "libwalrus.pyx":426
  * 
  * 
  * def renorm_hermite_multidimensional(double complex[:, :] R, double complex[:] y, int cutoff):             # <<<<<<<<<<<<<<
  *     r"""Returns the renormalized multidimensional Hermite polynomials :math:`rH_k^{(R)}(y)`
  *     via the C++ libwalrus library. They are given in terms of the standard multidimensional
  */
-  __pyx_tuple__43 = PyTuple_Pack(8, __pyx_n_s_R, __pyx_n_s_y, __pyx_n_s_cutoff, __pyx_n_s_i, __pyx_n_s_j, __pyx_n_s_n, __pyx_n_s_R_mat, __pyx_n_s_y_mat); if (unlikely(!__pyx_tuple__43)) __PYX_ERR(0, 424, __pyx_L1_error)
+  __pyx_tuple__43 = PyTuple_Pack(8, __pyx_n_s_R, __pyx_n_s_y, __pyx_n_s_cutoff, __pyx_n_s_i, __pyx_n_s_j, __pyx_n_s_n, __pyx_n_s_R_mat, __pyx_n_s_y_mat); if (unlikely(!__pyx_tuple__43)) __PYX_ERR(0, 426, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__43);
   __Pyx_GIVEREF(__pyx_tuple__43);
-  __pyx_codeobj__44 = (PyObject*)__Pyx_PyCode_New(3, 0, 8, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__43, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_thewalrus_libwalrus_pyx, __pyx_n_s_renorm_hermite_multidimensional, 424, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__44)) __PYX_ERR(0, 424, __pyx_L1_error)
+  __pyx_codeobj__44 = (PyObject*)__Pyx_PyCode_New(3, 0, 8, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__43, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_thewalrus_libwalrus_pyx, __pyx_n_s_renorm_hermite_multidimensional, 426, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__44)) __PYX_ERR(0, 426, __pyx_L1_error)
 
-  /* "libwalrus.pyx":450
+  /* "libwalrus.pyx":452
  * 
  * 
  * def renorm_hermite_multidimensional_real(double [:, :] R, double [:] y, int cutoff):             # <<<<<<<<<<<<<<
  *     r"""Returns the renormalized multidimensional Hermite polynomials :math:`rH_k^{(R)}(y)`
  *     via the C++ libwalrus library. They are given in terms of the standard multidimensional
  */
-  __pyx_tuple__45 = PyTuple_Pack(8, __pyx_n_s_R, __pyx_n_s_y, __pyx_n_s_cutoff, __pyx_n_s_i, __pyx_n_s_j, __pyx_n_s_n, __pyx_n_s_R_mat, __pyx_n_s_y_mat); if (unlikely(!__pyx_tuple__45)) __PYX_ERR(0, 450, __pyx_L1_error)
+  __pyx_tuple__45 = PyTuple_Pack(8, __pyx_n_s_R, __pyx_n_s_y, __pyx_n_s_cutoff, __pyx_n_s_i, __pyx_n_s_j, __pyx_n_s_n, __pyx_n_s_R_mat, __pyx_n_s_y_mat); if (unlikely(!__pyx_tuple__45)) __PYX_ERR(0, 452, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__45);
   __Pyx_GIVEREF(__pyx_tuple__45);
-  __pyx_codeobj__46 = (PyObject*)__Pyx_PyCode_New(3, 0, 8, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__45, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_thewalrus_libwalrus_pyx, __pyx_n_s_renorm_hermite_multidimensional_2, 450, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__46)) __PYX_ERR(0, 450, __pyx_L1_error)
+  __pyx_codeobj__46 = (PyObject*)__Pyx_PyCode_New(3, 0, 8, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__45, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_thewalrus_libwalrus_pyx, __pyx_n_s_renorm_hermite_multidimensional_2, 452, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__46)) __PYX_ERR(0, 452, __pyx_L1_error)
 
-  /* "libwalrus.pyx":478
+  /* "libwalrus.pyx":480
  * 
  * 
  * def interferometer(double complex[:, :] R, int cutoff):             # <<<<<<<<<<<<<<
  *     r"""Returns the renormalized multidimensional Hermite polynomials :math:`rH_k^{(R)}(y)`
  *     via the C++ libwalrus library. They are given in terms of the standard multidimensional
  */
-  __pyx_tuple__47 = PyTuple_Pack(6, __pyx_n_s_R, __pyx_n_s_cutoff, __pyx_n_s_i, __pyx_n_s_j, __pyx_n_s_n, __pyx_n_s_R_mat); if (unlikely(!__pyx_tuple__47)) __PYX_ERR(0, 478, __pyx_L1_error)
+  __pyx_tuple__47 = PyTuple_Pack(6, __pyx_n_s_R, __pyx_n_s_cutoff, __pyx_n_s_i, __pyx_n_s_j, __pyx_n_s_n, __pyx_n_s_R_mat); if (unlikely(!__pyx_tuple__47)) __PYX_ERR(0, 480, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__47);
   __Pyx_GIVEREF(__pyx_tuple__47);
-  __pyx_codeobj__48 = (PyObject*)__Pyx_PyCode_New(2, 0, 6, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__47, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_thewalrus_libwalrus_pyx, __pyx_n_s_interferometer, 478, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__48)) __PYX_ERR(0, 478, __pyx_L1_error)
+  __pyx_codeobj__48 = (PyObject*)__Pyx_PyCode_New(2, 0, 6, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__47, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_thewalrus_libwalrus_pyx, __pyx_n_s_interferometer, 480, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__48)) __PYX_ERR(0, 480, __pyx_L1_error)
 
-  /* "libwalrus.pyx":501
+  /* "libwalrus.pyx":503
  * 
  * 
  * def interferometer_real(double [:, :] R, int cutoff):             # <<<<<<<<<<<<<<
  *     r"""Returns the renormalized multidimensional Hermite polynomials :math:`rH_k^{(R)}(y)`
  *     via the C++ libwalrus library. They are given in terms of the standard multidimensional
  */
-  __pyx_tuple__49 = PyTuple_Pack(6, __pyx_n_s_R, __pyx_n_s_cutoff, __pyx_n_s_i, __pyx_n_s_j, __pyx_n_s_n, __pyx_n_s_R_mat); if (unlikely(!__pyx_tuple__49)) __PYX_ERR(0, 501, __pyx_L1_error)
+  __pyx_tuple__49 = PyTuple_Pack(6, __pyx_n_s_R, __pyx_n_s_cutoff, __pyx_n_s_i, __pyx_n_s_j, __pyx_n_s_n, __pyx_n_s_R_mat); if (unlikely(!__pyx_tuple__49)) __PYX_ERR(0, 503, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__49);
   __Pyx_GIVEREF(__pyx_tuple__49);
-  __pyx_codeobj__50 = (PyObject*)__Pyx_PyCode_New(2, 0, 6, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__49, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_thewalrus_libwalrus_pyx, __pyx_n_s_interferometer_real, 501, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__50)) __PYX_ERR(0, 501, __pyx_L1_error)
+  __pyx_codeobj__50 = (PyObject*)__Pyx_PyCode_New(2, 0, 6, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__49, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_thewalrus_libwalrus_pyx, __pyx_n_s_interferometer_real, 503, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__50)) __PYX_ERR(0, 503, __pyx_L1_error)
+
+  /* "libwalrus.pyx":528
+ * 
+ * 
+ * def squeezing(double complex[:, :] R, int cutoff):             # <<<<<<<<<<<<<<
+ *     r"""Returns the renormalized multidimensional Hermite polynomials :math:`rH_k^{(R)}(y)`
+ *     via the C++ libwalrus library. They are given in terms of the standard multidimensional
+ */
+  __pyx_tuple__51 = PyTuple_Pack(6, __pyx_n_s_R, __pyx_n_s_cutoff, __pyx_n_s_i, __pyx_n_s_j, __pyx_n_s_n, __pyx_n_s_R_mat); if (unlikely(!__pyx_tuple__51)) __PYX_ERR(0, 528, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_tuple__51);
+  __Pyx_GIVEREF(__pyx_tuple__51);
+  __pyx_codeobj__52 = (PyObject*)__Pyx_PyCode_New(2, 0, 6, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__51, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_thewalrus_libwalrus_pyx, __pyx_n_s_squeezing, 528, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__52)) __PYX_ERR(0, 528, __pyx_L1_error)
+
+  /* "libwalrus.pyx":551
+ * 
+ * 
+ * def squeezing_real(double [:, :] R, int cutoff):             # <<<<<<<<<<<<<<
+ *     r"""Returns the renormalized multidimensional Hermite polynomials :math:`rH_k^{(R)}(y)`
+ *     via the C++ libwalrus library. They are given in terms of the standard multidimensional
+ */
+  __pyx_tuple__53 = PyTuple_Pack(6, __pyx_n_s_R, __pyx_n_s_cutoff, __pyx_n_s_i, __pyx_n_s_j, __pyx_n_s_n, __pyx_n_s_R_mat); if (unlikely(!__pyx_tuple__53)) __PYX_ERR(0, 551, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_tuple__53);
+  __Pyx_GIVEREF(__pyx_tuple__53);
+  __pyx_codeobj__54 = (PyObject*)__Pyx_PyCode_New(2, 0, 6, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__53, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_thewalrus_libwalrus_pyx, __pyx_n_s_squeezing_real, 551, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__54)) __PYX_ERR(0, 551, __pyx_L1_error)
+
+  /* "libwalrus.pyx":576
+ * 
+ * 
+ * def displacement(double complex [:] y, int cutoff):             # <<<<<<<<<<<<<<
+ *     r"""Returns the renormalized multidimensional Hermite polynomials :math:`rH_k^{(R)}(y)`
+ *     via the C++ libwalrus library. They are given in terms of the standard multidimensional
+ */
+  __pyx_tuple__55 = PyTuple_Pack(5, __pyx_n_s_y, __pyx_n_s_cutoff, __pyx_n_s_i, __pyx_n_s_n, __pyx_n_s_y_mat); if (unlikely(!__pyx_tuple__55)) __PYX_ERR(0, 576, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_tuple__55);
+  __Pyx_GIVEREF(__pyx_tuple__55);
+  __pyx_codeobj__56 = (PyObject*)__Pyx_PyCode_New(2, 0, 5, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__55, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_thewalrus_libwalrus_pyx, __pyx_n_s_displacement, 576, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__56)) __PYX_ERR(0, 576, __pyx_L1_error)
+
+  /* "libwalrus.pyx":598
+ *     return displacement_cpp(y_mat, cutoff)
+ * 
+ * def displacement_real(double [:] y, int cutoff):             # <<<<<<<<<<<<<<
+ *     r"""Returns the renormalized multidimensional Hermite polynomials :math:`rH_k^{(R)}(y)`
+ *     via the C++ libwalrus library. They are given in terms of the standard multidimensional
+ */
+  __pyx_tuple__57 = PyTuple_Pack(5, __pyx_n_s_y, __pyx_n_s_cutoff, __pyx_n_s_i, __pyx_n_s_n, __pyx_n_s_y_mat); if (unlikely(!__pyx_tuple__57)) __PYX_ERR(0, 598, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_tuple__57);
+  __Pyx_GIVEREF(__pyx_tuple__57);
+  __pyx_codeobj__58 = (PyObject*)__Pyx_PyCode_New(2, 0, 5, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__57, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_thewalrus_libwalrus_pyx, __pyx_n_s_displacement_real, 598, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__58)) __PYX_ERR(0, 598, __pyx_L1_error)
 
   /* "View.MemoryView":286
  *         return self.name
@@ -20155,9 +20887,9 @@ static CYTHON_SMALL_CODE int __Pyx_InitCachedConstants(void) {
  * cdef strided = Enum("<strided and direct>") # default
  * cdef indirect = Enum("<strided and indirect>")
  */
-  __pyx_tuple__51 = PyTuple_Pack(1, __pyx_kp_s_strided_and_direct_or_indirect); if (unlikely(!__pyx_tuple__51)) __PYX_ERR(1, 286, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_tuple__51);
-  __Pyx_GIVEREF(__pyx_tuple__51);
+  __pyx_tuple__59 = PyTuple_Pack(1, __pyx_kp_s_strided_and_direct_or_indirect); if (unlikely(!__pyx_tuple__59)) __PYX_ERR(1, 286, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_tuple__59);
+  __Pyx_GIVEREF(__pyx_tuple__59);
 
   /* "View.MemoryView":287
  * 
@@ -20166,9 +20898,9 @@ static CYTHON_SMALL_CODE int __Pyx_InitCachedConstants(void) {
  * cdef indirect = Enum("<strided and indirect>")
  * 
  */
-  __pyx_tuple__52 = PyTuple_Pack(1, __pyx_kp_s_strided_and_direct); if (unlikely(!__pyx_tuple__52)) __PYX_ERR(1, 287, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_tuple__52);
-  __Pyx_GIVEREF(__pyx_tuple__52);
+  __pyx_tuple__60 = PyTuple_Pack(1, __pyx_kp_s_strided_and_direct); if (unlikely(!__pyx_tuple__60)) __PYX_ERR(1, 287, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_tuple__60);
+  __Pyx_GIVEREF(__pyx_tuple__60);
 
   /* "View.MemoryView":288
  * cdef generic = Enum("<strided and direct or indirect>")
@@ -20177,9 +20909,9 @@ static CYTHON_SMALL_CODE int __Pyx_InitCachedConstants(void) {
  * 
  * 
  */
-  __pyx_tuple__53 = PyTuple_Pack(1, __pyx_kp_s_strided_and_indirect); if (unlikely(!__pyx_tuple__53)) __PYX_ERR(1, 288, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_tuple__53);
-  __Pyx_GIVEREF(__pyx_tuple__53);
+  __pyx_tuple__61 = PyTuple_Pack(1, __pyx_kp_s_strided_and_indirect); if (unlikely(!__pyx_tuple__61)) __PYX_ERR(1, 288, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_tuple__61);
+  __Pyx_GIVEREF(__pyx_tuple__61);
 
   /* "View.MemoryView":291
  * 
@@ -20188,9 +20920,9 @@ static CYTHON_SMALL_CODE int __Pyx_InitCachedConstants(void) {
  * cdef indirect_contiguous = Enum("<contiguous and indirect>")
  * 
  */
-  __pyx_tuple__54 = PyTuple_Pack(1, __pyx_kp_s_contiguous_and_direct); if (unlikely(!__pyx_tuple__54)) __PYX_ERR(1, 291, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_tuple__54);
-  __Pyx_GIVEREF(__pyx_tuple__54);
+  __pyx_tuple__62 = PyTuple_Pack(1, __pyx_kp_s_contiguous_and_direct); if (unlikely(!__pyx_tuple__62)) __PYX_ERR(1, 291, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_tuple__62);
+  __Pyx_GIVEREF(__pyx_tuple__62);
 
   /* "View.MemoryView":292
  * 
@@ -20199,19 +20931,19 @@ static CYTHON_SMALL_CODE int __Pyx_InitCachedConstants(void) {
  * 
  * 
  */
-  __pyx_tuple__55 = PyTuple_Pack(1, __pyx_kp_s_contiguous_and_indirect); if (unlikely(!__pyx_tuple__55)) __PYX_ERR(1, 292, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_tuple__55);
-  __Pyx_GIVEREF(__pyx_tuple__55);
+  __pyx_tuple__63 = PyTuple_Pack(1, __pyx_kp_s_contiguous_and_indirect); if (unlikely(!__pyx_tuple__63)) __PYX_ERR(1, 292, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_tuple__63);
+  __Pyx_GIVEREF(__pyx_tuple__63);
 
   /* "(tree fragment)":1
  * def __pyx_unpickle_Enum(__pyx_type, long __pyx_checksum, __pyx_state):             # <<<<<<<<<<<<<<
  *     cdef object __pyx_PickleError
  *     cdef object __pyx_result
  */
-  __pyx_tuple__56 = PyTuple_Pack(5, __pyx_n_s_pyx_type, __pyx_n_s_pyx_checksum, __pyx_n_s_pyx_state, __pyx_n_s_pyx_PickleError, __pyx_n_s_pyx_result); if (unlikely(!__pyx_tuple__56)) __PYX_ERR(1, 1, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_tuple__56);
-  __Pyx_GIVEREF(__pyx_tuple__56);
-  __pyx_codeobj__57 = (PyObject*)__Pyx_PyCode_New(3, 0, 5, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__56, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_stringsource, __pyx_n_s_pyx_unpickle_Enum, 1, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__57)) __PYX_ERR(1, 1, __pyx_L1_error)
+  __pyx_tuple__64 = PyTuple_Pack(5, __pyx_n_s_pyx_type, __pyx_n_s_pyx_checksum, __pyx_n_s_pyx_state, __pyx_n_s_pyx_PickleError, __pyx_n_s_pyx_result); if (unlikely(!__pyx_tuple__64)) __PYX_ERR(1, 1, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_tuple__64);
+  __Pyx_GIVEREF(__pyx_tuple__64);
+  __pyx_codeobj__65 = (PyObject*)__Pyx_PyCode_New(3, 0, 5, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__64, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_stringsource, __pyx_n_s_pyx_unpickle_Enum, 1, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__65)) __PYX_ERR(1, 1, __pyx_L1_error)
   __Pyx_RefNannyFinishContext();
   return 0;
   __pyx_L1_error:;
@@ -20554,192 +21286,240 @@ if (!__Pyx_RefNanny) {
   if (__Pyx_patch_abc() < 0) __PYX_ERR(0, 1, __pyx_L1_error)
   #endif
 
-  /* "libwalrus.pyx":58
+  /* "libwalrus.pyx":60
  * 
  * 
  * def torontonian_complex(double complex[:, :] A, fsum=False):             # <<<<<<<<<<<<<<
  *     """Returns the Torontonian of a complex matrix A via the C++ libwalrus library.
  * 
  */
-  __pyx_t_1 = PyCFunction_NewEx(&__pyx_mdef_9libwalrus_1torontonian_complex, NULL, __pyx_n_s_libwalrus); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 58, __pyx_L1_error)
+  __pyx_t_1 = PyCFunction_NewEx(&__pyx_mdef_9libwalrus_1torontonian_complex, NULL, __pyx_n_s_libwalrus); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 60, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  if (PyDict_SetItem(__pyx_d, __pyx_n_s_torontonian_complex, __pyx_t_1) < 0) __PYX_ERR(0, 58, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_d, __pyx_n_s_torontonian_complex, __pyx_t_1) < 0) __PYX_ERR(0, 60, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "libwalrus.pyx":90
+  /* "libwalrus.pyx":92
  * 
  * 
  * def torontonian_real(double[:, :] A, fsum=False):             # <<<<<<<<<<<<<<
  *     """Returns the Torontonian of a real matrix A via the C++ libwalrus library.
  * 
  */
-  __pyx_t_1 = PyCFunction_NewEx(&__pyx_mdef_9libwalrus_3torontonian_real, NULL, __pyx_n_s_libwalrus); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 90, __pyx_L1_error)
+  __pyx_t_1 = PyCFunction_NewEx(&__pyx_mdef_9libwalrus_3torontonian_real, NULL, __pyx_n_s_libwalrus); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 92, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  if (PyDict_SetItem(__pyx_d, __pyx_n_s_torontonian_real, __pyx_t_1) < 0) __PYX_ERR(0, 90, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_d, __pyx_n_s_torontonian_real, __pyx_t_1) < 0) __PYX_ERR(0, 92, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "libwalrus.pyx":127
+  /* "libwalrus.pyx":129
  * 
  * 
  * def haf_rpt_real(double[:, :] A, int[:] rpt, double[:] mu=None, bint loop=False):             # <<<<<<<<<<<<<<
  *     r"""Returns the hafnian of a real matrix A via the C++ libwalrus library
  *     using the rpt method. This method is more efficient for matrices with
  */
-  __pyx_t_2 = __Pyx_PyObject_to_MemoryviewSlice_ds_double(Py_None, PyBUF_WRITABLE); if (unlikely(!__pyx_t_2.memview)) __PYX_ERR(0, 127, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyObject_to_MemoryviewSlice_ds_double(Py_None, PyBUF_WRITABLE); if (unlikely(!__pyx_t_2.memview)) __PYX_ERR(0, 129, __pyx_L1_error)
   __pyx_k_ = __pyx_t_2;
   __pyx_t_2.memview = NULL;
   __pyx_t_2.data = NULL;
-  __pyx_t_1 = PyCFunction_NewEx(&__pyx_mdef_9libwalrus_5haf_rpt_real, NULL, __pyx_n_s_libwalrus); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 127, __pyx_L1_error)
+  __pyx_t_1 = PyCFunction_NewEx(&__pyx_mdef_9libwalrus_5haf_rpt_real, NULL, __pyx_n_s_libwalrus); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 129, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  if (PyDict_SetItem(__pyx_d, __pyx_n_s_haf_rpt_real, __pyx_t_1) < 0) __PYX_ERR(0, 127, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_d, __pyx_n_s_haf_rpt_real, __pyx_t_1) < 0) __PYX_ERR(0, 129, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "libwalrus.pyx":166
+  /* "libwalrus.pyx":168
  * 
  * 
  * def haf_rpt_complex(double complex[:, :] A, int[:] rpt, double complex[:] mu=None, bint loop=False):             # <<<<<<<<<<<<<<
  *     r"""Returns the hafnian of a complex matrix A via the C++ libwalrus library
  *     using the rpt method. This method is more efficient for matrices with
  */
-  __pyx_t_3 = __Pyx_PyObject_to_MemoryviewSlice_ds___pyx_t_double_complex(Py_None, PyBUF_WRITABLE); if (unlikely(!__pyx_t_3.memview)) __PYX_ERR(0, 166, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyObject_to_MemoryviewSlice_ds___pyx_t_double_complex(Py_None, PyBUF_WRITABLE); if (unlikely(!__pyx_t_3.memview)) __PYX_ERR(0, 168, __pyx_L1_error)
   __pyx_k__2 = __pyx_t_3;
   __pyx_t_3.memview = NULL;
   __pyx_t_3.data = NULL;
-  __pyx_t_1 = PyCFunction_NewEx(&__pyx_mdef_9libwalrus_7haf_rpt_complex, NULL, __pyx_n_s_libwalrus); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 166, __pyx_L1_error)
+  __pyx_t_1 = PyCFunction_NewEx(&__pyx_mdef_9libwalrus_7haf_rpt_complex, NULL, __pyx_n_s_libwalrus); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 168, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  if (PyDict_SetItem(__pyx_d, __pyx_n_s_haf_rpt_complex, __pyx_t_1) < 0) __PYX_ERR(0, 166, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_d, __pyx_n_s_haf_rpt_complex, __pyx_t_1) < 0) __PYX_ERR(0, 168, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "libwalrus.pyx":209
+  /* "libwalrus.pyx":211
  * 
  * 
  * def haf_int(long long[:, :] A):             # <<<<<<<<<<<<<<
  *     """Returns the hafnian of an integer matrix A via the C++ libwalrus library.
  *     Modified with permission from https://github.com/eklotek/Hafnian.
  */
-  __pyx_t_1 = PyCFunction_NewEx(&__pyx_mdef_9libwalrus_9haf_int, NULL, __pyx_n_s_libwalrus); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 209, __pyx_L1_error)
+  __pyx_t_1 = PyCFunction_NewEx(&__pyx_mdef_9libwalrus_9haf_int, NULL, __pyx_n_s_libwalrus); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 211, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  if (PyDict_SetItem(__pyx_d, __pyx_n_s_haf_int, __pyx_t_1) < 0) __PYX_ERR(0, 209, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_d, __pyx_n_s_haf_int, __pyx_t_1) < 0) __PYX_ERR(0, 211, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "libwalrus.pyx":236
+  /* "libwalrus.pyx":238
  * 
  * 
  * def haf_complex(double complex[:, :] A, bint loop=False, bint recursive=True, quad=True):             # <<<<<<<<<<<<<<
  *     """Returns the hafnian of a complex matrix A via the C++ libwalrus library.
  * 
  */
-  __pyx_t_1 = PyCFunction_NewEx(&__pyx_mdef_9libwalrus_11haf_complex, NULL, __pyx_n_s_libwalrus); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 236, __pyx_L1_error)
+  __pyx_t_1 = PyCFunction_NewEx(&__pyx_mdef_9libwalrus_11haf_complex, NULL, __pyx_n_s_libwalrus); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 238, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  if (PyDict_SetItem(__pyx_d, __pyx_n_s_haf_complex, __pyx_t_1) < 0) __PYX_ERR(0, 236, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_d, __pyx_n_s_haf_complex, __pyx_t_1) < 0) __PYX_ERR(0, 238, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "libwalrus.pyx":269
+  /* "libwalrus.pyx":271
  * 
  * 
  * def haf_real(double[:, :] A, bint loop=False, bint recursive=True, quad=True, bint approx=False, nsamples=1000):             # <<<<<<<<<<<<<<
  *     """Returns the hafnian of a real matrix A via the C++ libwalrus library.
  * 
  */
-  __pyx_t_1 = PyCFunction_NewEx(&__pyx_mdef_9libwalrus_13haf_real, NULL, __pyx_n_s_libwalrus); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 269, __pyx_L1_error)
+  __pyx_t_1 = PyCFunction_NewEx(&__pyx_mdef_9libwalrus_13haf_real, NULL, __pyx_n_s_libwalrus); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 271, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  if (PyDict_SetItem(__pyx_d, __pyx_n_s_haf_real, __pyx_t_1) < 0) __PYX_ERR(0, 269, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_d, __pyx_n_s_haf_real, __pyx_t_1) < 0) __PYX_ERR(0, 271, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "libwalrus.pyx":314
+  /* "libwalrus.pyx":316
  * 
  * 
  * def perm_complex(double complex[:, :] A, quad=True):             # <<<<<<<<<<<<<<
  *     """Returns the hafnian of a complex matrix A via the C++ libwalrus library.
  * 
  */
-  __pyx_t_1 = PyCFunction_NewEx(&__pyx_mdef_9libwalrus_15perm_complex, NULL, __pyx_n_s_libwalrus); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 314, __pyx_L1_error)
+  __pyx_t_1 = PyCFunction_NewEx(&__pyx_mdef_9libwalrus_15perm_complex, NULL, __pyx_n_s_libwalrus); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 316, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  if (PyDict_SetItem(__pyx_d, __pyx_n_s_perm_complex, __pyx_t_1) < 0) __PYX_ERR(0, 314, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_d, __pyx_n_s_perm_complex, __pyx_t_1) < 0) __PYX_ERR(0, 316, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "libwalrus.pyx":339
+  /* "libwalrus.pyx":341
  * 
  * 
  * def perm_real(double [:, :] A, quad=True, fsum=False):             # <<<<<<<<<<<<<<
  *     """Returns the hafnian of a real matrix A via the C++ libwalrus library.
  * 
  */
-  __pyx_t_1 = PyCFunction_NewEx(&__pyx_mdef_9libwalrus_17perm_real, NULL, __pyx_n_s_libwalrus); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 339, __pyx_L1_error)
+  __pyx_t_1 = PyCFunction_NewEx(&__pyx_mdef_9libwalrus_17perm_real, NULL, __pyx_n_s_libwalrus); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 341, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  if (PyDict_SetItem(__pyx_d, __pyx_n_s_perm_real, __pyx_t_1) < 0) __PYX_ERR(0, 339, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_d, __pyx_n_s_perm_real, __pyx_t_1) < 0) __PYX_ERR(0, 341, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "libwalrus.pyx":372
+  /* "libwalrus.pyx":374
  * # Batch hafnian
  * 
  * def hermite_multidimensional(double complex[:, :] R, double complex[:] y, int cutoff):             # <<<<<<<<<<<<<<
  *     r"""Returns the multidimensional Hermite polynomials :math:`H_k^{(R)}(y)`
  *     via the C++ libwalrus library.
  */
-  __pyx_t_1 = PyCFunction_NewEx(&__pyx_mdef_9libwalrus_19hermite_multidimensional, NULL, __pyx_n_s_libwalrus); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 372, __pyx_L1_error)
+  __pyx_t_1 = PyCFunction_NewEx(&__pyx_mdef_9libwalrus_19hermite_multidimensional, NULL, __pyx_n_s_libwalrus); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 374, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  if (PyDict_SetItem(__pyx_d, __pyx_n_s_hermite_multidimensional, __pyx_t_1) < 0) __PYX_ERR(0, 372, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_d, __pyx_n_s_hermite_multidimensional, __pyx_t_1) < 0) __PYX_ERR(0, 374, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "libwalrus.pyx":397
+  /* "libwalrus.pyx":399
  * 
  * 
  * def hermite_multidimensional_real(double [:, :] R, double [:] y, int cutoff):             # <<<<<<<<<<<<<<
  *     r"""Returns the multidimensional Hermite polynomials :math:`H_k^{(R)}(y)`
  *     via the C++ libwalrus library.
  */
-  __pyx_t_1 = PyCFunction_NewEx(&__pyx_mdef_9libwalrus_21hermite_multidimensional_real, NULL, __pyx_n_s_libwalrus); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 397, __pyx_L1_error)
+  __pyx_t_1 = PyCFunction_NewEx(&__pyx_mdef_9libwalrus_21hermite_multidimensional_real, NULL, __pyx_n_s_libwalrus); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 399, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  if (PyDict_SetItem(__pyx_d, __pyx_n_s_hermite_multidimensional_real, __pyx_t_1) < 0) __PYX_ERR(0, 397, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_d, __pyx_n_s_hermite_multidimensional_real, __pyx_t_1) < 0) __PYX_ERR(0, 399, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "libwalrus.pyx":424
+  /* "libwalrus.pyx":426
  * 
  * 
  * def renorm_hermite_multidimensional(double complex[:, :] R, double complex[:] y, int cutoff):             # <<<<<<<<<<<<<<
  *     r"""Returns the renormalized multidimensional Hermite polynomials :math:`rH_k^{(R)}(y)`
  *     via the C++ libwalrus library. They are given in terms of the standard multidimensional
  */
-  __pyx_t_1 = PyCFunction_NewEx(&__pyx_mdef_9libwalrus_23renorm_hermite_multidimensional, NULL, __pyx_n_s_libwalrus); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 424, __pyx_L1_error)
+  __pyx_t_1 = PyCFunction_NewEx(&__pyx_mdef_9libwalrus_23renorm_hermite_multidimensional, NULL, __pyx_n_s_libwalrus); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 426, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  if (PyDict_SetItem(__pyx_d, __pyx_n_s_renorm_hermite_multidimensional, __pyx_t_1) < 0) __PYX_ERR(0, 424, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_d, __pyx_n_s_renorm_hermite_multidimensional, __pyx_t_1) < 0) __PYX_ERR(0, 426, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "libwalrus.pyx":450
+  /* "libwalrus.pyx":452
  * 
  * 
  * def renorm_hermite_multidimensional_real(double [:, :] R, double [:] y, int cutoff):             # <<<<<<<<<<<<<<
  *     r"""Returns the renormalized multidimensional Hermite polynomials :math:`rH_k^{(R)}(y)`
  *     via the C++ libwalrus library. They are given in terms of the standard multidimensional
  */
-  __pyx_t_1 = PyCFunction_NewEx(&__pyx_mdef_9libwalrus_25renorm_hermite_multidimensional_real, NULL, __pyx_n_s_libwalrus); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 450, __pyx_L1_error)
+  __pyx_t_1 = PyCFunction_NewEx(&__pyx_mdef_9libwalrus_25renorm_hermite_multidimensional_real, NULL, __pyx_n_s_libwalrus); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 452, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  if (PyDict_SetItem(__pyx_d, __pyx_n_s_renorm_hermite_multidimensional_2, __pyx_t_1) < 0) __PYX_ERR(0, 450, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_d, __pyx_n_s_renorm_hermite_multidimensional_2, __pyx_t_1) < 0) __PYX_ERR(0, 452, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "libwalrus.pyx":478
+  /* "libwalrus.pyx":480
  * 
  * 
  * def interferometer(double complex[:, :] R, int cutoff):             # <<<<<<<<<<<<<<
  *     r"""Returns the renormalized multidimensional Hermite polynomials :math:`rH_k^{(R)}(y)`
  *     via the C++ libwalrus library. They are given in terms of the standard multidimensional
  */
-  __pyx_t_1 = PyCFunction_NewEx(&__pyx_mdef_9libwalrus_27interferometer, NULL, __pyx_n_s_libwalrus); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 478, __pyx_L1_error)
+  __pyx_t_1 = PyCFunction_NewEx(&__pyx_mdef_9libwalrus_27interferometer, NULL, __pyx_n_s_libwalrus); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 480, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  if (PyDict_SetItem(__pyx_d, __pyx_n_s_interferometer, __pyx_t_1) < 0) __PYX_ERR(0, 478, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_d, __pyx_n_s_interferometer, __pyx_t_1) < 0) __PYX_ERR(0, 480, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "libwalrus.pyx":501
+  /* "libwalrus.pyx":503
  * 
  * 
  * def interferometer_real(double [:, :] R, int cutoff):             # <<<<<<<<<<<<<<
  *     r"""Returns the renormalized multidimensional Hermite polynomials :math:`rH_k^{(R)}(y)`
  *     via the C++ libwalrus library. They are given in terms of the standard multidimensional
  */
-  __pyx_t_1 = PyCFunction_NewEx(&__pyx_mdef_9libwalrus_29interferometer_real, NULL, __pyx_n_s_libwalrus); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 501, __pyx_L1_error)
+  __pyx_t_1 = PyCFunction_NewEx(&__pyx_mdef_9libwalrus_29interferometer_real, NULL, __pyx_n_s_libwalrus); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 503, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  if (PyDict_SetItem(__pyx_d, __pyx_n_s_interferometer_real, __pyx_t_1) < 0) __PYX_ERR(0, 501, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_d, __pyx_n_s_interferometer_real, __pyx_t_1) < 0) __PYX_ERR(0, 503, __pyx_L1_error)
+  __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
+
+  /* "libwalrus.pyx":528
+ * 
+ * 
+ * def squeezing(double complex[:, :] R, int cutoff):             # <<<<<<<<<<<<<<
+ *     r"""Returns the renormalized multidimensional Hermite polynomials :math:`rH_k^{(R)}(y)`
+ *     via the C++ libwalrus library. They are given in terms of the standard multidimensional
+ */
+  __pyx_t_1 = PyCFunction_NewEx(&__pyx_mdef_9libwalrus_31squeezing, NULL, __pyx_n_s_libwalrus); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 528, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_1);
+  if (PyDict_SetItem(__pyx_d, __pyx_n_s_squeezing, __pyx_t_1) < 0) __PYX_ERR(0, 528, __pyx_L1_error)
+  __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
+
+  /* "libwalrus.pyx":551
+ * 
+ * 
+ * def squeezing_real(double [:, :] R, int cutoff):             # <<<<<<<<<<<<<<
+ *     r"""Returns the renormalized multidimensional Hermite polynomials :math:`rH_k^{(R)}(y)`
+ *     via the C++ libwalrus library. They are given in terms of the standard multidimensional
+ */
+  __pyx_t_1 = PyCFunction_NewEx(&__pyx_mdef_9libwalrus_33squeezing_real, NULL, __pyx_n_s_libwalrus); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 551, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_1);
+  if (PyDict_SetItem(__pyx_d, __pyx_n_s_squeezing_real, __pyx_t_1) < 0) __PYX_ERR(0, 551, __pyx_L1_error)
+  __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
+
+  /* "libwalrus.pyx":576
+ * 
+ * 
+ * def displacement(double complex [:] y, int cutoff):             # <<<<<<<<<<<<<<
+ *     r"""Returns the renormalized multidimensional Hermite polynomials :math:`rH_k^{(R)}(y)`
+ *     via the C++ libwalrus library. They are given in terms of the standard multidimensional
+ */
+  __pyx_t_1 = PyCFunction_NewEx(&__pyx_mdef_9libwalrus_35displacement, NULL, __pyx_n_s_libwalrus); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 576, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_1);
+  if (PyDict_SetItem(__pyx_d, __pyx_n_s_displacement, __pyx_t_1) < 0) __PYX_ERR(0, 576, __pyx_L1_error)
+  __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
+
+  /* "libwalrus.pyx":598
+ *     return displacement_cpp(y_mat, cutoff)
+ * 
+ * def displacement_real(double [:] y, int cutoff):             # <<<<<<<<<<<<<<
+ *     r"""Returns the renormalized multidimensional Hermite polynomials :math:`rH_k^{(R)}(y)`
+ *     via the C++ libwalrus library. They are given in terms of the standard multidimensional
+ */
+  __pyx_t_1 = PyCFunction_NewEx(&__pyx_mdef_9libwalrus_37displacement_real, NULL, __pyx_n_s_libwalrus); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 598, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_1);
+  if (PyDict_SetItem(__pyx_d, __pyx_n_s_displacement_real, __pyx_t_1) < 0) __PYX_ERR(0, 598, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
   /* "libwalrus.pyx":1
@@ -20772,7 +21552,7 @@ if (!__Pyx_RefNanny) {
  * cdef strided = Enum("<strided and direct>") # default
  * cdef indirect = Enum("<strided and indirect>")
  */
-  __pyx_t_1 = __Pyx_PyObject_Call(((PyObject *)__pyx_MemviewEnum_type), __pyx_tuple__51, NULL); if (unlikely(!__pyx_t_1)) __PYX_ERR(1, 286, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyObject_Call(((PyObject *)__pyx_MemviewEnum_type), __pyx_tuple__59, NULL); if (unlikely(!__pyx_t_1)) __PYX_ERR(1, 286, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_XGOTREF(generic);
   __Pyx_DECREF_SET(generic, __pyx_t_1);
@@ -20786,7 +21566,7 @@ if (!__Pyx_RefNanny) {
  * cdef indirect = Enum("<strided and indirect>")
  * 
  */
-  __pyx_t_1 = __Pyx_PyObject_Call(((PyObject *)__pyx_MemviewEnum_type), __pyx_tuple__52, NULL); if (unlikely(!__pyx_t_1)) __PYX_ERR(1, 287, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyObject_Call(((PyObject *)__pyx_MemviewEnum_type), __pyx_tuple__60, NULL); if (unlikely(!__pyx_t_1)) __PYX_ERR(1, 287, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_XGOTREF(strided);
   __Pyx_DECREF_SET(strided, __pyx_t_1);
@@ -20800,7 +21580,7 @@ if (!__Pyx_RefNanny) {
  * 
  * 
  */
-  __pyx_t_1 = __Pyx_PyObject_Call(((PyObject *)__pyx_MemviewEnum_type), __pyx_tuple__53, NULL); if (unlikely(!__pyx_t_1)) __PYX_ERR(1, 288, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyObject_Call(((PyObject *)__pyx_MemviewEnum_type), __pyx_tuple__61, NULL); if (unlikely(!__pyx_t_1)) __PYX_ERR(1, 288, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_XGOTREF(indirect);
   __Pyx_DECREF_SET(indirect, __pyx_t_1);
@@ -20814,7 +21594,7 @@ if (!__Pyx_RefNanny) {
  * cdef indirect_contiguous = Enum("<contiguous and indirect>")
  * 
  */
-  __pyx_t_1 = __Pyx_PyObject_Call(((PyObject *)__pyx_MemviewEnum_type), __pyx_tuple__54, NULL); if (unlikely(!__pyx_t_1)) __PYX_ERR(1, 291, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyObject_Call(((PyObject *)__pyx_MemviewEnum_type), __pyx_tuple__62, NULL); if (unlikely(!__pyx_t_1)) __PYX_ERR(1, 291, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_XGOTREF(contiguous);
   __Pyx_DECREF_SET(contiguous, __pyx_t_1);
@@ -20828,7 +21608,7 @@ if (!__Pyx_RefNanny) {
  * 
  * 
  */
-  __pyx_t_1 = __Pyx_PyObject_Call(((PyObject *)__pyx_MemviewEnum_type), __pyx_tuple__55, NULL); if (unlikely(!__pyx_t_1)) __PYX_ERR(1, 292, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyObject_Call(((PyObject *)__pyx_MemviewEnum_type), __pyx_tuple__63, NULL); if (unlikely(!__pyx_t_1)) __PYX_ERR(1, 292, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_XGOTREF(indirect_contiguous);
   __Pyx_DECREF_SET(indirect_contiguous, __pyx_t_1);

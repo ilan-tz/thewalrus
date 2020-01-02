@@ -267,15 +267,174 @@ inline std::vector<T> interferometer_cpp(std::vector<T> &R, int &resolution) {
         int num_modes = dim/2;
 
         int bran = 0;
-        for (int ii=0; ii < num_modes; ii++){
-        	bran += nextPos[ii];
+        for (int ii=0; ii < num_modes; ii++) {
+            bran += nextPos[ii];
         }
 
         int ketn = 0;
-        for (int ii=num_modes; ii < dim; ii++){
-        	ketn += nextPos[ii];
+        for (int ii=num_modes; ii < dim; ii++) {
+            ketn += nextPos[ii];
         }
-        if (bran == ketn){
+        if (bran == ketn) {
+            for (int ii = 0; ii < dim; ii++)
+                ek[ii] = nextPos[ii] - jumpFrom[ii];
+
+            int k = 0;
+            for(; k < static_cast<int>(ek.size()); k++) {
+                if(ek[k]) break;
+            }
+
+            ullint nextCoordinate = vec2index(nextPos, resolution);
+            ullint fromCoordinate = vec2index(jumpFrom, resolution);
+
+            std::vector<int> tmpjump(dim, 0);
+            int low_lim;
+            int high_lim;
+
+            if (k > num_modes) {
+                low_lim = 0;
+                high_lim = num_modes;
+            }
+            else {
+                low_lim = num_modes;
+                high_lim = dim;
+            }
+
+            for (int ii = low_lim; ii < high_lim; ii++) {
+                if (jumpFrom[ii] > 1) {
+                    std::vector<int> prevJump(dim, 0);
+                    prevJump[ii] = 1;
+                    std::transform(jumpFrom.begin(), jumpFrom.end(), prevJump.begin(), tmpjump.begin(), std::minus<int>());
+                    ullint prevCoordinate = vec2index(tmpjump, resolution);
+                    H[nextCoordinate] = H[nextCoordinate] - (intsqrt[jumpFrom[ii]-1]/intsqrt[nextPos[k]-1])*(R[k*dim+ii])*H[prevCoordinate];
+
+                }
+            }
+        }
+    }
+    return H;
+
+}
+
+
+
+template <typename T>
+inline std::vector<T> squeezing_cpp(std::vector<T> &R, int &resolution) {
+    int dim = std::sqrt(static_cast<double>(R.size()));
+
+    ullint Hdim = pow(resolution, dim);
+    std::vector<T> H(Hdim, 0);
+
+    H[0] = std::sqrt(std::abs(R[1]));
+    std::vector<double> intsqrt(resolution+1, 0);
+    for (int ii = 0; ii<=resolution; ii++) {
+        intsqrt[ii] = std::sqrt((static_cast<double>(ii)));
+    }
+    assert(dim == 2);
+    std::vector<int> nextPos(dim, 1);
+    std::vector<int> jumpFrom(dim, 1);
+    std::vector<int> ek(dim, 0);
+    std::vector<double> factors(resolution+1, 0);
+    int jump = 0;
+
+    for (ullint jj = 0; jj < Hdim-1; jj++) {
+
+        if (jump > 0) {
+            jumpFrom[jump] += 1;
+            jump = 0;
+        }
+
+
+        for (int ii = 0; ii < dim; ii++) {
+            std::vector<int> forwardStep(dim, 0);
+            forwardStep[ii] = 1;
+
+            if ( forwardStep[ii] + nextPos[ii] > resolution) {
+                nextPos[ii] = 1;
+                jumpFrom[ii] = 1;
+                jump = ii+1;
+            }
+            else {
+                jumpFrom[ii] = nextPos[ii];
+                nextPos[ii] = nextPos[ii] + 1;
+                break;
+            }
+        }
+
+        int num_modes = dim/2;
+        int bran = nextPos[0];
+        int ketn = nextPos[1];
+        if (bran % 2 == ketn % 2) {
+            for (int ii = 0; ii < dim; ii++)
+                ek[ii] = nextPos[ii] - jumpFrom[ii];
+
+            int k = 0;
+            for(; k < static_cast<int>(ek.size()); k++) {
+                if(ek[k]) break;
+            }
+
+            ullint nextCoordinate = vec2index(nextPos, resolution);
+            ullint fromCoordinate = vec2index(jumpFrom, resolution);
+
+            std::vector<int> tmpjump(dim, 0);
+            for (int ii = 0; ii < dim; ii++) {
+                if (jumpFrom[ii] > 1) {
+                    std::vector<int> prevJump(dim, 0);
+                    prevJump[ii] = 1;
+                    std::transform(jumpFrom.begin(), jumpFrom.end(), prevJump.begin(), tmpjump.begin(), std::minus<int>());
+                    ullint prevCoordinate = vec2index(tmpjump, resolution);
+                    H[nextCoordinate] = H[nextCoordinate] - (intsqrt[jumpFrom[ii]-1]/intsqrt[nextPos[k]-1])*(R[k*dim+ii])*H[prevCoordinate];
+
+                }
+            }
+        }
+    }
+    return H;
+}
+
+
+template <typename T>
+inline std::vector<T> displacement_cpp(std::vector<T> &y, int &resolution) {
+    int dim = 2;
+
+    ullint Hdim = pow(resolution, dim);
+    std::vector<T> H(Hdim, 0);
+
+    H[0] = std::exp(0.5*y[0]*y[1]);
+    std::vector<double> intsqrt(resolution+1, 0);
+    for (int ii = 0; ii<=resolution; ii++) {
+        intsqrt[ii] = std::sqrt((static_cast<double>(ii)));
+    }
+    std::vector<int> nextPos(dim, 1);
+    std::vector<int> jumpFrom(dim, 1);
+    std::vector<int> ek(dim, 0);
+    std::vector<double> factors(resolution+1, 0);
+    int jump = 0;
+
+    for (ullint jj = 0; jj < Hdim-1; jj++) {
+
+        if (jump > 0) {
+            jumpFrom[jump] += 1;
+            jump = 0;
+        }
+
+
+        for (int ii = 0; ii < dim; ii++) {
+            std::vector<int> forwardStep(dim, 0);
+            forwardStep[ii] = 1;
+
+            if ( forwardStep[ii] + nextPos[ii] > resolution) {
+                nextPos[ii] = 1;
+                jumpFrom[ii] = 1;
+                jump = ii+1;
+            }
+            else {
+                jumpFrom[ii] = nextPos[ii];
+                nextPos[ii] = nextPos[ii] + 1;
+                break;
+            }
+        }
+
         for (int ii = 0; ii < dim; ii++)
             ek[ii] = nextPos[ii] - jumpFrom[ii];
 
@@ -287,19 +446,26 @@ inline std::vector<T> interferometer_cpp(std::vector<T> &R, int &resolution) {
         ullint nextCoordinate = vec2index(nextPos, resolution);
         ullint fromCoordinate = vec2index(jumpFrom, resolution);
 
+        H[nextCoordinate] = H[nextCoordinate] + y[k]/(intsqrt[nextPos[k]-1]);
+        H[nextCoordinate] = H[nextCoordinate] * H[fromCoordinate];
+
         std::vector<int> tmpjump(dim, 0);
 
-        for (int ii = 0; ii < dim; ii++) {
-            if (jumpFrom[ii] > 1) {
-                std::vector<int> prevJump(dim, 0);
-                prevJump[ii] = 1;
-                std::transform(jumpFrom.begin(), jumpFrom.end(), prevJump.begin(), tmpjump.begin(), std::minus<int>());
-                ullint prevCoordinate = vec2index(tmpjump, resolution);
-                H[nextCoordinate] = H[nextCoordinate] - (intsqrt[jumpFrom[ii]-1]/intsqrt[nextPos[k]-1])*(R[k*dim+ii])*H[prevCoordinate];
 
-            }
+        int ii = 0;
+        if(k==0){
+        	ii = 1;
         }
-    }
+
+        if (jumpFrom[ii] > 1) {
+            std::vector<int> prevJump(dim, 0);
+            prevJump[ii] = 1;
+            std::transform(jumpFrom.begin(), jumpFrom.end(), prevJump.begin(), tmpjump.begin(), std::minus<int>());
+            ullint prevCoordinate = vec2index(tmpjump, resolution);
+            H[nextCoordinate] = H[nextCoordinate] - (intsqrt[jumpFrom[ii]-1]/intsqrt[nextPos[k]-1])*H[prevCoordinate];
+
+	    }
+
     }
     return H;
 
@@ -307,3 +473,6 @@ inline std::vector<T> interferometer_cpp(std::vector<T> &R, int &resolution) {
 
 
 }
+
+
+
