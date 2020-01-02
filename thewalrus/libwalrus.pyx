@@ -48,6 +48,7 @@ cdef extern from "../include/libwalrus.hpp" namespace "libwalrus":
 
     vector[T] hermite_multidimensional_cpp[T](vector[T] &mat, vector[T] &d, int &resolution)
     vector[T] renorm_hermite_multidimensional_cpp[T](vector[T] &mat, vector[T] &d, int &resolution)
+    vector[T] interferometer_cpp[T](vector[T] &mat, int &resolution)
 
 
 # ==============================================================================
@@ -470,3 +471,52 @@ def renorm_hermite_multidimensional_real(double [:, :] R, double [:] y, int cuto
         y_mat.push_back(y[i])
 
     return renorm_hermite_multidimensional_cpp(R_mat, y_mat, cutoff)
+
+
+
+
+def interferometer(double complex[:, :] R, int cutoff):
+    r"""Returns the renormalized multidimensional Hermite polynomials :math:`rH_k^{(R)}(y)`
+    via the C++ libwalrus library. They are given in terms of the standard multidimensional
+    Hermite polynomials as :math:`H_k^{(R)}(y)/\sqrt{\prod(\prod_i k_i!)}`.
+
+    Args:
+        R (array[complex128]): square matrix parametrizing the Hermite polynomial family
+        y (array[complex128]): vector argument of the Hermite polynomial
+        cutoff (int): maximum size of the subindices in the Hermite polynomial
+
+    Returns:
+        array[complex128]: the renormalized multidimensional Hermite polynomials
+    """
+    cdef int i, j, n = R.shape[0]
+    cdef vector[double complex] R_mat
+
+    for i in range(n):
+        for j in range(n):
+            R_mat.push_back(R[i, j])
+
+    return interferometer_cpp(R_mat, cutoff)
+
+
+def interferometer_real(double [:, :] R, int cutoff):
+    r"""Returns the renormalized multidimensional Hermite polynomials :math:`rH_k^{(R)}(y)`
+    via the C++ libwalrus library. They are given in terms of the standard multidimensional
+    Hermite polynomials as :math:`H_k^{(R)}(y)/\sqrt{\prod(\prod_i k_i!)}`.
+
+    Args:
+        R (array[float64]): square matrix parametrizing the Hermite polynomial family
+        y (array[float64]): vector argument of the Hermite polynomial
+        cutoff (int): maximum size of the subindices in the Hermite polynomial
+
+    Returns:
+        array[float64]: the renormalized multidimensional Hermite polynomials
+    """
+    cdef int i, j, n = R.shape[0]
+    cdef vector[double] R_mat
+
+    for i in range(n):
+        for j in range(n):
+            R_mat.push_back(R[i, j])
+
+
+    return interferometer_cpp(R_mat, cutoff)
