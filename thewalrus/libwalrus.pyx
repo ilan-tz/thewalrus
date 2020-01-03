@@ -51,6 +51,7 @@ cdef extern from "../include/libwalrus.hpp" namespace "libwalrus":
     vector[T] interferometer_cpp[T](vector[T] &mat, int &resolution)
     vector[T] squeezing_cpp[T](vector[T] &mat, int &resolution)
     vector[T] displacement_cpp[T](vector[T] &y, int &resolution)
+    vector[T] two_mode_squeezing_cpp[T](vector[T] &y, int &resolution)
 
 
 # ==============================================================================
@@ -606,3 +607,46 @@ def displacement_real(double [:] y, int cutoff):
     return displacement_cpp(y_mat, cutoff)
 
 
+
+
+def two_mode_squeezing(double complex[:, :] R, int cutoff):
+    r"""Returns the matrix elements of a two mode squeezer by using a custom version of
+    the renormalized Hermite polynomials.
+
+    Args:
+        R (array[complex128]): square matrix parametrizing the squeezing
+        cutoff (int): maximum size of the subindices in the tensor
+
+    Returns:
+        array[complex128]: the matrix elements of the squeezing operator
+    """
+    cdef int i, j, n = R.shape[0]
+    cdef vector[double complex] R_mat
+
+    for i in range(n):
+        for j in range(n):
+            R_mat.push_back(R[i, j])
+
+    return two_mode_squeezing_cpp(R_mat, cutoff)
+
+
+def two_squeezing_real(double [:, :] R, int cutoff):
+    r"""Returns the matrix elements of a single mode squeezer by using a custom version of
+    the renormalized Hermite polynomials.
+
+    Args:
+        R (array[float64]): square matrix parametrizing the squeezing
+        cutoff (int): maximum size of the subindices in the tensor
+
+    Returns:
+        array[float64]: the matrix elements of the squeezing operator
+    """
+    cdef int i, j, n = R.shape[0]
+    cdef vector[double] R_mat
+
+    for i in range(n):
+        for j in range(n):
+            R_mat.push_back(R[i, j])
+
+
+    return two_mode_squeezing_cpp(R_mat, cutoff)

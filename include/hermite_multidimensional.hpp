@@ -495,6 +495,101 @@ inline std::vector<T> displacement_cpp(std::vector<T> &y, int &resolution) {
 
 }
 
+/**
+ * Returns the matrix elements of a two-mode squeezer parametrized in terms of its R matrix
+ *
+ * @param R a flattened vector of size \f$n^2\f$, representing a
+ *       \f$n\times n\f$ symmetric matrix.
+ * @param resolution highest number of photons to be resolved.
+ *
+ */
+
+template <typename T>
+inline std::vector<T> two_mode_squeezing_cpp(std::vector<T> &R, int &resolution) {
+    int dim = std::sqrt(static_cast<double>(R.size()));
+    assert(dim == 4);
+
+    ullint Hdim = pow(resolution, dim);
+    std::vector<T> H(Hdim, 0);
+
+    H[0] = -R[2];
+    std::vector<double> intsqrt(resolution+1, 0);
+    for (int ii = 0; ii<=resolution; ii++) {
+        intsqrt[ii] = std::sqrt((static_cast<double>(ii)));
+    }
+    std::vector<int> nextPos(dim, 1);
+    std::vector<int> jumpFrom(dim, 1);
+    std::vector<int> ek(dim, 0);
+    std::vector<double> factors(resolution+1, 0);
+    int jump = 0;
+
+    for (ullint jj = 0; jj < Hdim-1; jj++) {
+
+        if (jump > 0) {
+            jumpFrom[jump] += 1;
+            jump = 0;
+        }
+
+
+        for (int ii = 0; ii < dim; ii++) {
+            std::vector<int> forwardStep(dim, 0);
+            forwardStep[ii] = 1;
+
+            if ( forwardStep[ii] + nextPos[ii] > resolution) {
+                nextPos[ii] = 1;
+                jumpFrom[ii] = 1;
+                jump = ii+1;
+            }
+            else {
+                jumpFrom[ii] = nextPos[ii];
+                nextPos[ii] = nextPos[ii] + 1;
+                break;
+            }
+        }
+        int bran = nextPos[0]-nextPos[1];
+        int ketn = nextPos[2]-nextPos[3];
+        if (bran == ketn) {
+            for (int ii = 0; ii < dim; ii++)
+                ek[ii] = nextPos[ii] - jumpFrom[ii];
+
+            int k = 0;
+            for(; k < static_cast<int>(ek.size()); k++) {
+                if(ek[k]) break;
+            }
+
+            ullint nextCoordinate = vec2index(nextPos, resolution);
+            ullint fromCoordinate = vec2index(jumpFrom, resolution);
+
+            std::vector<int> tmpjump(dim, 0);
+            /*
+            std::vector<int> iiind(2, 0);
+            
+            if(k==0 || k==3){
+            	iiind[0] = 0;
+            	iiind[1] = 3;
+            }
+            else{
+          		iiind[0] = 1;
+            	iiind[1] = 2;
+            }
+			*/
+            //for (int ll = 0; ll < 2; ll++) {
+            //	int ii = iiind[ll];
+            for (int ii = 0; ii < dim; ii++) {
+                if (jumpFrom[ii] > 1) {
+                    std::vector<int> prevJump(dim, 0);
+                    prevJump[ii] = 1;
+                    std::transform(jumpFrom.begin(), jumpFrom.end(), prevJump.begin(), tmpjump.begin(), std::minus<int>());
+                    ullint prevCoordinate = vec2index(tmpjump, resolution);
+                    H[nextCoordinate] = H[nextCoordinate] - (intsqrt[jumpFrom[ii]-1]/intsqrt[nextPos[k]-1])*(R[k*dim+ii])*H[prevCoordinate];
+
+                }
+            }
+        }
+    }
+    return H;
+
+}
 
 }
 
