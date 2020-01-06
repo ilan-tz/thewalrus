@@ -67,6 +67,175 @@ from .quantum import (
 # Hafnian sampling
 # ===============================================================================================
 
+
+def all_early_generate_hafnian_sample(
+    cov, num_clicks, mean=None, hbar=2, cutoff=6, max_photons=30, approx=False, approx_samples=1e5
+):  # pylint: disable=too-many-branches
+    r"""Returns a single sample from the Hafnian of a Gaussian state.
+
+    Args:
+        cov (array): a :math:`2N\times 2N` ``np.float64`` covariance matrix
+            representing an :math:`N` mode quantum state. This can be obtained
+            via the ``scovmavxp`` method of the Gaussian backend of Strawberry Fields.
+        mean (array): a :math:`2N`` ``np.float64`` vector of means representing the Gaussian
+            state.
+        hbar (float): (default 2) the value of :math:`\hbar` in the commutation
+            relation :math:`[\x,\p]=i\hbar`.
+        cutoff (int): the Fock basis truncation.
+        max_photons (int): specifies the maximum number of photons that can be counted.
+        approx (bool): if ``True``, the approximate hafnian algorithm is used.
+            Note that this can only be used for real, non-negative matrices.
+        approx_samples: the number of samples used to approximate the hafnian if ``approx=True``.
+
+    Returns:
+        np.array[int]: a photon number sample from the Gaussian states.
+    """
+    N = len(cov) // 2
+    result = []
+    prev_prob = 1.0
+    nmodes = N
+    if mean is None:
+        local_mu = np.zeros(2 * N)
+    else:
+        local_mu = mean
+    A = Amat(Qmat(cov), hbar=hbar)
+
+    for k in range(nmodes):
+        probs1 = np.zeros([cutoff + 1], dtype=np.float64)
+        kk = np.arange(k + 1)
+        mu_red, V_red = reduced_gaussian(local_mu, cov, kk)
+
+        if approx:
+            Q = Qmat(V_red, hbar=hbar)
+            A = Amat(Q, hbar=hbar, cov_is_qmat=True)
+
+        for i in range(cutoff):
+            indices = result + [i]
+            ind2 = indices + indices
+            if approx:
+                factpref = np.prod(fac(indices))
+                mat = reduction(A, ind2)
+                probs1[i] = (
+                    hafnian(np.abs(mat.real), approx=True, num_samples=approx_samples) / factpref
+                )
+            else:
+                probs1[i] = density_matrix_element(
+                    mu_red, V_red, indices, indices, include_prefactor=True, hbar=hbar
+                ).real
+
+        if approx:
+            probs1 = probs1 / np.sqrt(np.linalg.det(Q).real)
+
+        probs2 = probs1 / prev_prob
+        probs3 = np.maximum(
+            probs2, np.zeros_like(probs2)
+        )  # pylint: disable=assignment-from-no-return
+        ssum = np.sum(probs3)
+        if ssum < 1.0:
+            probs3[-1] = 1.0 - ssum
+
+        # The following normalization of probabilities is needed when approx=True
+        if approx:
+            if ssum > 1.0:
+                probs3 = probs3 / ssum
+        if k < num_clicks:
+        	result.append(1)
+        else:
+        	result.append(0)
+        #result.append(np.random.choice(a=range(len(probs3)), p=probs3))
+        if result[-1] == cutoff:
+            return -1
+        if sum(result) > max_photons:
+            return -1
+        prev_prob = probs1[result[-1]]
+
+    return result
+
+
+def all_last_generate_hafnian_sample(
+    cov, num_clicks, mean=None, hbar=2, cutoff=6, max_photons=30, approx=False, approx_samples=1e5
+):  # pylint: disable=too-many-branches
+    r"""Returns a single sample from the Hafnian of a Gaussian state.
+
+    Args:
+        cov (array): a :math:`2N\times 2N` ``np.float64`` covariance matrix
+            representing an :math:`N` mode quantum state. This can be obtained
+            via the ``scovmavxp`` method of the Gaussian backend of Strawberry Fields.
+        mean (array): a :math:`2N`` ``np.float64`` vector of means representing the Gaussian
+            state.
+        hbar (float): (default 2) the value of :math:`\hbar` in the commutation
+            relation :math:`[\x,\p]=i\hbar`.
+        cutoff (int): the Fock basis truncation.
+        max_photons (int): specifies the maximum number of photons that can be counted.
+        approx (bool): if ``True``, the approximate hafnian algorithm is used.
+            Note that this can only be used for real, non-negative matrices.
+        approx_samples: the number of samples used to approximate the hafnian if ``approx=True``.
+
+    Returns:
+        np.array[int]: a photon number sample from the Gaussian states.
+    """
+    N = len(cov) // 2
+    result = []
+    prev_prob = 1.0
+    nmodes = N
+    if mean is None:
+        local_mu = np.zeros(2 * N)
+    else:
+        local_mu = mean
+    A = Amat(Qmat(cov), hbar=hbar)
+
+    for k in range(nmodes):
+        probs1 = np.zeros([cutoff + 1], dtype=np.float64)
+        kk = np.arange(k + 1)
+        mu_red, V_red = reduced_gaussian(local_mu, cov, kk)
+
+        if approx:
+            Q = Qmat(V_red, hbar=hbar)
+            A = Amat(Q, hbar=hbar, cov_is_qmat=True)
+
+        for i in range(cutoff):
+            indices = result + [i]
+            ind2 = indices + indices
+            if approx:
+                factpref = np.prod(fac(indices))
+                mat = reduction(A, ind2)
+                probs1[i] = (
+                    hafnian(np.abs(mat.real), approx=True, num_samples=approx_samples) / factpref
+                )
+            else:
+                probs1[i] = density_matrix_element(
+                    mu_red, V_red, indices, indices, include_prefactor=True, hbar=hbar
+                ).real
+
+        if approx:
+            probs1 = probs1 / np.sqrt(np.linalg.det(Q).real)
+
+        probs2 = probs1 / prev_prob
+        probs3 = np.maximum(
+            probs2, np.zeros_like(probs2)
+        )  # pylint: disable=assignment-from-no-return
+        ssum = np.sum(probs3)
+        if ssum < 1.0:
+            probs3[-1] = 1.0 - ssum
+
+        # The following normalization of probabilities is needed when approx=True
+        if approx:
+            if ssum > 1.0:
+                probs3 = probs3 / ssum
+        if k >= nmodes-num_clicks:
+        	result.append(1)
+        else:
+        	result.append(0)
+        #result.append(np.random.choice(a=range(len(probs3)), p=probs3))
+        if result[-1] == cutoff:
+            return -1
+        if sum(result) > max_photons:
+            return -1
+        prev_prob = probs1[result[-1]]
+
+    return result
+
+
 # pylint: disable=too-many-branches
 def generate_hafnian_sample(
     cov, mean=None, hbar=2, cutoff=6, max_photons=30, approx=False, approx_samples=1e5

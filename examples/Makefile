@@ -19,10 +19,10 @@ LFLAGS=-L/usr/lib -lm -fopenmp
 
 all: example-cpp
 
-example.o: example.cpp
+example_hermite.o: example_hermite.cpp
 	$(CC) $^ $(CFLAGS) -c
 
-example-cpp: example.o
+example_hermite.out: example_hermite.o
 	$(CC) $^ $(LFLAGS) -o $@
 
 clean:
